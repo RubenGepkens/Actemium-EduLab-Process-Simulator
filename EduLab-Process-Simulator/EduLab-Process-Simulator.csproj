@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,6 +53,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -68,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -85,6 +102,40 @@
   <ItemGroup>
     <Content Include="noun_Erlenmeyer.ico" />
     <Content Include="noun_erlenmeyer_mZ8_icon.ico" />
+    <None Include="Resources\Gnome-folder.svg.png" />
+    <None Include="Resources\3y4e6svb.bmp" />
+    <None Include="Resources\240px-Gnumeric.svg.png" />
+    <None Include="Resources\6nyqqp04.bmp" />
+    <None Include="Resources\Gnome-user-trash-full.svg.png" />
+    <None Include="Resources\Gnome-x-office-presentation.svg.png" />
+    <None Include="Resources\Gnome-window-new.svg.png" />
+    <None Include="Resources\Gnome-system-file-manager.svg.png" />
+    <None Include="Resources\Gnome-network-wired.svg.png" />
+    <None Include="Resources\Gnome-network-offline.svg.png" />
+    <None Include="Resources\Gnome-network-idle.svg.png" />
+    <None Include="Resources\Gnome-document-open-recent.svg.png" />
+    <None Include="Resources\Gnome-applications-system.svg.png" />
+    <None Include="Resources\240px-Gnome-x-office-document.svg.png" />
+    <None Include="Resources\240px-Gnome-help-faq.svg.png" />
+    <None Include="Resources\240px-Gnome-edit-paste.svg.png" />
+    <None Include="Resources\240px-Gnome-document-new.svg.png" />
+    <None Include="Resources\240px-Gnome-application-exit.svg.png" />
+    <None Include="Resources\240px-Gnome-accessories-text-editor.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

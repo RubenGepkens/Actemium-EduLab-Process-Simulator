@@ -16,5 +16,10 @@ namespace EduLab_Process_Simulator
         {
             InitializeComponent();
         }
+
+        private void bestandToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
