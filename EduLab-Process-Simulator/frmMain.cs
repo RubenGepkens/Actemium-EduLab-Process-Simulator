@@ -17,9 +17,15 @@ namespace EduLab_Process_Simulator
             InitializeComponent();
         }
 
-        private void bestandToolStripMenuItem_Click(object sender, EventArgs e)
+        private void overDezeApplicatieToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Form frmAboutbox = new frmAboutBox();
+            frmAboutbox.Show();
+        }
 
+        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

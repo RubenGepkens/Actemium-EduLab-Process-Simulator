@@ -83,6 +83,16 @@ namespace EduLab_Process_Simulator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _240px_Gnome_dialog_question_svg {
+            get {
+                object obj = ResourceManager.GetObject("_240px_Gnome_dialog_question_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _240px_Gnome_document_new_svg {
             get {
                 object obj = ResourceManager.GetObject("_240px_Gnome_document_new_svg", resourceCulture);
@@ -226,6 +236,26 @@ namespace EduLab_Process_Simulator.Properties {
         internal static System.Drawing.Bitmap Gnome_x_office_presentation_svg {
             get {
                 object obj = ResourceManager.GetObject("Gnome-x-office-presentation.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon noun_Erlenmeyer {
+            get {
+                object obj = ResourceManager.GetObject("noun_Erlenmeyer", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap noun_Erlenmeyer1 {
+            get {
+                object obj = ResourceManager.GetObject("noun_Erlenmeyer1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

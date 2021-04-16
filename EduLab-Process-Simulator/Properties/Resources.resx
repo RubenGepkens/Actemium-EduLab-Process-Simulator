@@ -148,11 +148,20 @@
   <data name="Gnome_window_new_svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gnome-window-new.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="noun_Erlenmeyer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noun_Erlenmeyer.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noun_Erlenmeyer1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noun_Erlenmeyer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="_240px_Gnome_accessories_text_editor_svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\240px-Gnome-accessories-text-editor.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_240px_Gnome_application_exit_svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\240px-Gnome-application-exit.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_240px_Gnome_dialog_question_svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\240px-Gnome-dialog-question.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_240px_Gnome_document_new_svg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\240px-Gnome-document-new.svg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

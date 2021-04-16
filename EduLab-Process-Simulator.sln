@@ -5,12 +5,6 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduLab-Process-Simulator", "EduLab-Process-Simulator\EduLab-Process-Simulator.csproj", "{104BF52A-3935-478B-862D-E0459394E880}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "applicationAssets", "applicationAssets", "{81BEE707-4D91-4AF2-8ABA-76E8771CB0AE}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\..\..\Downloads\noun_Erlenmeyer.ico = ..\..\..\..\..\..\Downloads\noun_Erlenmeyer.ico
-		..\..\..\..\..\..\Downloads\noun_Erlenmeyer.png = ..\..\..\..\..\..\Downloads\noun_Erlenmeyer.png
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

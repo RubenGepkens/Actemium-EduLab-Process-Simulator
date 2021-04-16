@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EduLab-Process-Simulator")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Process simulator voor de process installatie van het EduLab van Actemium. This software is distributed using the MIT License. Project “Erlenmeyer” icon by Ifki rianto, from thenounproject.com.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Avans Hogeschool 's-Hertogenbosch")]
 [assembly: AssemblyProduct("EduLab-Process-Simulator")]
-[assembly: AssemblyCopyright("Copyright ©  2021")]
+[assembly: AssemblyCopyright("Copyright ©  2021 Ruben Gepkens & Maurits Duel")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
