@@ -135,6 +135,7 @@ namespace EduLab_Process_Simulator
             // 
             // infoToolStripMenuItem
             // 
+            this.infoToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.infoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.overDezeApplicatieToolStripMenuItem});
             this.infoToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_dialog_question_svg;
