@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlValve.cs" />
     <Compile Include="frmAboutBox.cs">
       <SubType>Form</SubType>
     </Compile>

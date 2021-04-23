@@ -27,5 +27,20 @@ namespace EduLab_Process_Simulator
         {
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ControlValve cv04 = new ControlValve("CV04");
+
+            cv04.getStatus();
+
+            cv04.close();
+
+            cv04.getStatus();
+
+            cv04.open();
+
+            cv04.getStatus();
+        }
     }
 }

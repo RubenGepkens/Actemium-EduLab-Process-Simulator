@@ -48,6 +48,7 @@ namespace EduLab_Process_Simulator
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -69,7 +70,7 @@ namespace EduLab_Process_Simulator
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(780, 360);
+            this.chart1.Size = new System.Drawing.Size(351, 360);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
@@ -115,21 +116,21 @@ namespace EduLab_Process_Simulator
             // 
             this.openenToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_x_office_document_svg;
             this.openenToolStripMenuItem.Name = "openenToolStripMenuItem";
-            this.openenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.openenToolStripMenuItem.Text = "Openen";
             // 
             // sluitenToolStripMenuItem
             // 
             this.sluitenToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_accessories_text_editor_svg;
             this.sluitenToolStripMenuItem.Name = "sluitenToolStripMenuItem";
-            this.sluitenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sluitenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.sluitenToolStripMenuItem.Text = "Sluiten";
             // 
             // afsluitenToolStripMenuItem
             // 
             this.afsluitenToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_application_exit_svg;
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.afsluitenToolStripMenuItem.Text = "Afsluiten";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
@@ -196,11 +197,22 @@ namespace EduLab_Process_Simulator
             this.toolStripButton2.Size = new System.Drawing.Size(140, 46);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(514, 131);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 461);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
@@ -239,6 +251,7 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripMenuItem overDezeApplicatieToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 
