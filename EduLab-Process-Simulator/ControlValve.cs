@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace EduLab_Process_Simulator
 {
-    class ControlValve
+    public class ControlValve
     {
-        private string valveName;
-        private bool valveStatus;
+        public string valveName { get; set; }
+        public bool valveStatus { get; set; }
 
-        public ControlValve(string IvalveName)
+        public ControlValve()
         {
-            valveName = IvalveName;
+
         }
 
         public bool getStatus()
@@ -21,16 +21,5 @@ namespace EduLab_Process_Simulator
             Console.WriteLine("{0}: is {1}", valveName, valveStatus);
             return valveStatus;
         }
-
-        public void open()
-        {
-            valveStatus = true;
-        }
-
-        public void close()
-        {
-            valveStatus = false;
-        }
-
     }
 }
