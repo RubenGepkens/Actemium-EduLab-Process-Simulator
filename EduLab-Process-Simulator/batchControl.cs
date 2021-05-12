@@ -22,6 +22,9 @@ namespace EduLab_Process_Simulator
     /// </summary>
     public class batchControl
     {
+        /// <summary>
+        /// Enumerator for the different operations in the batch.
+        /// </summary>
         public enum BATCH_STATE
         {
             None,
@@ -35,6 +38,9 @@ namespace EduLab_Process_Simulator
             Done
         };
 
+        /// <summary>
+        /// Eneumerator for the transitions in BATCH_STATE.
+        /// </summary>
         public enum BATCH_TRANSITION
         {
             BUSY,
