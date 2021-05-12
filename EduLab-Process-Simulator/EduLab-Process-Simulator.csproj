@@ -81,6 +81,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pump.cs" />
     <Compile Include="soapProcess.cs" />
     <Compile Include="SolenoidValve.cs" />
     <Compile Include="Tank.cs" />

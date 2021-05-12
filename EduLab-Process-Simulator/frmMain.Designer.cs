@@ -48,8 +48,13 @@ namespace EduLab_Process_Simulator
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnStartBatch = new System.Windows.Forms.Button();
+            this.txtLevelIndicator = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtLT02 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -181,20 +186,13 @@ namespace EduLab_Process_Simulator
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(514, 131);
+            this.button1.Location = new System.Drawing.Point(369, 76);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(471, 171);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
             // 
             // chart1
             // 
@@ -215,12 +213,70 @@ namespace EduLab_Process_Simulator
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
+            // btnStartBatch
+            // 
+            this.btnStartBatch.Location = new System.Drawing.Point(493, 272);
+            this.btnStartBatch.Name = "btnStartBatch";
+            this.btnStartBatch.Size = new System.Drawing.Size(75, 23);
+            this.btnStartBatch.TabIndex = 6;
+            this.btnStartBatch.Text = "Start batch";
+            this.btnStartBatch.UseVisualStyleBackColor = true;
+            this.btnStartBatch.Click += new System.EventHandler(this.btnStartBatch_Click);
+            // 
+            // txtLevelIndicator
+            // 
+            this.txtLevelIndicator.Location = new System.Drawing.Point(493, 220);
+            this.txtLevelIndicator.Name = "txtLevelIndicator";
+            this.txtLevelIndicator.ReadOnly = true;
+            this.txtLevelIndicator.Size = new System.Drawing.Size(150, 20);
+            this.txtLevelIndicator.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(418, 223);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Batch status:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(452, 249);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "LT02:";
+            // 
+            // txtLT02
+            // 
+            this.txtLT02.Location = new System.Drawing.Point(493, 246);
+            this.txtLT02.Name = "txtLT02";
+            this.txtLT02.ReadOnly = true;
+            this.txtLT02.Size = new System.Drawing.Size(75, 20);
+            this.txtLT02.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(574, 249);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(19, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "[L]";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 461);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtLT02);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtLevelIndicator);
+            this.Controls.Add(this.btnStartBatch);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -259,8 +315,13 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripMenuItem overDezeApplicatieToolStripMenuItem;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button btnStartBatch;
+        private System.Windows.Forms.TextBox txtLevelIndicator;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtLT02;
+        private System.Windows.Forms.Label label3;
     }
 }
 

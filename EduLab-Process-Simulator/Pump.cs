@@ -18,14 +18,15 @@ namespace EduLab_Process_Simulator
 
         public bool setStatus(bool pumpOnOff)
         {
-            if pumpOnOff == 1
+            if (pumpOnOff == true)
             {
-                pumpStatus = 1;
+                pumpStatus = true;
             }
             else
             {
-                pumpStatus = 0;
+                pumpStatus = false;
             }
+            return pumpOnOff;
         }
 
         public bool getStatus()

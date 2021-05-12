@@ -51,7 +51,7 @@ namespace EduLab_Process_Simulator
         /// None -> ALG_DOSEER_TA02
         /// </summary>
         /// <param name="batchTransition"></param>
-        /// <returns></returns>
+        /// <returns>BATCH_STATE</returns>
         public BATCH_STATE statusNone(BATCH_TRANSITION batchTransition)
         {
             switch (batchTransition)
@@ -69,7 +69,7 @@ namespace EduLab_Process_Simulator
         /// ALG_DOSEER_TA02 -> ALG_DOSEER_TA03
         /// </summary>
         /// <param name="batchTransition"></param>
-        /// <returns></returns>
+        /// <returns>BATCH_STATE</returns>
         public BATCH_STATE statusALG_DOSEER_TA02(BATCH_TRANSITION batchTransition)
         {
             switch (batchTransition)
@@ -77,7 +77,7 @@ namespace EduLab_Process_Simulator
                 case BATCH_TRANSITION.BUSY:
                     return BATCH_STATE.ALG_DOSEER_TA02;
                 case BATCH_TRANSITION.COMPLETE:
-                    return BATCH_STATE.ALG_DOSEER_TA02;
+                    return BATCH_STATE.ALG_DOSEER_TA03;
                 default:
                     return BATCH_STATE.ALG_DOSEER_TA02;
             }
@@ -87,7 +87,7 @@ namespace EduLab_Process_Simulator
         /// ALG_DOSEER_TA03 -> ALG_DOSEER_TA04
         /// </summary>
         /// <param name="batchTransition"></param>
-        /// <returns></returns>
+        /// <returns>BATCH_STATE</returns>
         public BATCH_STATE statusALG_DOSEER_TA03(BATCH_TRANSITION batchTransition)
         {
             switch (batchTransition)
@@ -105,7 +105,7 @@ namespace EduLab_Process_Simulator
         /// ALG_DOSEER_TA04 -> ALG_FILL_KE01
         /// </summary>
         /// <param name="batchTransition"></param>
-        /// <returns></returns>
+        /// <returns>BATCH_STATE</returns>
         public BATCH_STATE statusALG_DOSEER_TA04(BATCH_TRANSITION batchTransition)
         {
             switch (batchTransition)
@@ -123,7 +123,7 @@ namespace EduLab_Process_Simulator
         /// ALG_FILL_KE01 -> ALG_ACCEPT_LIQUID_KE01
         /// </summary>
         /// <param name="batchTransition"></param>
-        /// <returns></returns>
+        /// <returns>BATCH_STATE</returns>
         public BATCH_STATE statusALG_FILL_KE01(BATCH_TRANSITION batchTransition)
         {
             switch (batchTransition)
@@ -141,7 +141,7 @@ namespace EduLab_Process_Simulator
         /// ALG_ACCEPT_LIQUID_KE01 -> ALG_MIX_KE01
         /// </summary>
         /// <param name="batchTransition"></param>
-        /// <returns></returns>
+        /// <returns>BATCH_STATE</returns>
         public BATCH_STATE statusALG_ACCEPT_LIQUID_KE01(BATCH_TRANSITION batchTransition)
         {
             switch (batchTransition)
@@ -159,7 +159,7 @@ namespace EduLab_Process_Simulator
         /// ALG_MIX_KE01 -> ALG_MIX_KE01
         /// </summary>
         /// <param name="batchTransition"></param>
-        /// <returns></returns>
+        /// <returns>BATCH_STATE</returns>
         public BATCH_STATE statusALG_MIX_KE01(BATCH_TRANSITION batchTransition)
         {
             switch (batchTransition)
@@ -177,7 +177,7 @@ namespace EduLab_Process_Simulator
         /// ALG_EMPTY_KE01 -> Done
         /// </summary>
         /// <param name="batchTransition"></param>
-        /// <returns></returns>
+        /// <returns>BATCH_STATE</returns>
         public BATCH_STATE statusALG_EMPTY_KE01(BATCH_TRANSITION batchTransition)
         {
             switch (batchTransition)
@@ -195,7 +195,7 @@ namespace EduLab_Process_Simulator
         /// Done -> None
         /// </summary>
         /// <param name="batchTransition"></param>
-        /// <returns></returns>
+        /// <returns>BATCH_STATE</returns>
         public BATCH_STATE statusDone(BATCH_TRANSITION batchTransition)
         {
             switch (batchTransition)
