@@ -22,9 +22,7 @@ using System.Windows.Forms;
 namespace EduLab_Process_Simulator
 {
     public partial class frmMain : Form
-    {
-        
-
+    {      
         public frmMain()
         {
             InitializeComponent();
@@ -39,6 +37,31 @@ namespace EduLab_Process_Simulator
         private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        /// <summary>
+        /// Start simulation of the process installation.
+        /// </summary>
+        void simulateProcess()
+        {
+            soapProcess zeepProcess = new soapProcess();
+            Thread thread = new Thread(() => zeepProcess.startBatch(this));
+            thread.Start();
+        }
+
+        /// <summary>
+        /// Invoke method to update the UI of frmMain from the running simulation thread.
+        /// </summary>
+        /// <param name="strBatchStatus"></param>
+        /// <param name="strLT02"></param>
+        public void updateTextBox(string strBatchStatus,
+                                    string strLT02)
+        {
+            Invoke((MethodInvoker)delegate
+            {
+                txtLevelIndicator.Text = strBatchStatus;
+                txtLT02.Text = strLT02;
+            });
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,31 +88,6 @@ namespace EduLab_Process_Simulator
         private void btnStartBatch_Click(object sender, EventArgs e)
         {
             simulateProcess();
-        }
-
-        /// <summary>
-        /// Start simulation of the process installation.
-        /// </summary>
-        void simulateProcess()
-        {
-            soapProcess zeepProcess = new soapProcess();
-            Thread thread = new Thread(() => zeepProcess.startBatch(this));
-            thread.Start();
-        }
-
-        /// <summary>
-        /// Invote method to update the UI of frmMain from the running simulation thread.
-        /// </summary>
-        /// <param name="strBatchStatus"></param>
-        /// <param name="strLT02"></param>
-        public void updateTextBox(  string strBatchStatus,
-                                    string strLT02)
-        {
-            Invoke((MethodInvoker)delegate
-            {
-                txtLevelIndicator.Text = strBatchStatus;
-                txtLT02.Text = strLT02;
-            });            
         }
     }
 }

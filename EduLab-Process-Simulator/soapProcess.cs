@@ -102,9 +102,8 @@ namespace EduLab_Process_Simulator
 
         public void updateUI()
         {
-            frmMain.updateTextBox(
-                                    batchState.ToString(),
-                                    fltPLACEHOLDER_LT02.ToString()
+            frmMain.updateTextBox( batchState.ToString(),
+                                   fltPLACEHOLDER_LT02.ToString()
             );
         }
 
