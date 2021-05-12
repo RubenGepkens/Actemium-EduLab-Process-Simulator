@@ -8,18 +8,32 @@ namespace EduLab_Process_Simulator
 {
     public class ControlValve
     {
-        public string valveName { get; set; }
-        public bool valveStatus { get; set; }
+        public string cvValveName { get; set; }
+        public int cvValveStatus { get; set; }
 
         public ControlValve()
         {
 
         }
 
-        public bool getStatus()
+        public int setStatus(bool cvOpenClose)
         {
-            Console.WriteLine("{0}: is {1}", valveName, valveStatus);
-            return valveStatus;
+            if (cvOpenClose == true)
+            {
+                cvValveStatus = 100;
+            }
+            else
+            {
+                cvValveStatus = 0;
+            }
+
+            return cvValveStatus;
+        }
+
+        public int getStatus()
+        {
+            Console.WriteLine("{0}: is {1}", cvValveName, cvValveStatus);
+            return cvValveStatus;
         }
     }
 }
