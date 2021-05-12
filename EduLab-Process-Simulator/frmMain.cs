@@ -45,8 +45,8 @@ namespace EduLab_Process_Simulator
             SolenoidValve SV51 = new SolenoidValve("SV51");
             SolenoidValve SV10 = new SolenoidValve("SV10");
             SolenoidValve SV11 = new SolenoidValve("SV11");
-            */
-
+            
+            
             SolenoidValve SV51 = new SolenoidValve();
             SolenoidValve SV10 = new SolenoidValve();
             SolenoidValve SV11 = new SolenoidValve();
@@ -57,7 +57,7 @@ namespace EduLab_Process_Simulator
 
             Console.WriteLine(SV51.strNameTEST);
             Console.WriteLine(SV51.getName() );
-
+            */
         }
     }
 }

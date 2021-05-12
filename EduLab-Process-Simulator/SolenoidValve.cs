@@ -8,23 +8,32 @@ namespace EduLab_Process_Simulator
 {
     public class SolenoidValve
     {
-        public string strNameTEST { get; set; }
-
-        /*
-        public SolenoidValve(string strName)
-        {
-            Console.WriteLine("Made instance for {0}", strName);
-        }
-        */
+        public string svValveName { get; set; }
+        public bool svValveStatus { get; set; }
 
         public SolenoidValve()
         {
 
         }
 
-        public string getName()
+        public bool setStatus(bool svOpenClose)
         {
-            return strNameTEST;
+            if (svOpenClose == true)
+            {
+                svValveStatus = true;
+            }
+            else
+            {
+                svValveStatus = false;
+            }
+
+            return svValveStatus;
+        }
+
+        public bool getStatus()
+        {
+            Console.WriteLine("{0}: is {1}", svValveName, svValveStatus);
+            return svValveStatus;
         }
 
     }
