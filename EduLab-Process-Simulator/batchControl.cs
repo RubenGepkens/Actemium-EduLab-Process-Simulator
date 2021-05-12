@@ -1,4 +1,14 @@
-﻿using System;
+﻿/* EduLab-Proces-Sumulator - batchControl
+ * 
+ * Simulator for the process installation of the EduLab. Made for Actemium in Veghel, The Netherlands.
+ * 
+ * Copyright (c) 2021 Ruben Gepkens & Maurits Duel
+ * 
+ * This software is distributed using the MIT License.
+ * For terms of use read the LICENSE.md document included in this repository or visit: www.mit-license.org.
+ * 
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,6 +16,10 @@ using System.Threading.Tasks;
 
 namespace EduLab_Process_Simulator
 {
+    /// <summary>
+    /// Class replicating the FactoryTalk Batch programme for the EduLab soap process.
+    /// The batch sequence is replicated using a finite state machine.
+    /// </summary>
     public class batchControl
     {
         public enum BATCH_STATE
