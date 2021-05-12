@@ -11,9 +11,7 @@ using System.Windows.Forms;
 namespace EduLab_Process_Simulator
 {
     public partial class frmMain : Form
-    {
-        soapProcess soapProcess = new soapProcess();               
-
+    {        
         
         public frmMain()
         {
