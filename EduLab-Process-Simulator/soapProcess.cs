@@ -44,8 +44,14 @@ namespace EduLab_Process_Simulator
         private SolenoidValve SV11;
         private SolenoidValve SV40;        
         private SolenoidValve SV50;
-        private SolenoidValve SV51;      
+        private SolenoidValve SV51;
 
+        private Leveltransmitter LT02;
+        private Leveltransmitter LT03;
+        private Leveltransmitter LT04;
+
+        private PressureTransmitter PT02;
+        
 
         // Simulation speed related variables.
         private int intThreadTime = 1000;
