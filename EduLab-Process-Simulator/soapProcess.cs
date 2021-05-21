@@ -33,24 +33,26 @@ namespace EduLab_Process_Simulator
         private frmMain frmMain;
 
         // Simulation objects
-        private Tank TA01 = new Tank("TA01", 1250, 1250, 10, 10);
-        private Tank TA02 = new Tank("TA02", 50, 0, 10.23F, 3.34F);
-        private Tank TA03 = new Tank("TA03", 125, 0, 2.23F, 3.34F);
-        private Tank TA04 = new Tank("TA04", 50, 0, 2.23F, 3.34F);
+        private Tank TA01;
+        private Tank TA02;
+        private Tank TA03;
+        private Tank TA04);
 
 
-        private ControlValve CV02 = new ControlValve("CV02");
-        private ControlValve CV04 = new ControlValve("CV04");
+        private ControlValve CV02;
+        private ControlValve CV04;
 
-        private SolenoidValve SV01 = new SolenoidValve("SV01");
-        private SolenoidValve SV05B = new SolenoidValve("SV05B");
-        private SolenoidValve SV10 = new SolenoidValve("SV10");
-        private SolenoidValve SV11 = new SolenoidValve("SV11");
-        private SolenoidValve SV40 = new SolenoidValve("SV40");        
-        private SolenoidValve SV50 = new SolenoidValve("SB50");
-        private SolenoidValve SV51 = new SolenoidValve("SV51");
+        private SolenoidValve SV01;
+        private SolenoidValve SV05B;
+        private SolenoidValve SV10;
+        private SolenoidValve SV11;
+        private SolenoidValve SV40;        
+        private SolenoidValve SV50;
+        private SolenoidValve SV51;
 
+        //private Leveltransmitter LT02 = new Leveltransmitter("LT02", Itank: TA02);
         private Leveltransmitter LT02;
+
         private Leveltransmitter LT03;
         private Leveltransmitter LT04;
 
@@ -68,7 +70,37 @@ namespace EduLab_Process_Simulator
         {
             // Since a default constructor was used to create a simulation object, use default parameters.
             intThreadTime = intDefaultThreadTime;
-        }
+
+
+
+                    // Simulation objects
+        TA01 = new Tank("TA01", 1250, 1250, 10, 10);
+        TA02 = new Tank("TA02", 50, 0, 10.23F, 3.34F);
+        TA03 = new Tank("TA03", 125, 0, 2.23F, 3.34F);
+        TA04 = new Tank("TA04", 50, 0, 2.23F, 3.34F);
+
+
+        CV02 = new ControlValve("CV02");
+        CV04 = new ControlValve("CV04");
+
+        SV01 = new SolenoidValve("SV01");
+        SV05B = new SolenoidValve("SV05B");
+        SV10 = new SolenoidValve("SV10");
+        SV11 = new SolenoidValve("SV11");
+        SV40 = new SolenoidValve("SV40");
+        SV50 = new SolenoidValve("SB50");
+        SV51 = new SolenoidValve("SV51");
+
+        //private Leveltransmitter LT02 = new Leveltransmitter("LT02", Itank: TA02);
+        LT02 = new Leveltransmitter("LT02", TA02);
+        LT03 = new Leveltransmitter("LT03", TA03);
+        LT04 = new Leveltransmitter("LT04", TA04);
+
+        //PT02;
+
+
+
+    }
 
         /// <summary>
         /// Allow the simulation acceleration to be set using this constructor.
@@ -92,15 +124,15 @@ namespace EduLab_Process_Simulator
         /// <summary>
         /// Starts the sequence of producing a batch of soap.
         /// </summary>
-        public void startBatch(frmMain I_frmMain)
+        public void startBatch(frmMain IfrmMain)
         {
-            frmMain = I_frmMain;
+            frmMain = IfrmMain;
 
             while (batchState != BATCH_STATE.Done)
             {
                 updateBatchStatus();
                 updateUI();
-                Console.WriteLine("{0}\t {1}\t {2}\t {3}\t", batchState, batchTransition, TA02.getStatus().ToString(), CV02.getStatus().ToString());
+                Console.WriteLine("{0}\t {1}\t {2}\t {3}\t", batchState, batchTransition, TA02.GetVolume().ToString(), CV02.GetStatus().ToString());
                 System.Threading.Thread.Sleep(intThreadTime);
             }
         }
@@ -157,26 +189,26 @@ namespace EduLab_Process_Simulator
         public void updateUI()
         {
             frmMain.updateTextBox( batchState.ToString(),
-                                   TA02.getStatus().ToString()
+                                   TA02.GetVolume().ToString()
             );
         }
 
         public BATCH_TRANSITION ALG_DOSEER_TA02()
         {
             // If CV is closed, open it.
-            if (CV02.isClosed())
+            if (CV02.IsClosed())
             {
-                CV02.openValve();
+                CV02.OpenValve();
             }
 
             // If CV is opened, simulate inflow of fluid.
-            if ( CV02.isOpen())
+            if ( CV02.IsOpen())
             {
-                TA02.fillTank();
+                TA02.FillTank();
             }       
 
             // Operation is complete when tank is filled.
-            if ( TA02.getStatus() >= 50F)
+            if ( TA02.GetVolume() >= 50F)
             {
                 return BATCH_TRANSITION.COMPLETE;
             }

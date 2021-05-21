@@ -67,6 +67,7 @@
   <ItemGroup>
     <Compile Include="batchControl.cs" />
     <Compile Include="ControlValve.cs" />
+    <Compile Include="FlowTransmitter.cs" />
     <Compile Include="frmAboutBox.cs">
       <SubType>Form</SubType>
     </Compile>

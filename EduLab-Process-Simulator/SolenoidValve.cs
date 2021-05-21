@@ -31,7 +31,7 @@ namespace EduLab_Process_Simulator
         /// <summary>
         /// Opens the valve.
         /// </summary>
-        public void openValve()
+        public void OpenValve()
         {
             // At this moment the opening and closing of the valve is not simulated.
             // Therefore the valve will take the requested position immediately. 
@@ -41,7 +41,7 @@ namespace EduLab_Process_Simulator
         /// <summary>
         /// Closes the valve.
         /// </summary>
-        public void closeValve()
+        public void CloseValve()
         {
             // At this moment the opening and closing of the valve is not simulated.
             // Therefore the valve will take the requested position immediately. 
@@ -52,7 +52,7 @@ namespace EduLab_Process_Simulator
         /// Returns wheter the valve is opened or not.
         /// </summary>
         /// <returns>True if the valve is open or False if it is closed.</returns>
-        public bool isOpen()
+        public bool IsOpen()
         {
             if ( intValvePosition >= 95 )
             {
@@ -67,7 +67,7 @@ namespace EduLab_Process_Simulator
         /// Returns wheter the valve is closed or not.
         /// </summary>
         /// <returns>True if the valve is closed or False if it is opened.</returns>
-        public bool isClosed()
+        public bool IsClosed()
         {
             if ( intValvePosition <= 5)
             {

@@ -27,7 +27,7 @@ namespace EduLab_Process_Simulator
         /// <summary>
         /// Opens the valve.
         /// </summary>
-        public void openValve()
+        public void OpenValve()
         {
             // At this moment the opening and closing of the valve is not simulated.
             // Therefore the valve will take the requested position immediately. 
@@ -37,7 +37,7 @@ namespace EduLab_Process_Simulator
         /// <summary>
         /// Closes the valve.
         /// </summary>
-        public void closeValve()
+        public void CloseValve()
         {
             // At this moment the opening and closing of the valve is not simulated.
             // Therefore the valve will take the requested position immediately. 
@@ -48,7 +48,7 @@ namespace EduLab_Process_Simulator
         /// Commands the valve to take the given position as commanded by the input.
         /// </summary>
         /// <param name="intCommandValue"></param>
-        public void commandValve(int intCommandValue)
+        public void CommandValve(int intCommandValue)
         {
             // If the commanded valvue is out of bounds, ignore the command.
             if ( intCommandValue < 0 || intCommandValue > 100)
@@ -66,7 +66,7 @@ namespace EduLab_Process_Simulator
         /// Returns the position of the valve.
         /// </summary>
         /// <returns>Value between 0% and 100% indicating the opening of the valve.</returns>
-        public int getStatus()
+        public int GetStatus()
         {
             //Console.WriteLine("{0}: is {1}", strValveName, blnValveStatus);
             return intValvePosition;
@@ -76,7 +76,7 @@ namespace EduLab_Process_Simulator
         /// Returns wheter the valve is opened or not.
         /// </summary>
         /// <returns>True if the valve is open or False if it is closed.</returns>
-        public bool isOpen()
+        public bool IsOpen()
         {
             if (intValvePosition >= 95)
             {
@@ -92,7 +92,7 @@ namespace EduLab_Process_Simulator
         /// Returns wheter the valve is closed or not.
         /// </summary>
         /// <returns>True if the valve is closed or False if it is opened.</returns>
-        public bool isClosed()
+        public bool IsClosed()
         {
             if (intValvePosition <= 5)
             {

@@ -13,6 +13,7 @@ namespace EduLab_Process_Simulator
         public float fltTankCapacity { get; set; }
         public float fltFillRate { get; set; }
         public float fltEmptyRate { get; set; }
+        public float fltPressure { get; set; }
 
         /// <summary>
         /// Default constructor for a simulated tank.
@@ -28,6 +29,7 @@ namespace EduLab_Process_Simulator
             // No rates specified in this default constructor.
             fltFillRate = 0;
             fltEmptyRate = 0;
+            fltPressure = 0;
         }
 
         /// <summary>
@@ -45,13 +47,14 @@ namespace EduLab_Process_Simulator
             fltTankVolume       = ItankVolume;
             fltFillRate         = IfltFillRate;
             fltEmptyRate        = IfltEmptyRate;
+            fltPressure         = 0;
         }
 
         /// <summary>
         /// Returns the current volume of the tank.
         /// </summary>
         /// <returns>Float value between 0 and the tank capacity.</returns>
-        public float getStatus()
+        public float GetVolume()
         {
             return fltTankVolume;
         }
@@ -59,7 +62,7 @@ namespace EduLab_Process_Simulator
         /// <summary>
         /// 
         /// </summary>
-        public void fillTank()
+        public void FillTank()
         {
             float fltResult = fltTankVolume + fltFillRate;
 
@@ -75,7 +78,7 @@ namespace EduLab_Process_Simulator
         /// <summary>
         /// 
         /// </summary>
-        public void emptyTank()
+        public void EmptyTank()
         {
             float fltResult = fltTankVolume - fltEmptyRate;
 
@@ -87,6 +90,15 @@ namespace EduLab_Process_Simulator
             {
                 fltTankVolume = fltTankCapacity;
             }
+        }
+
+        /// <summary>
+        /// Returns the current pressure in the tank
+        /// </summary>
+        /// <returns>Float value that represents the pressure in pascal</returns>
+        public float GetPressure()
+        {
+            return fltPressure;
         }
     }
 }
