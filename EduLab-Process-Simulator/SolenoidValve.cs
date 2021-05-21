@@ -9,7 +9,7 @@ namespace EduLab_Process_Simulator
     public class SolenoidValve
     {
         public string strValveName { get; set; }
-        public bool blnValvePosition { get; set; }
+        public int intValvePosition { get; set; }
 
         /// <summary>
         /// Simulated solenoid valve.
@@ -33,7 +33,7 @@ namespace EduLab_Process_Simulator
         /// </summary>
         public void openValve()
         {
-            blnValvePosition = true;
+            intValvePosition = 100;
         }
 
         /// <summary>
@@ -41,17 +41,47 @@ namespace EduLab_Process_Simulator
         /// </summary>
         public void closeValve()
         {
-            blnValvePosition = false;
+            intValvePosition = 0;
         }
 
         /// <summary>
-        /// Returns the status of the valve.
+        /// Returns the position of the valve.
         /// </summary>
-        /// <returns>True for an open valve and False for a closed valve.</returns>
-        public bool getStatus()
+        /// <returns>Value between 0% and 100% indicating the opening of the valve.</returns>
+        public int getStatus()
         {
             //Console.WriteLine("{0}: is {1}", strValveName, blnValveStatus);
-            return blnValvePosition;
+            return intValvePosition;
+        }
+
+        /// <summary>
+        /// Returns wheter the valve is opened or not.
+        /// </summary>
+        /// <returns>True if the valve is open or False if it is closed.</returns>
+        public bool isOpen()
+        {
+            if ( intValvePosition >= 95 )
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Returns wheter the valve is closed or not.
+        /// </summary>
+        /// <returns>True if the valve is closed or False if it is opened.</returns>
+        public bool isClosed()
+        {
+            if ( intValvePosition <= 5)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
     }
 }

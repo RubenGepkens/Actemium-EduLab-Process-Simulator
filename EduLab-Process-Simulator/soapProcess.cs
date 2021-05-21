@@ -165,6 +165,11 @@ namespace EduLab_Process_Simulator
                 blnPLACEHOLDER_CV02 = true;                
             }
 
+            if ( CV02.getStatus() == 100 )
+            {
+
+            }
+
             // If CV is opened, simulate inflow of fluid.
             if (blnPLACEHOLDER_CV02 == true)
             {
@@ -184,7 +189,7 @@ namespace EduLab_Process_Simulator
 
         public BATCH_TRANSITION ALG_DOSEER_TA03()
         {
-            Console.WriteLine(SV20.blnValvePosition);
+            Console.WriteLine(SV20.intValvePosition);
             return BATCH_TRANSITION.COMPLETE;
         }
 
