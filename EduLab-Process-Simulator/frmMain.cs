@@ -112,7 +112,10 @@ namespace EduLab_Process_Simulator
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            simulationThread.Abort();
+            if (simulationThread.IsAlive)
+            {
+                simulationThread.Abort();
+            }
         }
 
         private void btnStartFast_Click(object sender, EventArgs e)
@@ -122,7 +125,10 @@ namespace EduLab_Process_Simulator
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            simulationThread.Abort();
+            if ( simulationThread.IsAlive ) 
+            {
+                simulationThread.Abort();
+            }            
         }
     }
 }

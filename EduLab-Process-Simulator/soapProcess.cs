@@ -103,7 +103,6 @@ namespace EduLab_Process_Simulator
             TA03 = new Tank("TA03", 125, 0, 2.23F, 3.34F);
             TA04 = new Tank("TA04", 50, 0, 2.23F, 3.34F);
 
-
             CV02 = new ControlValve("CV02");
             CV04 = new ControlValve("CV04");
 
