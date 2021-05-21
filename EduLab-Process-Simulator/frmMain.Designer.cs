@@ -42,10 +42,6 @@ namespace EduLab_Process_Simulator
             this.btnPauze = new System.Windows.Forms.ToolStripButton();
             this.btnStop = new System.Windows.Forms.ToolStripButton();
             this.btnStartFast = new System.Windows.Forms.ToolStripButton();
-            this.btnStartBatch = new System.Windows.Forms.Button();
-            this.txtLevelIndicator = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtLT02 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -53,6 +49,17 @@ namespace EduLab_Process_Simulator
             this.cbxSimulationAcceleration = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.txtBatchStatus = new System.Windows.Forms.ToolStripTextBox();
+            this.txtLT03 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtLT04 = new System.Windows.Forms.TextBox();
+            this.txtCV02 = new System.Windows.Forms.TextBox();
+            this.txtCV04 = new System.Windows.Forms.TextBox();
+            this.txtSV40 = new System.Windows.Forms.TextBox();
+            this.txtSV50 = new System.Windows.Forms.TextBox();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -63,7 +70,7 @@ namespace EduLab_Process_Simulator
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 715);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 669);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1184, 22);
             this.statusStrip1.TabIndex = 1;
@@ -132,7 +139,10 @@ namespace EduLab_Process_Simulator
             this.toolStripSeparator1,
             this.toolStripLabel1,
             this.cbxSimulationAcceleration,
-            this.toolStripSeparator2});
+            this.toolStripSeparator2,
+            this.txtBatchStatus,
+            this.toolStripLabel2,
+            this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1184, 49);
@@ -178,54 +188,20 @@ namespace EduLab_Process_Simulator
             this.btnStartFast.Text = "toolStripButton1";
             this.btnStartFast.Click += new System.EventHandler(this.btnStartFast_Click);
             // 
-            // btnStartBatch
-            // 
-            this.btnStartBatch.Location = new System.Drawing.Point(836, 368);
-            this.btnStartBatch.Name = "btnStartBatch";
-            this.btnStartBatch.Size = new System.Drawing.Size(75, 23);
-            this.btnStartBatch.TabIndex = 6;
-            this.btnStartBatch.Text = "Start batch";
-            this.btnStartBatch.UseVisualStyleBackColor = true;
-            this.btnStartBatch.Click += new System.EventHandler(this.btnStartBatch_Click);
-            // 
-            // txtLevelIndicator
-            // 
-            this.txtLevelIndicator.Location = new System.Drawing.Point(836, 290);
-            this.txtLevelIndicator.Name = "txtLevelIndicator";
-            this.txtLevelIndicator.ReadOnly = true;
-            this.txtLevelIndicator.Size = new System.Drawing.Size(150, 20);
-            this.txtLevelIndicator.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(761, 293);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Batch status:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(795, 319);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "LT02:";
-            // 
             // txtLT02
             // 
-            this.txtLT02.Location = new System.Drawing.Point(836, 316);
+            this.txtLT02.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtLT02.Location = new System.Drawing.Point(244, 181);
             this.txtLT02.Name = "txtLT02";
             this.txtLT02.ReadOnly = true;
-            this.txtLT02.Size = new System.Drawing.Size(75, 20);
+            this.txtLT02.Size = new System.Drawing.Size(40, 20);
             this.txtLT02.TabIndex = 10;
+            this.txtLT02.Text = "00.00";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(917, 319);
+            this.label3.Location = new System.Drawing.Point(290, 184);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(19, 13);
             this.label3.TabIndex = 11;
@@ -233,10 +209,11 @@ namespace EduLab_Process_Simulator
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 76);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1160, 636);
+            this.pictureBox1.Size = new System.Drawing.Size(1184, 691);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
@@ -270,23 +247,126 @@ namespace EduLab_Process_Simulator
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 49);
             // 
+            // txtBatchStatus
+            // 
+            this.txtBatchStatus.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.txtBatchStatus.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.txtBatchStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtBatchStatus.Name = "txtBatchStatus";
+            this.txtBatchStatus.ReadOnly = true;
+            this.txtBatchStatus.Size = new System.Drawing.Size(200, 49);
+            // 
+            // txtLT03
+            // 
+            this.txtLT03.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtLT03.Location = new System.Drawing.Point(495, 181);
+            this.txtLT03.Name = "txtLT03";
+            this.txtLT03.ReadOnly = true;
+            this.txtLT03.Size = new System.Drawing.Size(40, 20);
+            this.txtLT03.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(541, 184);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "[L]";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(759, 158);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "[L]";
+            // 
+            // txtLT04
+            // 
+            this.txtLT04.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtLT04.Location = new System.Drawing.Point(713, 155);
+            this.txtLT04.Name = "txtLT04";
+            this.txtLT04.ReadOnly = true;
+            this.txtLT04.Size = new System.Drawing.Size(40, 20);
+            this.txtLT04.TabIndex = 15;
+            // 
+            // txtCV02
+            // 
+            this.txtCV02.BackColor = System.Drawing.SystemColors.Info;
+            this.txtCV02.Location = new System.Drawing.Point(153, 87);
+            this.txtCV02.Name = "txtCV02";
+            this.txtCV02.ReadOnly = true;
+            this.txtCV02.Size = new System.Drawing.Size(40, 20);
+            this.txtCV02.TabIndex = 17;
+            this.txtCV02.Text = "-";
+            // 
+            // txtCV04
+            // 
+            this.txtCV04.BackColor = System.Drawing.SystemColors.Info;
+            this.txtCV04.Location = new System.Drawing.Point(408, 87);
+            this.txtCV04.Name = "txtCV04";
+            this.txtCV04.ReadOnly = true;
+            this.txtCV04.Size = new System.Drawing.Size(40, 20);
+            this.txtCV04.TabIndex = 18;
+            this.txtCV04.Text = "-";
+            // 
+            // txtSV40
+            // 
+            this.txtSV40.BackColor = System.Drawing.SystemColors.Info;
+            this.txtSV40.Location = new System.Drawing.Point(655, 87);
+            this.txtSV40.Name = "txtSV40";
+            this.txtSV40.ReadOnly = true;
+            this.txtSV40.Size = new System.Drawing.Size(40, 20);
+            this.txtSV40.TabIndex = 19;
+            this.txtSV40.Text = "-";
+            // 
+            // txtSV50
+            // 
+            this.txtSV50.BackColor = System.Drawing.SystemColors.Info;
+            this.txtSV50.Location = new System.Drawing.Point(776, 87);
+            this.txtSV50.Name = "txtSV50";
+            this.txtSV50.ReadOnly = true;
+            this.txtSV50.Size = new System.Drawing.Size(40, 20);
+            this.txtSV50.TabIndex = 20;
+            this.txtSV50.Text = "-";
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(42, 46);
+            this.toolStripLabel2.Text = "Status:";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 49);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 737);
+            this.ClientSize = new System.Drawing.Size(1184, 691);
+            this.Controls.Add(this.txtSV50);
+            this.Controls.Add(this.txtSV40);
+            this.Controls.Add(this.txtCV04);
+            this.Controls.Add(this.txtCV02);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtLT04);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtLT03);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtLT02);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtLevelIndicator);
-            this.Controls.Add(this.btnStartBatch);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1200, 730);
             this.Name = "frmMain";
             this.Text = "EduLab Process Simulator";
@@ -313,10 +393,6 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.ToolStripMenuItem overDezeApplicatieToolStripMenuItem;
-        private System.Windows.Forms.Button btnStartBatch;
-        private System.Windows.Forms.TextBox txtLevelIndicator;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtLT02;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripButton btnPauze;
@@ -327,6 +403,17 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.ToolStripComboBox cbxSimulationAcceleration;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripTextBox txtBatchStatus;
+        private System.Windows.Forms.TextBox txtLT03;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtLT04;
+        private System.Windows.Forms.TextBox txtCV02;
+        private System.Windows.Forms.TextBox txtCV04;
+        private System.Windows.Forms.TextBox txtSV40;
+        private System.Windows.Forms.TextBox txtSV50;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 

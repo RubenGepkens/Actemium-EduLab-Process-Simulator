@@ -69,22 +69,30 @@ namespace EduLab_Process_Simulator
         /// </summary>
         /// <param name="strBatchStatus"></param>
         /// <param name="strLT02"></param>
-        public void updateTextBox(string strBatchStatus,
-                                    string strLT02)
+        public void updateTextBox(  string strBatchStatus,
+                                    string strLT02,
+                                    string strLT03,
+                                    string strLT04,
+                                    string strCV02,
+                                    string strCV04,
+                                    string strSV40,
+                                    string strSV50
+            )
         {
             Invoke((MethodInvoker)delegate
             {
-                txtLevelIndicator.Text = strBatchStatus;
+                txtBatchStatus.Text = strBatchStatus;
                 txtLT02.Text = strLT02;
+                txtLT03.Text = strLT03;
+                txtLT04.Text = strLT04;
+                txtCV02.Text = strCV02;
+                txtCV04.Text = strCV04;
+                txtSV40.Text = strSV40;
+                txtSV50.Text = strSV50;
             });
         }
 
         // =========================================================================================================================================================
-
-        private void btnStartBatch_Click(object sender, EventArgs e)
-        {
-            simulateProcess();
-        }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -105,6 +113,5 @@ namespace EduLab_Process_Simulator
         {
 
         }
-
     }
 }

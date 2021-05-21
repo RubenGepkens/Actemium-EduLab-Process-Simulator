@@ -25,13 +25,13 @@ namespace EduLab_Process_Simulator
         {
             strTankName         = strObjectName;
             fltTankCapacity     = ItankCapacity;
-            fltTankVolume       = 0;
+            fltTankVolume       = 0F;
 
             // No rates specified in this default constructor.
-            fltFillRate         = 0;
-            fltEmptyRate        = 0;
-            fltPressure         = 0;
-            fltTemperature      = 0;
+            fltFillRate         = 0F;
+            fltEmptyRate        = 0F;
+            fltPressure         = 0F;
+            fltTemperature      = 0F;
         }
 
         /// <summary>
@@ -49,8 +49,8 @@ namespace EduLab_Process_Simulator
             fltTankVolume       = ItankVolume;
             fltFillRate         = IfltFillRate;
             fltEmptyRate        = IfltEmptyRate;
-            fltPressure         = 0;
-            fltTemperature      = 0;
+            fltPressure         = 0F;
+            fltTemperature      = 0F;
         }
 
         /// <summary>
