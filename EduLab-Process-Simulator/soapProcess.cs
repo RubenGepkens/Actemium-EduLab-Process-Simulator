@@ -96,7 +96,7 @@ namespace EduLab_Process_Simulator
         LT03 = new Leveltransmitter("LT03", TA03);
         LT04 = new Leveltransmitter("LT04", TA04);
 
-        //PT02;
+        PT02 = new PressureTransmitter("PT02", ;
 
 
 
@@ -195,6 +195,8 @@ namespace EduLab_Process_Simulator
 
         public BATCH_TRANSITION ALG_DOSEER_TA02()
         {
+            // LT02 >= 50 L
+
             // If CV is closed, open it.
             if (CV02.IsClosed())
             {
@@ -219,12 +221,16 @@ namespace EduLab_Process_Simulator
         }
 
         public BATCH_TRANSITION ALG_DOSEER_TA03()
-        {            
+        { 
+            // LT03 >= 125 L
+
             return BATCH_TRANSITION.COMPLETE;
         }
 
         public BATCH_TRANSITION ALG_DOSEER_TA04()
         {
+            // LT04 >= 50 L
+
             return BATCH_TRANSITION.COMPLETE;
         }
 

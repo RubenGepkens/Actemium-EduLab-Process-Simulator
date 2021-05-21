@@ -14,6 +14,7 @@ namespace EduLab_Process_Simulator
         public float fltFillRate { get; set; }
         public float fltEmptyRate { get; set; }
         public float fltPressure { get; set; }
+        public float fltTemperature { get; set; }
 
         /// <summary>
         /// Default constructor for a simulated tank.
@@ -22,14 +23,15 @@ namespace EduLab_Process_Simulator
         /// <param name="ItankCapacity">The capacity of the tank</param>
         public Tank(string strObjectName, float ItankCapacity)
         {
-            strTankName = strObjectName;
-            fltTankCapacity = ItankCapacity;
-            fltTankVolume = 0;
+            strTankName         = strObjectName;
+            fltTankCapacity     = ItankCapacity;
+            fltTankVolume       = 0;
 
             // No rates specified in this default constructor.
-            fltFillRate = 0;
-            fltEmptyRate = 0;
-            fltPressure = 0;
+            fltFillRate         = 0;
+            fltEmptyRate        = 0;
+            fltPressure         = 0;
+            fltTemperature      = 0;
         }
 
         /// <summary>
@@ -48,6 +50,7 @@ namespace EduLab_Process_Simulator
             fltFillRate         = IfltFillRate;
             fltEmptyRate        = IfltEmptyRate;
             fltPressure         = 0;
+            fltTemperature      = 0;
         }
 
         /// <summary>
@@ -60,7 +63,7 @@ namespace EduLab_Process_Simulator
         }
 
         /// <summary>
-        /// 
+        /// Fill the tank, calculate for one simulation cycle the level change.
         /// </summary>
         public void FillTank()
         {
@@ -76,7 +79,7 @@ namespace EduLab_Process_Simulator
         }
 
         /// <summary>
-        /// 
+        /// Empty the tank, calculate for one simulation cycle the level change.
         /// </summary>
         public void EmptyTank()
         {
@@ -99,6 +102,15 @@ namespace EduLab_Process_Simulator
         public float GetPressure()
         {
             return fltPressure;
+        }
+
+        /// <summary>
+        /// Returns the current temperature in the tank
+        /// </summary>
+        /// <returns>Float value that represents the temperature in degrees celcius</returns>
+        public float GetTemperature()
+        {
+            return fltTemperature;
         }
     }
 }
