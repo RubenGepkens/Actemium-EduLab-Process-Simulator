@@ -28,23 +28,27 @@ namespace EduLab_Process_Simulator
 
         public float fltPLACEHOLDER_LT02 = 0.0F;
         public bool blnPLACEHOLDER_CV02 = false;
-
-        public SolenoidValve SV20 = new SolenoidValve();
-
+     
         // frmMain object, used for the invoke delegate to update the UI elements.
         private frmMain frmMain;
 
         // Simulation objects
-        private ControlValve CV02;
-        private ControlValve CV04;
+        private Tank TA01 = new Tank("TA01", 1250, 1250, 10, 10);
+        private Tank TA02 = new Tank("TA02", 50, 0, 10.23F, 3.34F);
+        private Tank TA03 = new Tank("TA03", 125, 0, 2.23F, 3.34F);
+        private Tank TA04 = new Tank("TA04", 50, 0, 2.23F, 3.34F);
 
-        private SolenoidValve SV01;
-        private SolenoidValve SV05B;
-        private SolenoidValve SV10;
-        private SolenoidValve SV11;
-        private SolenoidValve SV40;        
-        private SolenoidValve SV50;
-        private SolenoidValve SV51;
+
+        private ControlValve CV02 = new ControlValve("CV02");
+        private ControlValve CV04 = new ControlValve("CV04");
+
+        private SolenoidValve SV01 = new SolenoidValve("SV01");
+        private SolenoidValve SV05B = new SolenoidValve("SV05B");
+        private SolenoidValve SV10 = new SolenoidValve("SV10");
+        private SolenoidValve SV11 = new SolenoidValve("SV11");
+        private SolenoidValve SV40 = new SolenoidValve("SV40");        
+        private SolenoidValve SV50 = new SolenoidValve("SB50");
+        private SolenoidValve SV51 = new SolenoidValve("SV51");
 
         private Leveltransmitter LT02;
         private Leveltransmitter LT03;
@@ -96,7 +100,7 @@ namespace EduLab_Process_Simulator
             {
                 updateBatchStatus();
                 updateUI();
-                Console.WriteLine("{0}\t {1}\t {2}\t {3}\t", batchState, batchTransition, fltPLACEHOLDER_LT02, blnPLACEHOLDER_CV02);
+                Console.WriteLine("{0}\t {1}\t {2}\t {3}\t", batchState, batchTransition, TA02.getStatus().ToString(), CV02.getStatus().ToString());
                 System.Threading.Thread.Sleep(intThreadTime);
             }
         }
@@ -153,31 +157,26 @@ namespace EduLab_Process_Simulator
         public void updateUI()
         {
             frmMain.updateTextBox( batchState.ToString(),
-                                   fltPLACEHOLDER_LT02.ToString()
+                                   TA02.getStatus().ToString()
             );
         }
 
         public BATCH_TRANSITION ALG_DOSEER_TA02()
         {
             // If CV is closed, open it.
-            if (blnPLACEHOLDER_CV02 == false)
+            if (CV02.isClosed())
             {
-                blnPLACEHOLDER_CV02 = true;                
-            }
-
-            if ( CV02.getStatus() == 100 )
-            {
-
+                CV02.openValve();
             }
 
             // If CV is opened, simulate inflow of fluid.
-            if (blnPLACEHOLDER_CV02 == true)
+            if ( CV02.isOpen())
             {
-                fltPLACEHOLDER_LT02 += 10.23F;
-            }
+                TA02.fillTank();
+            }       
 
             // Operation is complete when tank is filled.
-            if (fltPLACEHOLDER_LT02 >= 50)
+            if ( TA02.getStatus() >= 50F)
             {
                 return BATCH_TRANSITION.COMPLETE;
             }
@@ -188,8 +187,7 @@ namespace EduLab_Process_Simulator
         }
 
         public BATCH_TRANSITION ALG_DOSEER_TA03()
-        {
-            Console.WriteLine(SV20.intValvePosition);
+        {            
             return BATCH_TRANSITION.COMPLETE;
         }
 

@@ -93,7 +93,7 @@ namespace EduLab_Process_Simulator
 
         private void btnPauze_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Acceleration: {0}", lstSimulationAcceleration[cbxSimulationAcceleration.SelectedIndex] );
+            
         }
 
         private void btnStop_Click(object sender, EventArgs e)

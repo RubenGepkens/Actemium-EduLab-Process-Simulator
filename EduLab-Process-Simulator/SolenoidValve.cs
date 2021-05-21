@@ -33,6 +33,8 @@ namespace EduLab_Process_Simulator
         /// </summary>
         public void openValve()
         {
+            // At this moment the opening and closing of the valve is not simulated.
+            // Therefore the valve will take the requested position immediately. 
             intValvePosition = 100;
         }
 
@@ -41,17 +43,9 @@ namespace EduLab_Process_Simulator
         /// </summary>
         public void closeValve()
         {
+            // At this moment the opening and closing of the valve is not simulated.
+            // Therefore the valve will take the requested position immediately. 
             intValvePosition = 0;
-        }
-
-        /// <summary>
-        /// Returns the position of the valve.
-        /// </summary>
-        /// <returns>Value between 0% and 100% indicating the opening of the valve.</returns>
-        public int getStatus()
-        {
-            //Console.WriteLine("{0}: is {1}", strValveName, blnValveStatus);
-            return intValvePosition;
         }
 
         /// <summary>
