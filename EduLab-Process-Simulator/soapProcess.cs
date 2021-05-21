@@ -62,7 +62,7 @@ namespace EduLab_Process_Simulator
         /// </summary>
         public soapProcess()
         {
-            // Since an empty constructor was used to create a simulation object, use default parameters.
+            // Since a default constructor was used to create a simulation object, use default parameters.
             intThreadTime = intDefaultThreadTime;
         }
 
@@ -184,7 +184,7 @@ namespace EduLab_Process_Simulator
 
         public BATCH_TRANSITION ALG_DOSEER_TA03()
         {
-            Console.WriteLine(SV20.svValveStatus);
+            Console.WriteLine(SV20.blnValvePosition);
             return BATCH_TRANSITION.COMPLETE;
         }
 
