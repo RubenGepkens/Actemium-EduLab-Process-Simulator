@@ -370,6 +370,7 @@ namespace EduLab_Process_Simulator
             this.MinimumSize = new System.Drawing.Size(1200, 730);
             this.Name = "frmMain";
             this.Text = "EduLab Process Simulator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Shown += new System.EventHandler(this.frmMain_Shown);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

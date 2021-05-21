@@ -27,6 +27,8 @@ namespace EduLab_Process_Simulator
     {
         private List<int> lstSimulationAcceleration = new List<int> { 1, 2, 4, 8, 16 };
 
+        Thread simulationThread;
+
         public frmMain()
         {
             InitializeComponent();
@@ -58,10 +60,14 @@ namespace EduLab_Process_Simulator
 
             // Create new soapProces object and set the simulation speed.
             soapProcess zeepProcess = new soapProcess( intSimulationAcceleration );
-            
+
             // Create new thread and using a lambda expression start the simulation.
-            Thread thread = new Thread(() => zeepProcess.startBatch(this));
-            thread.Start();
+            
+            //Thread thread = new Thread(() => zeepProcess.startBatch(this));
+            //thread.Start();
+
+            simulationThread = new Thread(() => zeepProcess.startBatch(this));
+            simulationThread.Start();
         }
 
         /// <summary>
@@ -106,12 +112,17 @@ namespace EduLab_Process_Simulator
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-
+            simulationThread.Abort();
         }
 
         private void btnStartFast_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            simulationThread.Abort();
         }
     }
 }
