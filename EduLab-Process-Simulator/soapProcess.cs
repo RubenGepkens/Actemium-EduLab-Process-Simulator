@@ -38,15 +38,20 @@ namespace EduLab_Process_Simulator
         private Tank TA03;
         private Tank TA04;
 
-
         private ControlValve CV02;
+        private ControlValve CV03;
         private ControlValve CV04;
 
         private SolenoidValve SV01;
+        private SolenoidValve SV05A;
         private SolenoidValve SV05B;
         private SolenoidValve SV10;
-        private SolenoidValve SV11;
-        private SolenoidValve SV40;        
+        private SolenoidValve SV12;
+        private SolenoidValve SV21;
+        private SolenoidValve SV22;
+        private SolenoidValve SV31;
+        private SolenoidValve SV40;
+        private SolenoidValve SV41;
         private SolenoidValve SV50;
         private SolenoidValve SV51;
 
@@ -100,17 +105,23 @@ namespace EduLab_Process_Simulator
             // Simulation objects
             TA01 = new Tank("TA01", 1250, 1250, 10, 10);
             TA02 = new Tank("TA02", 50, 0, 10.23F, 3.34F);
-            TA03 = new Tank("TA03", 125, 0, 2.23F, 3.34F);
+            TA03 = new Tank("TA03", 125, 0, 6.23F, 3.34F);
             TA04 = new Tank("TA04", 50, 0, 2.23F, 3.34F);
 
             CV02 = new ControlValve("CV02");
+            CV03 = new ControlValve("CV03");
             CV04 = new ControlValve("CV04");
 
             SV01 = new SolenoidValve("SV01");
+            SV05A = new SolenoidValve("SV05A");
             SV05B = new SolenoidValve("SV05B");
             SV10 = new SolenoidValve("SV10");
-            SV11 = new SolenoidValve("SV11");
+            SV12 = new SolenoidValve("SV12");
+            SV21 = new SolenoidValve("SV21");
+            SV22 = new SolenoidValve("SV22");
+            SV31 = new SolenoidValve("SV31");
             SV40 = new SolenoidValve("SV40");
+            SV41 = new SolenoidValve("SV41");
             SV50 = new SolenoidValve("SB50");
             SV51 = new SolenoidValve("SV51");
 
@@ -189,14 +200,27 @@ namespace EduLab_Process_Simulator
         /// </summary>
         public void updateUI()
         {
-            frmMain.updateTextBox( batchState.ToString(),
+            frmMain.updateTextBox(batchState.ToString(),
                                    LT02.GetLevel().ToString(),
                                    LT03.GetLevel().ToString(),
                                    LT04.GetLevel().ToString(),
+
                                    CV02.GetStatus().ToString(),
+                                   CV03.GetStatus().ToString(),
                                    CV04.GetStatus().ToString(),
+
+                                   SV01.IsOpen().ToString(),
+                                   SV05A.IsOpen().ToString(),
+                                   SV05B.IsOpen().ToString(),
+                                   SV10.IsOpen().ToString(),
+                                   SV12.IsOpen().ToString(),
+                                   SV21.IsOpen().ToString(),
+                                   SV22.IsOpen().ToString(),
+                                   SV31.IsOpen().ToString(),
                                    SV40.IsOpen().ToString(),
-                                   SV50.IsOpen().ToString()
+                                   SV41.IsOpen().ToString(),
+                                   SV50.IsOpen().ToString(),
+                                   SV51.IsOpen().ToString()
             ) ;
         }
 
@@ -260,7 +284,24 @@ namespace EduLab_Process_Simulator
         {
             // LT04 >= 50 L
 
-            return BATCH_TRANSITION.BUSY;
+            if ( SV40.IsClosed() )
+            {
+                SV40.OpenValve();
+            }
+
+            if ( SV40.IsOpen())
+            {
+                TA04.FillTank();
+            }
+
+            if ( LT04.GetLevel() >= 50)
+            {
+                SV40.CloseValve();
+                return BATCH_TRANSITION.COMPLETE;
+            } else
+            {
+                return BATCH_TRANSITION.BUSY;
+            }            
         }
 
         public BATCH_TRANSITION ALG_FILL_KE01()

@@ -67,7 +67,7 @@ namespace EduLab_Process_Simulator
             this.txtSV51 = new System.Windows.Forms.TextBox();
             this.txtSV12 = new System.Windows.Forms.TextBox();
             this.txtSV05A = new System.Windows.Forms.TextBox();
-            this.txt05B = new System.Windows.Forms.TextBox();
+            this.txtSV05B = new System.Windows.Forms.TextBox();
             this.txtSV01 = new System.Windows.Forms.TextBox();
             this.txtCV03 = new System.Windows.Forms.TextBox();
             this.txtSV22 = new System.Windows.Forms.TextBox();
@@ -428,15 +428,15 @@ namespace EduLab_Process_Simulator
             this.txtSV05A.TabIndex = 27;
             this.txtSV05A.Text = "-";
             // 
-            // txt05B
+            // txtSV05B
             // 
-            this.txt05B.BackColor = System.Drawing.SystemColors.Info;
-            this.txt05B.Location = new System.Drawing.Point(841, 518);
-            this.txt05B.Name = "txt05B";
-            this.txt05B.ReadOnly = true;
-            this.txt05B.Size = new System.Drawing.Size(40, 20);
-            this.txt05B.TabIndex = 28;
-            this.txt05B.Text = "-";
+            this.txtSV05B.BackColor = System.Drawing.SystemColors.Info;
+            this.txtSV05B.Location = new System.Drawing.Point(841, 518);
+            this.txtSV05B.Name = "txtSV05B";
+            this.txtSV05B.ReadOnly = true;
+            this.txtSV05B.Size = new System.Drawing.Size(40, 20);
+            this.txtSV05B.TabIndex = 28;
+            this.txtSV05B.Text = "-";
             // 
             // txtSV01
             // 
@@ -476,7 +476,7 @@ namespace EduLab_Process_Simulator
             this.Controls.Add(this.txtSV22);
             this.Controls.Add(this.txtCV03);
             this.Controls.Add(this.txtSV01);
-            this.Controls.Add(this.txt05B);
+            this.Controls.Add(this.txtSV05B);
             this.Controls.Add(this.txtSV05A);
             this.Controls.Add(this.txtSV12);
             this.Controls.Add(this.txtSV51);
@@ -556,7 +556,7 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.TextBox txtSV51;
         private System.Windows.Forms.TextBox txtSV12;
         private System.Windows.Forms.TextBox txtSV05A;
-        private System.Windows.Forms.TextBox txt05B;
+        private System.Windows.Forms.TextBox txtSV05B;
         private System.Windows.Forms.TextBox txtSV01;
         private System.Windows.Forms.TextBox txtCV03;
         private System.Windows.Forms.TextBox txtSV22;

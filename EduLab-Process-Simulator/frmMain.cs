@@ -25,8 +25,10 @@ namespace EduLab_Process_Simulator
 {
     public partial class frmMain : Form
     {
+        // List for the maximum acceleration of the simulation.
         private List<int> lstSimulationAcceleration = new List<int> { 1, 2, 4, 8, 16 };
 
+        // Global thread variable
         Thread simulationThread;
 
         public frmMain()
@@ -79,10 +81,23 @@ namespace EduLab_Process_Simulator
                                     string strLT02,
                                     string strLT03,
                                     string strLT04,
+
                                     string strCV02,
+                                    string strCV03,
                                     string strCV04,
+
+                                    string strSV01,
+                                    string strSV05A,
+                                    string strSV05B,
+                                    string strSV10,
+                                    string strSV12,
+                                    string strSV21,
+                                    string strSV22,
+                                    string strSV31,                                    
                                     string strSV40,
-                                    string strSV50
+                                    string strSV41,
+                                    string strSV50,
+                                    string strSV51
             )
         {
             Invoke((MethodInvoker)delegate
@@ -91,10 +106,23 @@ namespace EduLab_Process_Simulator
                 txtLT02.Text = strLT02;
                 txtLT03.Text = strLT03;
                 txtLT04.Text = strLT04;
+
                 txtCV02.Text = strCV02;
+                txtCV03.Text = strCV03;
                 txtCV04.Text = strCV04;
+
+                txtSV01.Text = strSV01;
+                txtSV05A.Text = strSV05A;
+                txtSV05B.Text = strSV05B;
+                txtSV10.Text = strSV10;                
+                txtSV12.Text = strSV12;
+                txtSV21.Text = strSV21;
+                txtSV22.Text = strSV22;
+                txtSV31.Text = strSV31;                
                 txtSV40.Text = strSV40;
+                txtSV41.Text = strSV41;
                 txtSV50.Text = strSV50;
+                txtSV51.Text = strSV51;
             });
         }
 
