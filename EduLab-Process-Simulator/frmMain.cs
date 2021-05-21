@@ -7,6 +7,8 @@
  * This software is distributed using the MIT License.
  * For terms of use read the LICENSE.md document included in this repository or visit: www.mit-license.org.
  * 
+ * Icons used in this project are taken from the GNOME desktop project ('gnome-icon-theme 2.20.0') released under the GNU GPLv2 license. 
+ * 
  */
 using System;
 using System.Collections.Generic;

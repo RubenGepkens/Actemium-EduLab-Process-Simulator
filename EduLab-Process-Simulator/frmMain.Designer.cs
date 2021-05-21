@@ -29,26 +29,20 @@ namespace EduLab_Process_Simulator
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.bestandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overDezeApplicatieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.btnStart = new System.Windows.Forms.ToolStripButton();
+            this.btnPauze = new System.Windows.Forms.ToolStripButton();
+            this.btnStop = new System.Windows.Forms.ToolStripButton();
+            this.btnStartFast = new System.Windows.Forms.ToolStripButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnStartBatch = new System.Windows.Forms.Button();
             this.txtLevelIndicator = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,7 +52,6 @@ namespace EduLab_Process_Simulator
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -91,33 +84,17 @@ namespace EduLab_Process_Simulator
             // bestandToolStripMenuItem
             // 
             this.bestandToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openenToolStripMenuItem,
-            this.sluitenToolStripMenuItem,
             this.afsluitenToolStripMenuItem});
-            this.bestandToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_folder_svg;
+            this.bestandToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_settings_ui_behavior_svg;
             this.bestandToolStripMenuItem.Name = "bestandToolStripMenuItem";
-            this.bestandToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.bestandToolStripMenuItem.Text = "Bestand";
-            // 
-            // openenToolStripMenuItem
-            // 
-            this.openenToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_x_office_document_svg;
-            this.openenToolStripMenuItem.Name = "openenToolStripMenuItem";
-            this.openenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.openenToolStripMenuItem.Text = "Openen";
-            // 
-            // sluitenToolStripMenuItem
-            // 
-            this.sluitenToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_accessories_text_editor_svg;
-            this.sluitenToolStripMenuItem.Name = "sluitenToolStripMenuItem";
-            this.sluitenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.sluitenToolStripMenuItem.Text = "Sluiten";
+            this.bestandToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
+            this.bestandToolStripMenuItem.Text = "Programma";
             // 
             // afsluitenToolStripMenuItem
             // 
-            this.afsluitenToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_application_exit_svg;
+            this.afsluitenToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_system_log_out_svg;
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.afsluitenToolStripMenuItem.Text = "Afsluiten";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
@@ -143,46 +120,51 @@ namespace EduLab_Process_Simulator
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(42, 42);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton3,
-            this.toolStripButton1,
-            this.toolStripSeparator1,
-            this.toolStripButton2});
+            this.btnStart,
+            this.btnPauze,
+            this.btnStop,
+            this.btnStartFast});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(804, 49);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton3
+            // btnStart
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnumeric_svg;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(46, 46);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.btnStart.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnStart.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_media_playback_start_svg;
+            this.btnStart.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(46, 46);
+            this.btnStart.Text = "toolStripButton1";
             // 
-            // toolStripButton1
+            // btnPauze
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_x_office_presentation_svg;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(46, 46);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.btnPauze.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnPauze.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_media_playback_pause_svg;
+            this.btnPauze.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPauze.Name = "btnPauze";
+            this.btnPauze.Size = new System.Drawing.Size(46, 46);
+            this.btnPauze.Text = "toolStripButton1";
             // 
-            // toolStripSeparator1
+            // btnStop
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 49);
+            this.btnStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnStop.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_media_playback_stop_svg;
+            this.btnStop.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(46, 46);
+            this.btnStop.Text = "toolStripButton1";
             // 
-            // toolStripButton2
+            // btnStartFast
             // 
-            this.toolStripButton2.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_edit_paste_svg;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(140, 46);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.btnStartFast.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnStartFast.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_media_seek_forward_svg;
+            this.btnStartFast.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnStartFast.Name = "btnStartFast";
+            this.btnStartFast.Size = new System.Drawing.Size(46, 46);
+            this.btnStartFast.Text = "toolStripButton1";
             // 
             // button1
             // 
@@ -193,25 +175,6 @@ namespace EduLab_Process_Simulator
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // chart1
-            // 
-            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(12, 76);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(351, 360);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
             // 
             // btnStartBatch
             // 
@@ -281,7 +244,6 @@ namespace EduLab_Process_Simulator
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.chart1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(820, 500);
@@ -293,7 +255,6 @@ namespace EduLab_Process_Simulator
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,23 +266,20 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripMenuItem bestandToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem openenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sluitenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnStart;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripMenuItem overDezeApplicatieToolStripMenuItem;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Button btnStartBatch;
         private System.Windows.Forms.TextBox txtLevelIndicator;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtLT02;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripButton btnPauze;
+        private System.Windows.Forms.ToolStripButton btnStop;
+        private System.Windows.Forms.ToolStripButton btnStartFast;
     }
 }
 

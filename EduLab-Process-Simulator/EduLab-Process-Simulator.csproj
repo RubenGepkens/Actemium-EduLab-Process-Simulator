@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>noun_Erlenmeyer.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\240px-Gnome-applications-science.svg.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -117,6 +117,25 @@
   <ItemGroup>
     <Content Include="noun_Erlenmeyer.ico" />
     <Content Include="noun_erlenmeyer_mZ8_icon.ico" />
+    <None Include="Resources\Gnome-system-log-out.svg.png" />
+    <None Include="Resources\Gnome-media-playback-start.svg.png" />
+    <None Include="Resources\240px-Gnome-media-playback-pause.svg.png" />
+    <None Include="Resources\Gnome-media-playback-stop.svg.png" />
+    <None Include="Resources\Gnome-media-seek-forward.svg.png" />
+    <None Include="Resources\240px-Gnome-applications-science.svg.ico" />
+    <None Include="Resources\Gnome-process-stop.svg.png" />
+    <None Include="Resources\Gnome-preferences-desktop-personal.svg.png" />
+    <None Include="Resources\Gnome-view-refresh.svg.png" />
+    <None Include="Resources\Gnome-view-sort-descending.svg.png" />
+    <None Include="Resources\240px-Gnome-applications-science.svg.png" />
+    <None Include="Resources\240px-Gnome-applications-other.svg.png" />
+    <None Include="Resources\240px-Gnome-preferences-other.svg.png" />
+    <None Include="Resources\240px-Gnome-emblem-shared.svg.png" />
+    <None Include="Resources\240px-Gnome-window-close.svg.png" />
+    <None Include="Resources\Gnome-settings-ui-behavior.svg.png" />
+    <None Include="Resources\Gnome-view-fullscreen.svg.png" />
+    <None Include="Resources\Gnome-view-restore.svg.png" />
+    <None Include="Resources\240px-Gnome-view-sort-ascending.svg.png" />
     <None Include="Resources\noun_Erlenmeyer.png" />
     <None Include="Resources\noun_Erlenmeyer.ico" />
     <None Include="Resources\240px-Gnome-dialog-question.svg.png" />

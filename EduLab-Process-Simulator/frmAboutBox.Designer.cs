@@ -68,7 +68,7 @@ namespace EduLab_Process_Simulator
             // logoPictureBox
             // 
             this.logoPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.logoPictureBox.Image = global::EduLab_Process_Simulator.Properties.Resources.noun_Erlenmeyer1;
+            this.logoPictureBox.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_applications_science_svg;
             this.logoPictureBox.Location = new System.Drawing.Point(3, 3);
             this.logoPictureBox.Name = "logoPictureBox";
             this.tableLayoutPanel.SetRowSpan(this.logoPictureBox, 6);

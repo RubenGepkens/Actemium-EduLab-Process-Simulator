@@ -83,6 +83,36 @@ namespace EduLab_Process_Simulator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _240px_Gnome_applications_other_svg {
+            get {
+                object obj = ResourceManager.GetObject("_240px_Gnome_applications_other_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _240px_Gnome_applications_science_svg {
+            get {
+                object obj = ResourceManager.GetObject("_240px_Gnome_applications_science_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon _240px_Gnome_applications_science_svg1 {
+            get {
+                object obj = ResourceManager.GetObject("_240px_Gnome_applications_science_svg1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _240px_Gnome_dialog_question_svg {
             get {
                 object obj = ResourceManager.GetObject("_240px_Gnome_dialog_question_svg", resourceCulture);
@@ -113,9 +143,59 @@ namespace EduLab_Process_Simulator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _240px_Gnome_emblem_shared_svg {
+            get {
+                object obj = ResourceManager.GetObject("_240px_Gnome_emblem_shared_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _240px_Gnome_help_faq_svg {
             get {
                 object obj = ResourceManager.GetObject("_240px_Gnome_help_faq_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _240px_Gnome_media_playback_pause_svg {
+            get {
+                object obj = ResourceManager.GetObject("_240px_Gnome_media_playback_pause_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _240px_Gnome_preferences_other_svg {
+            get {
+                object obj = ResourceManager.GetObject("_240px_Gnome_preferences_other_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _240px_Gnome_view_sort_ascending_svg {
+            get {
+                object obj = ResourceManager.GetObject("_240px_Gnome_view_sort_ascending_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _240px_Gnome_window_close_svg {
+            get {
+                object obj = ResourceManager.GetObject("_240px_Gnome_window_close_svg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,6 +253,36 @@ namespace EduLab_Process_Simulator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gnome_media_playback_start_svg {
+            get {
+                object obj = ResourceManager.GetObject("Gnome_media_playback_start_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gnome_media_playback_stop_svg {
+            get {
+                object obj = ResourceManager.GetObject("Gnome_media_playback_stop_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gnome_media_seek_forward_svg {
+            get {
+                object obj = ResourceManager.GetObject("Gnome_media_seek_forward_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gnome_network_idle_svg {
             get {
                 object obj = ResourceManager.GetObject("Gnome_network_idle_svg", resourceCulture);
@@ -203,6 +313,36 @@ namespace EduLab_Process_Simulator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gnome_preferences_desktop_personal_svg {
+            get {
+                object obj = ResourceManager.GetObject("Gnome_preferences_desktop_personal_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gnome_process_stop_svg {
+            get {
+                object obj = ResourceManager.GetObject("Gnome_process_stop_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gnome_settings_ui_behavior_svg {
+            get {
+                object obj = ResourceManager.GetObject("Gnome_settings_ui_behavior_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gnome_system_file_manager_svg {
             get {
                 object obj = ResourceManager.GetObject("Gnome_system_file_manager_svg", resourceCulture);
@@ -213,9 +353,59 @@ namespace EduLab_Process_Simulator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Gnome_system_log_out_svg {
+            get {
+                object obj = ResourceManager.GetObject("Gnome-system-log-out.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gnome_user_trash_full_svg {
             get {
                 object obj = ResourceManager.GetObject("Gnome_user_trash_full_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gnome_view_fullscreen_svg {
+            get {
+                object obj = ResourceManager.GetObject("Gnome_view_fullscreen_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gnome_view_refresh_svg {
+            get {
+                object obj = ResourceManager.GetObject("Gnome_view_refresh_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gnome_view_restore_svg {
+            get {
+                object obj = ResourceManager.GetObject("Gnome_view_restore_svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gnome_view_sort_descending_svg {
+            get {
+                object obj = ResourceManager.GetObject("Gnome_view_sort_descending_svg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
