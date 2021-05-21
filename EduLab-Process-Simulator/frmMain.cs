@@ -24,10 +24,17 @@ using System.Windows.Forms;
 namespace EduLab_Process_Simulator
 {
     public partial class frmMain : Form
-    {      
+    {
+        private List<int> lstSimulationAcceleration = new List<int> { 1, 2, 4, 8, 16 };
+
         public frmMain()
         {
             InitializeComponent();
+        }
+
+        private void frmMain_Shown(object sender, EventArgs e)
+        {
+            cbxSimulationAcceleration.SelectedIndex = 0;
         }
 
         private void overDezeApplicatieToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,7 +45,7 @@ namespace EduLab_Process_Simulator
 
         private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         /// <summary>
@@ -46,7 +53,13 @@ namespace EduLab_Process_Simulator
         /// </summary>
         void simulateProcess()
         {
-            soapProcess zeepProcess = new soapProcess();
+            // Retrieve the simulation acceleration from a list using the combobox as index.
+            int intSimulationAcceleration = lstSimulationAcceleration[cbxSimulationAcceleration.SelectedIndex];
+
+            // Create new soapProces object and set the simulation speed.
+            soapProcess zeepProcess = new soapProcess( intSimulationAcceleration );
+            
+            // Create new thread and using a lambda expression start the simulation.
             Thread thread = new Thread(() => zeepProcess.startBatch(this));
             thread.Start();
         }
@@ -66,30 +79,32 @@ namespace EduLab_Process_Simulator
             });
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            /*
-            SolenoidValve SV51 = new SolenoidValve("SV51");
-            SolenoidValve SV10 = new SolenoidValve("SV10");
-            SolenoidValve SV11 = new SolenoidValve("SV11");
-            
-            
-            SolenoidValve SV51 = new SolenoidValve();
-            SolenoidValve SV10 = new SolenoidValve();
-            SolenoidValve SV11 = new SolenoidValve();
-
-            SV51.strNameTEST = "SV51";
-            SV10.strNameTEST = "SV10";
-            SV11.strNameTEST = "SV11";
-
-            Console.WriteLine(SV51.strNameTEST);
-            Console.WriteLine(SV51.getName() );
-            */
-        }
+        // =========================================================================================================================================================
 
         private void btnStartBatch_Click(object sender, EventArgs e)
         {
             simulateProcess();
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            simulateProcess();
+        }
+
+        private void btnPauze_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Acceleration: {0}", lstSimulationAcceleration[cbxSimulationAcceleration.SelectedIndex] );
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnStartFast_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

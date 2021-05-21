@@ -42,25 +42,30 @@ namespace EduLab_Process_Simulator
             this.btnPauze = new System.Windows.Forms.ToolStripButton();
             this.btnStop = new System.Windows.Forms.ToolStripButton();
             this.btnStartFast = new System.Windows.Forms.ToolStripButton();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnStartBatch = new System.Windows.Forms.Button();
             this.txtLevelIndicator = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtLT02 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.cbxSimulationAcceleration = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 439);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 715);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(804, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1184, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -77,7 +82,7 @@ namespace EduLab_Process_Simulator
             this.infoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(804, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -123,21 +128,25 @@ namespace EduLab_Process_Simulator
             this.btnStart,
             this.btnPauze,
             this.btnStop,
-            this.btnStartFast});
+            this.btnStartFast,
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.cbxSimulationAcceleration,
+            this.toolStripSeparator2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(804, 49);
+            this.toolStrip1.Size = new System.Drawing.Size(1184, 49);
             this.toolStrip1.TabIndex = 3;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // btnStart
             // 
-            this.btnStart.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.btnStart.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_media_playback_start_svg;
             this.btnStart.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(46, 46);
-            this.btnStart.Text = "toolStripButton1";
+            this.btnStart.Size = new System.Drawing.Size(110, 46);
+            this.btnStart.Text = "Start batch";
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnPauze
             // 
@@ -147,6 +156,7 @@ namespace EduLab_Process_Simulator
             this.btnPauze.Name = "btnPauze";
             this.btnPauze.Size = new System.Drawing.Size(46, 46);
             this.btnPauze.Text = "toolStripButton1";
+            this.btnPauze.Click += new System.EventHandler(this.btnPauze_Click);
             // 
             // btnStop
             // 
@@ -156,6 +166,7 @@ namespace EduLab_Process_Simulator
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(46, 46);
             this.btnStop.Text = "toolStripButton1";
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnStartFast
             // 
@@ -165,20 +176,11 @@ namespace EduLab_Process_Simulator
             this.btnStartFast.Name = "btnStartFast";
             this.btnStartFast.Size = new System.Drawing.Size(46, 46);
             this.btnStartFast.Text = "toolStripButton1";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(369, 76);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnStartFast.Click += new System.EventHandler(this.btnStartFast_Click);
             // 
             // btnStartBatch
             // 
-            this.btnStartBatch.Location = new System.Drawing.Point(493, 272);
+            this.btnStartBatch.Location = new System.Drawing.Point(836, 368);
             this.btnStartBatch.Name = "btnStartBatch";
             this.btnStartBatch.Size = new System.Drawing.Size(75, 23);
             this.btnStartBatch.TabIndex = 6;
@@ -188,7 +190,7 @@ namespace EduLab_Process_Simulator
             // 
             // txtLevelIndicator
             // 
-            this.txtLevelIndicator.Location = new System.Drawing.Point(493, 220);
+            this.txtLevelIndicator.Location = new System.Drawing.Point(836, 290);
             this.txtLevelIndicator.Name = "txtLevelIndicator";
             this.txtLevelIndicator.ReadOnly = true;
             this.txtLevelIndicator.Size = new System.Drawing.Size(150, 20);
@@ -197,7 +199,7 @@ namespace EduLab_Process_Simulator
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(418, 223);
+            this.label1.Location = new System.Drawing.Point(761, 293);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 13);
             this.label1.TabIndex = 8;
@@ -206,7 +208,7 @@ namespace EduLab_Process_Simulator
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(452, 249);
+            this.label2.Location = new System.Drawing.Point(795, 319);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 9;
@@ -214,7 +216,7 @@ namespace EduLab_Process_Simulator
             // 
             // txtLT02
             // 
-            this.txtLT02.Location = new System.Drawing.Point(493, 246);
+            this.txtLT02.Location = new System.Drawing.Point(836, 316);
             this.txtLT02.Name = "txtLT02";
             this.txtLT02.ReadOnly = true;
             this.txtLT02.Size = new System.Drawing.Size(75, 20);
@@ -223,38 +225,79 @@ namespace EduLab_Process_Simulator
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(574, 249);
+            this.label3.Location = new System.Drawing.Point(917, 319);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(19, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "[L]";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 76);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1160, 636);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 49);
+            // 
+            // cbxSimulationAcceleration
+            // 
+            this.cbxSimulationAcceleration.BackColor = System.Drawing.SystemColors.Control;
+            this.cbxSimulationAcceleration.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSimulationAcceleration.Items.AddRange(new object[] {
+            "1x",
+            "2x",
+            "4x",
+            "8x",
+            "16x"});
+            this.cbxSimulationAcceleration.Name = "cbxSimulationAcceleration";
+            this.cbxSimulationAcceleration.Size = new System.Drawing.Size(75, 49);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(118, 46);
+            this.toolStripLabel1.Text = "Versnelling simulatie:";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 49);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 461);
+            this.ClientSize = new System.Drawing.Size(1184, 737);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtLT02);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLevelIndicator);
             this.Controls.Add(this.btnStartBatch);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(820, 500);
+            this.MinimumSize = new System.Drawing.Size(1200, 730);
             this.Name = "frmMain";
             this.Text = "EduLab Process Simulator";
+            this.Shown += new System.EventHandler(this.frmMain_Shown);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,7 +313,6 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel lblStatus;
         private System.Windows.Forms.ToolStripMenuItem overDezeApplicatieToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnStartBatch;
         private System.Windows.Forms.TextBox txtLevelIndicator;
         private System.Windows.Forms.Label label1;
@@ -280,6 +322,11 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.ToolStripButton btnPauze;
         private System.Windows.Forms.ToolStripButton btnStop;
         private System.Windows.Forms.ToolStripButton btnStartFast;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripComboBox cbxSimulationAcceleration;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

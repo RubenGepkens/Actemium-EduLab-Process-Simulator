@@ -22,7 +22,7 @@ namespace EduLab_Process_Simulator
     /// Sequencer for the production of a batch of soap.
     /// </summary>
     public class soapProcess : batchControl
-    {
+    {        
         private BATCH_STATE batchState = BATCH_STATE.None;
         private BATCH_TRANSITION batchTransition = BATCH_TRANSITION.BUSY;
 
@@ -31,11 +31,52 @@ namespace EduLab_Process_Simulator
 
         public SolenoidValve SV20 = new SolenoidValve();
 
+        // frmMain object, used for the invoke delegate to update the UI elements.
         private frmMain frmMain;
 
+        // Simulation objects
+        private ControlValve CV02;
+        private ControlValve CV04;
+
+        private SolenoidValve SV01;
+        private SolenoidValve SV05B;
+        private SolenoidValve SV10;
+        private SolenoidValve SV11;
+        private SolenoidValve SV40;        
+        private SolenoidValve SV50;
+        private SolenoidValve SV51;      
+
+
+        // Simulation speed related variables.
+        private int intThreadTime = 1000;
+        private readonly int intDefaultThreadTime = 1000;
+
+        /// <summary>
+        /// Create a simulation object using default parameters.
+        /// </summary>
         public soapProcess()
         {
-            
+            // Since an empty constructor was used to create a simulation object, use default parameters.
+            intThreadTime = intDefaultThreadTime;
+        }
+
+        /// <summary>
+        /// Allow the simulation acceleration to be set using this constructor.
+        /// </summary>
+        /// <param name="simulationAcceleration"></param>
+        public soapProcess(int simulationAcceleration)
+        {
+            if ( simulationAcceleration < 1 || simulationAcceleration > 16)
+            {
+                // If the requested simulation speed is out of bounds, set the default threadtime.
+                intThreadTime = intDefaultThreadTime;
+            } else
+            {
+                // Calculate the threadtime for the requested acceleration speed.
+                float fltTemp = 1000 / simulationAcceleration;
+                intThreadTime = (int)Math.Round(fltTemp, 0);
+                Console.WriteLine("Simulation acceleration {0}x with cycle time {1} ms", simulationAcceleration, intThreadTime);
+            }
         }
 
         /// <summary>
@@ -50,7 +91,7 @@ namespace EduLab_Process_Simulator
                 updateBatchStatus();
                 updateUI();
                 Console.WriteLine("{0}\t {1}\t {2}\t {3}\t", batchState, batchTransition, fltPLACEHOLDER_LT02, blnPLACEHOLDER_CV02);
-                System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(intThreadTime);
             }
         }
 
@@ -100,6 +141,9 @@ namespace EduLab_Process_Simulator
             }            
         }
 
+        /// <summary>
+        /// Updates the frmMain with the actual simulation values.
+        /// </summary>
         public void updateUI()
         {
             frmMain.updateTextBox( batchState.ToString(),
