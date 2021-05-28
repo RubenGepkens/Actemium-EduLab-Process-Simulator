@@ -71,6 +71,8 @@ namespace EduLab_Process_Simulator
             this.txtSV01 = new System.Windows.Forms.TextBox();
             this.txtCV03 = new System.Windows.Forms.TextBox();
             this.txtSV22 = new System.Windows.Forms.TextBox();
+            this.txtKE01 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -468,11 +470,31 @@ namespace EduLab_Process_Simulator
             this.txtSV22.TabIndex = 31;
             this.txtSV22.Text = "-";
             // 
+            // txtKE01
+            // 
+            this.txtKE01.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.txtKE01.Location = new System.Drawing.Point(860, 313);
+            this.txtKE01.Name = "txtKE01";
+            this.txtKE01.ReadOnly = true;
+            this.txtKE01.Size = new System.Drawing.Size(40, 20);
+            this.txtKE01.TabIndex = 32;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(906, 316);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "[L]";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 691);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtKE01);
             this.Controls.Add(this.txtSV22);
             this.Controls.Add(this.txtCV03);
             this.Controls.Add(this.txtSV01);
@@ -560,6 +582,8 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.TextBox txtSV01;
         private System.Windows.Forms.TextBox txtCV03;
         private System.Windows.Forms.TextBox txtSV22;
+        private System.Windows.Forms.TextBox txtKE01;
+        private System.Windows.Forms.Label label1;
     }
 }
 
