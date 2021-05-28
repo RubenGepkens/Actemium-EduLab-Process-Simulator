@@ -85,13 +85,13 @@ namespace EduLab_Process_Simulator
         {
             float fltResult = fltTankVolume - fltEmptyRate;
 
-            if (fltResult < 0)
+            if (fltResult > 0)
             {
-                fltTankVolume = 0;
+                fltTankVolume = fltResult;
             }
             else
             {
-                fltTankVolume = fltTankCapacity;
+                fltTankVolume = 0;
             }
         }
 
@@ -111,6 +111,37 @@ namespace EduLab_Process_Simulator
         public float GetTemperature()
         {
             return fltTemperature;
+        }
+
+        /// <summary>
+        /// Returns the tank status
+        /// </summary>
+        /// <returns>True if tank is full</returns>
+        public bool IsFull()
+        {
+            if (fltTankVolume == fltTankCapacity)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Returns the tank status
+        /// </summary>
+        /// <returns>True if tank is empty.</returns>
+        public bool IsEmpty()
+        {
+            if (fltTankVolume == 0)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
     }
 }
