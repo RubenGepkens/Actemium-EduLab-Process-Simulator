@@ -26,17 +26,23 @@ namespace EduLab_Process_Simulator
         private BATCH_STATE batchState = BATCH_STATE.None;
         private BATCH_TRANSITION batchTransition = BATCH_TRANSITION.BUSY;
 
-        public float fltPLACEHOLDER_LT02 = 0.0F;
-        public bool blnPLACEHOLDER_CV02 = false;
+        //public float fltPLACEHOLDER_LT02 = 0.0F;
+        //public bool blnPLACEHOLDER_CV02 = false;
      
         // frmMain object, used for the invoke delegate to update the UI elements.
         private frmMain frmMain;
 
+        // Simulation speed related variables.
+        private int intThreadTime = 1000;
+        private readonly int intDefaultThreadTime = 1000;
+
+        #region Simulation objects
         // Simulation objects
         private Tank TA01;
         private Tank TA02;
         private Tank TA03;
         private Tank TA04;
+        private Tank KE01;
 
         private ControlValve CV02;
         private ControlValve CV03;
@@ -55,19 +61,20 @@ namespace EduLab_Process_Simulator
         private SolenoidValve SV50;
         private SolenoidValve SV51;
 
-        //private Leveltransmitter LT02 = new Leveltransmitter("LT02", Itank: TA02);
-        private Leveltransmitter LT02;
 
+        private Leveltransmitter LT02;
         private Leveltransmitter LT03;
         private Leveltransmitter LT04;
 
         private PressureTransmitter PT02;
-        
 
-        // Simulation speed related variables.
-        private int intThreadTime = 1000;
-        private readonly int intDefaultThreadTime = 1000;
+        private Pump PO01;
+        private Pump PO02;
+        private Pump PO03;
+        private Pump PO04;
+        #endregion
 
+        #region Constructors
         /// <summary>
         /// Create a simulation object using default parameters.
         /// </summary>
@@ -100,13 +107,17 @@ namespace EduLab_Process_Simulator
             initialize();
         }
 
+        /// <summary>
+        /// Sets up this class for simulation.
+        /// Defines the simulation objects.
+        /// </summary>
         void initialize()
         {
-            // Simulation objects
             TA01 = new Tank("TA01", 1250, 1250, 10, 10);
             TA02 = new Tank("TA02", 50, 0, 10.23F, 3.34F);
             TA03 = new Tank("TA03", 125, 0, 6.23F, 3.34F);
             TA04 = new Tank("TA04", 50, 0, 2.23F, 3.34F);
+            KE01 = new Tank("KE01", 225, 0, 5F, 5F);
 
             CV02 = new ControlValve("CV02");
             CV03 = new ControlValve("CV03");
@@ -125,13 +136,16 @@ namespace EduLab_Process_Simulator
             SV50 = new SolenoidValve("SB50");
             SV51 = new SolenoidValve("SV51");
 
-            //private Leveltransmitter LT02 = new Leveltransmitter("LT02", Itank: TA02);
             LT02 = new Leveltransmitter("LT02", TA02);
             LT03 = new Leveltransmitter("LT03", TA03);
             LT04 = new Leveltransmitter("LT04", TA04);
 
-            //PT02 = new PressureTransmitter("PT02", );
+            PO01 = new Pump("PO01");
+            PO02 = new Pump("PO02");
+            PO03 = new Pump("PO03");
+            PO04 = new Pump("PO04");
         }
+        #endregion
 
         /// <summary>
         /// Starts the sequence of producing a batch of soap.
@@ -204,6 +218,7 @@ namespace EduLab_Process_Simulator
                                    LT02.GetLevel().ToString(),
                                    LT03.GetLevel().ToString(),
                                    LT04.GetLevel().ToString(),
+                                   KE01.GetVolume().ToString(),
 
                                    CV02.GetStatus().ToString(),
                                    CV03.GetStatus().ToString(),
@@ -284,17 +299,17 @@ namespace EduLab_Process_Simulator
         {
             // LT04 >= 50 L
 
-            if ( SV40.IsClosed() )
+            if (SV40.IsClosed())
             {
                 SV40.OpenValve();
             }
 
-            if ( SV40.IsOpen())
+            if (SV40.IsOpen())
             {
                 TA04.FillTank();
             }
 
-            if ( LT04.GetLevel() >= 50)
+            if (LT04.GetLevel() >= 50)
             {
                 SV40.CloseValve();
                 return BATCH_TRANSITION.COMPLETE;
@@ -306,7 +321,122 @@ namespace EduLab_Process_Simulator
 
         public BATCH_TRANSITION ALG_FILL_KE01()
         {
-            return BATCH_TRANSITION.COMPLETE;
+            // Empty TA02
+            if (TA02.IsEmpty() == false) // Is *not empty* means tanks still contains liquid!
+            {
+                if (SV21.IsClosed())
+                {
+                    SV21.OpenValve();
+                }
+
+                if (SV22.IsClosed())
+                {
+                    SV22.OpenValve();
+                }
+
+                if (SV21.IsOpen() && SV22.IsOpen())
+                {
+                    KE01.fltFillRate = TA02.fltEmptyRate;
+
+                    TA02.EmptyTank();
+                    KE01.FillTank();
+                }
+            }
+
+            // Emptying of TA02 finished, close the valves.
+            if (TA02.IsEmpty())
+            {
+                if (SV21.IsOpen())
+                {
+                    SV21.CloseValve();
+                }
+
+                if (SV22.IsOpen())
+                {
+                    SV22.CloseValve();
+                }
+            }
+
+            // Empty TA03
+            if (TA02.IsEmpty() && TA03.IsEmpty() == false)
+            {
+                if (CV03.IsClosed())
+                {
+                    CV03.CommandValve(100);
+                }
+
+                if (SV31.IsClosed())
+                {
+                    SV31.OpenValve();
+                }
+
+                if (PO03.IsStopped())
+                {
+                    PO03.Start();
+                }
+
+                if (CV03.IsOpen() && SV31.IsOpen() && PO03.IsRunning())
+                {
+                    KE01.fltFillRate = TA03.fltEmptyRate;
+
+                    TA03.EmptyTank();
+                    KE01.FillTank();
+                }
+            }
+
+            // Emptying of TA03 finished, close the valves.
+            if (TA03.IsEmpty())
+            {
+                if (CV03.IsOpen())
+                {
+                    CV03.CloseValve();
+                }
+
+                if (SV31.IsOpen())
+                {
+                    SV31.CloseValve();
+                }
+
+                if (PO03.IsRunning())
+                {
+                    PO03.Stop();
+                }
+            }
+
+            // Empty TA04
+            if (TA02.IsEmpty() && TA03.IsEmpty() && TA04.IsEmpty() == false)
+            {
+                if (SV41.IsClosed())
+                {
+                    SV41.OpenValve();
+                }
+
+                if (SV41.IsOpen())
+                {
+                    KE01.fltFillRate = TA04.fltEmptyRate;
+
+                    TA04.EmptyTank();
+                    KE01.FillTank();
+                }
+            }
+
+            // Emptying of TA04 finished, close the valves.
+            if (TA04.IsEmpty())
+            {
+                if (SV41.IsOpen())
+                {
+                    SV41.CloseValve();
+                }
+            }
+
+            // Check if the ALG_FILL_KE01() operation is complete.
+            if (TA04.IsEmpty() && TA03.IsEmpty() && TA04.IsEmpty())
+            {
+                return BATCH_TRANSITION.COMPLETE;
+            } else
+            {
+                return BATCH_TRANSITION.BUSY;
+            }            
         }
 
         public BATCH_TRANSITION ALG_ACCEPT_LIQUID_KE01()
