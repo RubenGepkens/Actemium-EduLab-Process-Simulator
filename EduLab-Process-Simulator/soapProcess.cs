@@ -22,13 +22,10 @@ namespace EduLab_Process_Simulator
     /// Sequencer for the production of a batch of soap.
     /// </summary>
     public class soapProcess : batchControl
-    {        
+    {
         private BATCH_STATE batchState = BATCH_STATE.None;
         private BATCH_TRANSITION batchTransition = BATCH_TRANSITION.BUSY;
 
-        //public float fltPLACEHOLDER_LT02 = 0.0F;
-        //public bool blnPLACEHOLDER_CV02 = false;
-     
         // frmMain object, used for the invoke delegate to update the UI elements.
         private frmMain frmMain;
 
@@ -74,7 +71,7 @@ namespace EduLab_Process_Simulator
         private Pump PO04;
         #endregion
 
-        #region Constructors
+        #region Constructors and initializer.
         /// <summary>
         /// Create a simulation object using default parameters.
         /// </summary>
@@ -93,11 +90,12 @@ namespace EduLab_Process_Simulator
         /// <param name="simulationAcceleration"></param>
         public soapProcess(int simulationAcceleration)
         {
-            if ( simulationAcceleration < 1 || simulationAcceleration > 16)
+            if (simulationAcceleration < 1 || simulationAcceleration > 16)
             {
                 // If the requested simulation speed is out of bounds, set the default threadtime.
                 intThreadTime = intDefaultThreadTime;
-            } else
+            }
+            else
             {
                 // Calculate the threadtime for the requested acceleration speed.
                 float fltTemp = 1000 / simulationAcceleration;
@@ -147,6 +145,7 @@ namespace EduLab_Process_Simulator
         }
         #endregion
 
+        #region General simulation functions
         /// <summary>
         /// Starts the sequence of producing a batch of soap.
         /// </summary>
@@ -206,7 +205,7 @@ namespace EduLab_Process_Simulator
                     break;
                 default:
                     break;
-            }            
+            }
         }
 
         /// <summary>
@@ -236,9 +235,15 @@ namespace EduLab_Process_Simulator
                                    SV41.IsOpen().ToString(),
                                    SV50.IsOpen().ToString(),
                                    SV51.IsOpen().ToString()
-            ) ;
+            );
         }
+        #endregion
 
+        #region Soap Process (BATCH_TRANSITIONs)
+        /* This region contains the actual soap proces batch definition.
+         * The proces programmed below is the FactoryTalk Batch programme translated to C# code.
+         * The simulated proces below may not represent the actual batch process and it may require some polishing.
+         */
         public BATCH_TRANSITION ALG_DOSEER_TA02()
         {
             // LT02 >= 50 L
@@ -250,13 +255,13 @@ namespace EduLab_Process_Simulator
             }
 
             // If CV is opened, simulate inflow of fluid.
-            if ( CV02.IsOpen())
+            if (CV02.IsOpen())
             {
                 TA02.FillTank();
-            }       
+            }
 
             // Operation is complete when tank is filled.
-            if ( TA02.GetVolume() >= 50F)
+            if (TA02.GetVolume() >= 50F)
             {
                 CV02.CloseValve();
                 return BATCH_TRANSITION.COMPLETE;
@@ -313,10 +318,11 @@ namespace EduLab_Process_Simulator
             {
                 SV40.CloseValve();
                 return BATCH_TRANSITION.COMPLETE;
-            } else
+            }
+            else
             {
                 return BATCH_TRANSITION.BUSY;
-            }            
+            }
         }
 
         public BATCH_TRANSITION ALG_FILL_KE01()
@@ -433,10 +439,11 @@ namespace EduLab_Process_Simulator
             if (TA04.IsEmpty() && TA03.IsEmpty() && TA04.IsEmpty())
             {
                 return BATCH_TRANSITION.COMPLETE;
-            } else
+            }
+            else
             {
                 return BATCH_TRANSITION.BUSY;
-            }            
+            }
         }
 
         public BATCH_TRANSITION ALG_ACCEPT_LIQUID_KE01()
@@ -453,5 +460,6 @@ namespace EduLab_Process_Simulator
         {
             return BATCH_TRANSITION.COMPLETE;
         }
+        #endregion
     }
 }
