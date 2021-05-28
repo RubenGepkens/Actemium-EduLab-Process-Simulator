@@ -32,6 +32,10 @@ namespace EduLab_Process_Simulator
         // Simulation speed related variables.
         private int intThreadTime = 1000;
         private readonly int intDefaultThreadTime = 1000;
+        private int intSimulationCycle = 0;
+        
+        // Used for time based functions.
+        private int intSimulationCounter = 0;
 
         #region Simulation objects
         // Simulation objects
@@ -69,6 +73,7 @@ namespace EduLab_Process_Simulator
         private Pump PO02;
         private Pump PO03;
         private Pump PO04;
+        private Pump PO05;
         #endregion
 
         #region Constructors and initializer.
@@ -142,6 +147,7 @@ namespace EduLab_Process_Simulator
             PO02 = new Pump("PO02");
             PO03 = new Pump("PO03");
             PO04 = new Pump("PO04");
+            PO05 = new Pump("PO05");
         }
         #endregion
 
@@ -155,9 +161,12 @@ namespace EduLab_Process_Simulator
 
             while (batchState != BATCH_STATE.Done)
             {
+                intSimulationCycle++;
                 updateBatchStatus();
                 updateUI();
-                Console.WriteLine("{0}\t {1}\t {2}\t {3}\t", batchState, batchTransition, TA02.GetVolume().ToString(), CV02.GetStatus().ToString());
+                
+                Console.WriteLine("Cycle: {0}\tState: {1}",intSimulationCycle, batchState);
+
                 System.Threading.Thread.Sleep(intThreadTime);
             }
         }
@@ -198,6 +207,7 @@ namespace EduLab_Process_Simulator
                     batchState = statusALG_MIX_KE01(batchTransition);
                     break;
                 case BATCH_STATE.ALG_EMPTY_KE01:
+                    batchTransition = ALG_EMPTY_KE01();
                     batchState = statusALG_EMPTY_KE01(batchTransition);
                     break;
                 case BATCH_STATE.Done:
@@ -219,10 +229,11 @@ namespace EduLab_Process_Simulator
                                    LT04.GetLevel().ToString(),
                                    KE01.GetVolume().ToString(),
 
-                                   CV02.GetStatus().ToString(),
-                                   CV03.GetStatus().ToString(),
-                                   CV04.GetStatus().ToString(),
+                                   CV02,
+                                   CV03,
+                                   CV04,
 
+                                   /*
                                    SV01.IsOpen().ToString(),
                                    SV05A.IsOpen().ToString(),
                                    SV05B.IsOpen().ToString(),
@@ -234,7 +245,27 @@ namespace EduLab_Process_Simulator
                                    SV40.IsOpen().ToString(),
                                    SV41.IsOpen().ToString(),
                                    SV50.IsOpen().ToString(),
-                                   SV51.IsOpen().ToString()
+                                   SV51.IsOpen().ToString(),
+                                   */
+
+                                   SV01,
+                                   SV05A,
+                                   SV05B,
+                                   SV10,
+                                   SV12,
+                                   SV21,
+                                   SV22,
+                                   SV31,
+                                   SV40,
+                                   SV41,
+                                   SV50,
+                                   SV51,
+
+                                   PO01,
+                                   PO02,
+                                   PO03,
+                                   PO04,
+                                   PO05
             );
         }
         #endregion
@@ -453,12 +484,69 @@ namespace EduLab_Process_Simulator
 
         public BATCH_TRANSITION ALG_MIX_KE01()
         {
-            return BATCH_TRANSITION.COMPLETE;
+            // Mix for 30 seconds.
+
+            if (intSimulationCounter <= 30)
+            {
+                intSimulationCounter++;
+                return BATCH_TRANSITION.BUSY;
+            } else
+            {
+                intSimulationCounter = 0;
+                return BATCH_TRANSITION.COMPLETE;
+            }           
         }
 
         public BATCH_TRANSITION ALG_EMPTY_KE01()
         {
-            return BATCH_TRANSITION.COMPLETE;
+            if (KE01.IsEmpty() == false)
+            {
+                if (SV51.IsClosed())
+                {
+                    SV51.OpenValve();
+                }
+
+                if (SV10.IsClosed())
+                {
+                    SV10.OpenValve();
+                }
+
+                if (PO04.IsStopped())
+                {
+                    PO04.Start();
+                }
+
+                if (SV51.IsOpen() && SV10.IsOpen() && PO04.IsRunning())
+                {
+                    TA01.fltFillRate = KE01.fltEmptyRate;
+
+                    KE01.EmptyTank();
+                    TA01.FillTank();
+                }
+            }
+
+            if (KE01.IsEmpty())
+            {
+                if (SV51.IsOpen())
+                {
+                    SV51.CloseValve();
+                }
+
+                if (SV10.IsOpen())
+                {
+                    SV10.CloseValve();
+                }
+
+                if (PO04.IsRunning())
+                {
+                    PO04.Stop();
+                }
+
+                return BATCH_TRANSITION.COMPLETE;
+            } else
+            {
+                return BATCH_TRANSITION.BUSY;
+            }
         }
         #endregion
     }

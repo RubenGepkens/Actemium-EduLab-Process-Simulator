@@ -82,23 +82,29 @@ namespace EduLab_Process_Simulator
                                     string strLT03,
                                     string strLT04,
                                     string strKE01,
+                                    
+                                    ControlValve CV02,
+                                    ControlValve CV03,
+                                    ControlValve CV04,
 
-                                    string strCV02,
-                                    string strCV03,
-                                    string strCV04,
+                                    SolenoidValve SV01,
+                                    SolenoidValve SV05A,
+                                    SolenoidValve SV05B,
+                                    SolenoidValve SV10,
+                                    SolenoidValve SV12,
+                                    SolenoidValve SV21,
+                                    SolenoidValve SV22,
+                                    SolenoidValve SV31,
+                                    SolenoidValve SV40,
+                                    SolenoidValve SV41,
+                                    SolenoidValve SV50,
+                                    SolenoidValve SV51,
 
-                                    string strSV01,
-                                    string strSV05A,
-                                    string strSV05B,
-                                    string strSV10,
-                                    string strSV12,
-                                    string strSV21,
-                                    string strSV22,
-                                    string strSV31,                                    
-                                    string strSV40,
-                                    string strSV41,
-                                    string strSV50,
-                                    string strSV51
+                                    Pump PO01,
+                                    Pump PO02,
+                                    Pump PO03,
+                                    Pump PO04,
+                                    Pump PO05
             )
         {
             Invoke((MethodInvoker)delegate
@@ -113,9 +119,16 @@ namespace EduLab_Process_Simulator
                 //txtCV03.Text = strCV03;
                 //txtCV04.Text = strCV04;
 
+                /*
                 UpdateValveStatus(txtCV02, strCV02);
                 UpdateValveStatus(txtCV03, strCV03);
                 UpdateValveStatus(txtCV04, strCV04);
+                */
+
+                UpdateControlValveStatus(txtCV02, CV02);
+                UpdateControlValveStatus(txtCV03, CV03);
+                UpdateControlValveStatus(txtCV04, CV04);
+
 
                 //txtSV01.Text = strSV01;
                 //txtSV05A.Text = strSV05A;
@@ -130,6 +143,7 @@ namespace EduLab_Process_Simulator
                 //txtSV50.Text = strSV50;
                 //txtSV51.Text = strSV51;
 
+                /*
                 UpdateValveStatus(txtSV01, strSV01);
                 UpdateValveStatus(txtSV05A, strSV05A);
                 UpdateValveStatus(txtSV05B, strSV05B);
@@ -142,35 +156,79 @@ namespace EduLab_Process_Simulator
                 UpdateValveStatus(txtSV41, strSV41);
                 UpdateValveStatus(txtSV50, strSV50);
                 UpdateValveStatus(txtSV51, strSV51);
+                */
+
+                UpdateValveStatus(txtSV01, SV01);
+                UpdateValveStatus(txtSV05A, SV05A);
+                UpdateValveStatus(txtSV05B, SV05B);
+                UpdateValveStatus(txtSV10, SV10);
+                UpdateValveStatus(txtSV12, SV12);
+                UpdateValveStatus(txtSV21, SV21);
+                UpdateValveStatus(txtSV22, SV22);
+                UpdateValveStatus(txtSV31, SV31);
+                UpdateValveStatus(txtSV40, SV40);
+                UpdateValveStatus(txtSV41, SV41);
+                UpdateValveStatus(txtSV50, SV50);
+                UpdateValveStatus(txtSV51, SV51);
+
+                UpdatePumpStatus(txtPO01, PO01);
+                UpdatePumpStatus(txtPO02, PO02);
+                UpdatePumpStatus(txtPO03, PO03);
+                UpdatePumpStatus(txtPO04, PO04);
+                UpdatePumpStatus(txtPO05, PO05);
 
             });
         }
 
-        private void UpdateValveStatus(TextBox textBox, string status)
+        private void UpdateControlValveStatus(TextBox textBox, ControlValve controlValve)
+        {
+            // Default background color is "Info".
+            Color colorOpen         = Color.LightGreen;
+            Color colorClosed       = SystemColors.Info;
+
+            if (controlValve.IsOpen())
+            {
+                textBox.Text = controlValve.GetStatus().ToString() + "%";
+                textBox.BackColor = colorOpen;
+            }
+            else if (controlValve.IsClosed())
+            {
+                textBox.Text = controlValve.GetStatus().ToString() + "%";
+                textBox.BackColor = colorClosed;
+            }
+        }
+
+        private void UpdateValveStatus(TextBox textBox, SolenoidValve solenoidValve)
         {
             // Default background color is "Info".
             Color colorOpen             = Color.LightGreen;
             Color colorClosed           = SystemColors.Info;
 
-            if (status == "True")
+            if (solenoidValve.IsOpen())
             {
                 textBox.Text = "Open";
                 textBox.BackColor = colorOpen;
 
-            } else if (status == "False")
+            } else if (solenoidValve.IsClosed())
             {
                 textBox.Text = "Closed";
                 textBox.BackColor = colorClosed;
             }
+        }
 
-            if (status == "100")
+        private void UpdatePumpStatus(TextBox textbox, Pump pump)
+        {
+            Color colorRunning = Color.LightGreen;
+            Color colorStopped = Color.Yellow;
+
+            if (pump.IsRunning())
             {
-                textBox.Text = status + "%";
-                textBox.BackColor = colorOpen;
-            } else if (status == "0")
+                textbox.Text = "Running";
+                textbox.BackColor = colorRunning;
+            } else
             {
-                textBox.Text = status + "%";
-                textBox.BackColor = colorClosed;
+                textbox.Text = "Stopped";
+                textbox.BackColor = colorStopped;
             }
         }
 
