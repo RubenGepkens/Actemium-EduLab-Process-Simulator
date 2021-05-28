@@ -115,61 +115,22 @@ namespace EduLab_Process_Simulator
                 txtLT04.Text = strLT04;
                 txtKE01.Text = strKE01;
 
-                //txtCV02.Text = strCV02;
-                //txtCV03.Text = strCV03;
-                //txtCV04.Text = strCV04;
-
-                /*
-                UpdateValveStatus(txtCV02, strCV02);
-                UpdateValveStatus(txtCV03, strCV03);
-                UpdateValveStatus(txtCV04, strCV04);
-                */
-
                 UpdateControlValveStatus(txtCV02, CV02);
                 UpdateControlValveStatus(txtCV03, CV03);
                 UpdateControlValveStatus(txtCV04, CV04);
 
-
-                //txtSV01.Text = strSV01;
-                //txtSV05A.Text = strSV05A;
-                //txtSV05B.Text = strSV05B;
-                //txtSV10.Text = strSV10;                
-                //txtSV12.Text = strSV12;
-                //txtSV21.Text = strSV21;
-                //txtSV22.Text = strSV22;
-                //txtSV31.Text = strSV31;                
-                //txtSV40.Text = strSV40;
-                //txtSV41.Text = strSV41;
-                //txtSV50.Text = strSV50;
-                //txtSV51.Text = strSV51;
-
-                /*
-                UpdateValveStatus(txtSV01, strSV01);
-                UpdateValveStatus(txtSV05A, strSV05A);
-                UpdateValveStatus(txtSV05B, strSV05B);
-                UpdateValveStatus(txtSV10, strSV10);
-                UpdateValveStatus(txtSV12, strSV12);
-                UpdateValveStatus(txtSV21, strSV21);
-                UpdateValveStatus(txtSV22, strSV22);
-                UpdateValveStatus(txtSV31, strSV31);
-                UpdateValveStatus(txtSV40, strSV40);
-                UpdateValveStatus(txtSV41, strSV41);
-                UpdateValveStatus(txtSV50, strSV50);
-                UpdateValveStatus(txtSV51, strSV51);
-                */
-
-                UpdateValveStatus(txtSV01, SV01);
-                UpdateValveStatus(txtSV05A, SV05A);
-                UpdateValveStatus(txtSV05B, SV05B);
-                UpdateValveStatus(txtSV10, SV10);
-                UpdateValveStatus(txtSV12, SV12);
-                UpdateValveStatus(txtSV21, SV21);
-                UpdateValveStatus(txtSV22, SV22);
-                UpdateValveStatus(txtSV31, SV31);
-                UpdateValveStatus(txtSV40, SV40);
-                UpdateValveStatus(txtSV41, SV41);
-                UpdateValveStatus(txtSV50, SV50);
-                UpdateValveStatus(txtSV51, SV51);
+                UpdateSolenoidValveStatus(txtSV01, SV01);
+                UpdateSolenoidValveStatus(txtSV05A, SV05A);
+                UpdateSolenoidValveStatus(txtSV05B, SV05B);
+                UpdateSolenoidValveStatus(txtSV10, SV10);
+                UpdateSolenoidValveStatus(txtSV12, SV12);
+                UpdateSolenoidValveStatus(txtSV21, SV21);
+                UpdateSolenoidValveStatus(txtSV22, SV22);
+                UpdateSolenoidValveStatus(txtSV31, SV31);
+                UpdateSolenoidValveStatus(txtSV40, SV40);
+                UpdateSolenoidValveStatus(txtSV41, SV41);
+                UpdateSolenoidValveStatus(txtSV50, SV50);
+                UpdateSolenoidValveStatus(txtSV51, SV51);
 
                 UpdatePumpStatus(txtPO01, PO01);
                 UpdatePumpStatus(txtPO02, PO02);
@@ -198,7 +159,7 @@ namespace EduLab_Process_Simulator
             }
         }
 
-        private void UpdateValveStatus(TextBox textBox, SolenoidValve solenoidValve)
+        private void UpdateSolenoidValveStatus(TextBox textBox, SolenoidValve solenoidValve)
         {
             // Default background color is "Info".
             Color colorOpen             = Color.LightGreen;

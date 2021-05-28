@@ -233,21 +233,6 @@ namespace EduLab_Process_Simulator
                                    CV03,
                                    CV04,
 
-                                   /*
-                                   SV01.IsOpen().ToString(),
-                                   SV05A.IsOpen().ToString(),
-                                   SV05B.IsOpen().ToString(),
-                                   SV10.IsOpen().ToString(),
-                                   SV12.IsOpen().ToString(),
-                                   SV21.IsOpen().ToString(),
-                                   SV22.IsOpen().ToString(),
-                                   SV31.IsOpen().ToString(),
-                                   SV40.IsOpen().ToString(),
-                                   SV41.IsOpen().ToString(),
-                                   SV50.IsOpen().ToString(),
-                                   SV51.IsOpen().ToString(),
-                                   */
-
                                    SV01,
                                    SV05A,
                                    SV05B,
