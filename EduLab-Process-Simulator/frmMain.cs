@@ -140,7 +140,6 @@ namespace EduLab_Process_Simulator
                 UpdatePumpStatus(txtPO03, PO03);
                 UpdatePumpStatus(txtPO04, PO04);
                 UpdatePumpStatus(txtPO05, PO05);
-
             });
         }
 

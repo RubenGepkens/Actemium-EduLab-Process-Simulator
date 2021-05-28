@@ -116,11 +116,18 @@ namespace EduLab_Process_Simulator
         /// </summary>
         void initialize()
         {
+            /*
             TA01 = new Tank("TA01", 1250, 1250, 10, 10);
             TA02 = new Tank("TA02", 50, 0, 10.23F, 3.34F);
             TA03 = new Tank("TA03", 125, 0, 6.23F, 3.34F);
             TA04 = new Tank("TA04", 50, 0, 2.23F, 3.34F);
             KE01 = new Tank("KE01", 225, 0, 5F, 5F);
+            */
+            TA01 = new Tank("TA01", 1250, 1250, 10, 10);
+            TA02 = new Tank("TA02", 50, 0, 10, 10);
+            TA03 = new Tank("TA03", 125, 0, 10, 10);
+            TA04 = new Tank("TA04", 50, 0, 10, 10);
+            KE01 = new Tank("KE01", 225, 0, 10, 10);
 
             CV02 = new ControlValve("CV02");
             CV03 = new ControlValve("CV03");
@@ -286,6 +293,9 @@ namespace EduLab_Process_Simulator
             // If CV is opened and pump is started, simulate inflow of fluid.
             if (SV12.IsOpen() && PO01.IsRunning() && CV02.IsOpen())
             {
+                TA01.fltEmptyRate = TA02.fltFillRate;
+
+                TA01.EmptyTank();
                 TA02.FillTank();
             }
 
@@ -326,6 +336,9 @@ namespace EduLab_Process_Simulator
             // If CV is opened, simulate inflow of fluid.
             if (SV12.IsOpen() && PO01.IsRunning() && CV04.IsOpen())
             {
+                TA01.fltEmptyRate = TA03.fltFillRate;
+
+                TA01.EmptyTank();
                 TA03.FillTank();
             }
 
@@ -366,6 +379,9 @@ namespace EduLab_Process_Simulator
             // Fill tank if above conditions are met.
             if (SV12.IsOpen() && PO01.IsRunning() && SV40.IsOpen())
             {
+                TA01.fltEmptyRate = TA04.fltFillRate;
+
+                TA01.EmptyTank();
                 TA04.FillTank();
             }
 
