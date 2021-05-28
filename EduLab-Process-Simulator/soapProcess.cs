@@ -223,11 +223,12 @@ namespace EduLab_Process_Simulator
         /// </summary>
         public void updateUI()
         {
-            frmMain.updateTextBox(batchState.ToString(),
-                                   LT02.GetLevel().ToString(),
-                                   LT03.GetLevel().ToString(),
-                                   LT04.GetLevel().ToString(),
-                                   KE01.GetVolume().ToString(),
+            frmMain.updateTextBox( batchState.ToString(),
+                                   TA01,
+                                   LT02,
+                                   LT03,
+                                   LT04,
+                                   KE01,
 
                                    CV02,
                                    CV03,
@@ -264,20 +265,32 @@ namespace EduLab_Process_Simulator
         {
             // LT02 >= 50 L
 
+            // If SV is closed, open it.
+            if (SV12.IsClosed())
+            {
+                SV12.OpenValve();
+            }
+
+            // Start pump if not already started.
+            if (PO01.IsStopped())
+            {
+                PO01.Start();
+            }
+
             // If CV is closed, open it.
             if (CV02.IsClosed())
             {
                 CV02.OpenValve();
             }
 
-            // If CV is opened, simulate inflow of fluid.
-            if (CV02.IsOpen())
+            // If CV is opened and pump is started, simulate inflow of fluid.
+            if (SV12.IsOpen() && PO01.IsRunning() && CV02.IsOpen())
             {
                 TA02.FillTank();
             }
 
             // Operation is complete when tank is filled.
-            if (TA02.GetVolume() >= 50F)
+            if (TA02.IsFull())
             {
                 CV02.CloseValve();
                 return BATCH_TRANSITION.COMPLETE;
@@ -292,6 +305,18 @@ namespace EduLab_Process_Simulator
         {
             // LT03 >= 125 L
 
+            // If SV is closed, open it.
+            if (SV12.IsClosed())
+            {
+                SV12.OpenValve();
+            }
+
+            // Start pump if not already started.
+            if (PO01.IsStopped())
+            {
+                PO01.Start();
+            }
+
             // To allow filling of TA03, open CV04 if it is closed.
             if (CV04.IsClosed())
             {
@@ -299,13 +324,13 @@ namespace EduLab_Process_Simulator
             }
 
             // If CV is opened, simulate inflow of fluid.
-            if (CV04.IsOpen())
+            if (SV12.IsOpen() && PO01.IsRunning() && CV04.IsOpen())
             {
                 TA03.FillTank();
             }
 
             // Operation is completed when tank is filled.
-            if (LT03.GetLevel() >= 125)
+            if (TA03.IsFull())
             {
                 CV04.CloseValve();
                 return BATCH_TRANSITION.COMPLETE;
@@ -320,18 +345,35 @@ namespace EduLab_Process_Simulator
         {
             // LT04 >= 50 L
 
+            // If SV is closed, open it.
+            if (SV12.IsClosed())
+            {
+                SV12.OpenValve();
+            }
+
+            // Start pump if not already started.
+            if (PO01.IsStopped())
+            {
+                PO01.Start();
+            }
+
+            // If SV is closed, open it.
             if (SV40.IsClosed())
             {
                 SV40.OpenValve();
             }
 
-            if (SV40.IsOpen())
+            // Fill tank if above conditions are met.
+            if (SV12.IsOpen() && PO01.IsRunning() && SV40.IsOpen())
             {
                 TA04.FillTank();
             }
 
-            if (LT04.GetLevel() >= 50)
+            // Operation is completed when tank is filled.
+            if (TA04.IsFull())
             {
+                SV12.CloseValve();
+                PO01.Stop();
                 SV40.CloseValve();
                 return BATCH_TRANSITION.COMPLETE;
             }
@@ -344,7 +386,7 @@ namespace EduLab_Process_Simulator
         public BATCH_TRANSITION ALG_FILL_KE01()
         {
             // Empty TA02
-            if (TA02.IsEmpty() == false) // Is *not empty* means tanks still contains liquid!
+            if (TA02.IsEmpty() == false) // *not empty* means tanks still contains liquid!
             {
                 if (SV21.IsClosed())
                 {
@@ -356,7 +398,12 @@ namespace EduLab_Process_Simulator
                     SV22.OpenValve();
                 }
 
-                if (SV21.IsOpen() && SV22.IsOpen())
+                if (PO02.IsStopped())
+                {
+                    PO02.Start();
+                }
+
+                if (SV21.IsOpen() && SV22.IsOpen() && PO02.IsRunning())
                 {
                     KE01.fltFillRate = TA02.fltEmptyRate;
 
@@ -377,10 +424,15 @@ namespace EduLab_Process_Simulator
                 {
                     SV22.CloseValve();
                 }
+
+                if (PO02.IsRunning())
+                {
+                    PO02.Stop();
+                }
             }
 
             // Empty TA03
-            if (TA02.IsEmpty() && TA03.IsEmpty() == false)
+            if (TA02.IsEmpty() && TA03.IsEmpty() == false) // *not empty* means tanks still contains liquid!
             {
                 if (CV03.IsClosed())
                 {
@@ -426,7 +478,7 @@ namespace EduLab_Process_Simulator
             }
 
             // Empty TA04
-            if (TA02.IsEmpty() && TA03.IsEmpty() && TA04.IsEmpty() == false)
+            if (TA02.IsEmpty() && TA03.IsEmpty() && TA04.IsEmpty() == false) // *not empty* means tanks still contains liquid!
             {
                 if (SV41.IsClosed())
                 {

@@ -78,11 +78,12 @@ namespace EduLab_Process_Simulator
         /// <param name="strBatchStatus"></param>
         /// <param name="strLT02"></param>
         public void updateTextBox(  string strBatchStatus,
-                                    string strLT02,
-                                    string strLT03,
-                                    string strLT04,
-                                    string strKE01,
-                                    
+                                    Tank TA01,
+                                    Leveltransmitter LT02,
+                                    Leveltransmitter LT03,
+                                    Leveltransmitter LT04,
+                                    Tank KE01,
+
                                     ControlValve CV02,
                                     ControlValve CV03,
                                     ControlValve CV04,
@@ -110,10 +111,12 @@ namespace EduLab_Process_Simulator
             Invoke((MethodInvoker)delegate
             {
                 txtBatchStatus.Text = strBatchStatus;
-                txtLT02.Text = strLT02;
-                txtLT03.Text = strLT03;
-                txtLT04.Text = strLT04;
-                txtKE01.Text = strKE01;
+
+                txtTA01.Text = Math.Round(TA01.GetVolume(), 1).ToString();
+                txtLT02.Text = Math.Round(LT02.GetLevel(), 1).ToString();
+                txtLT03.Text = Math.Round(LT03.GetLevel(), 1).ToString();
+                txtLT04.Text = Math.Round(LT04.GetLevel(), 1).ToString();
+                txtKE01.Text = Math.Round(KE01.GetVolume(), 1).ToString();
 
                 UpdateControlValveStatus(txtCV02, CV02);
                 UpdateControlValveStatus(txtCV03, CV03);
