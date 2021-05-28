@@ -16,7 +16,7 @@ namespace EduLab_Process_Simulator
         /// </summary>
         public SolenoidValve()
         {
-
+            intValvePosition = 0;
         }
 
         /// <summary>
@@ -26,6 +26,7 @@ namespace EduLab_Process_Simulator
         public SolenoidValve(string strObjectName)
         {
             strValveName = strObjectName;
+            intValvePosition = 0;
         }
 
         /// <summary>

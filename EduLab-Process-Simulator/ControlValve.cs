@@ -12,7 +12,7 @@ namespace EduLab_Process_Simulator
         /// </summary>
         public ControlValve()
         {
-
+            intValvePosition = 0;
         }
 
         /// <summary>
@@ -21,7 +21,8 @@ namespace EduLab_Process_Simulator
         /// <param name="strObjectName"></param>
         public ControlValve(string strObjectName)
         {
-
+            strValveName = strObjectName;
+            intValvePosition = 0;
         }
 
         /// <summary>
