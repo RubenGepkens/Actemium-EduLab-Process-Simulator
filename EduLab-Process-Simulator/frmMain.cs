@@ -33,6 +33,8 @@ namespace EduLab_Process_Simulator
 
         private SimulationRecorder simulationRecorder;
 
+        private bool blnRecordSimulation;
+
         public frmMain()
         {
             InitializeComponent();
@@ -60,17 +62,18 @@ namespace EduLab_Process_Simulator
         void simulateProcess()
         {
             // Retrieve the simulation acceleration from a list using the combobox as index.
-            int intSimulationAcceleration = lstSimulationAcceleration[cbxSimulationAcceleration.SelectedIndex];
+            int intSimulationAcceleration   = lstSimulationAcceleration[cbxSimulationAcceleration.SelectedIndex];
 
             // Create new soapProces object and set the simulation speed.
-            soapProcess zeepProcess = new soapProcess( intSimulationAcceleration );
-            simulationRecorder = new SimulationRecorder(zeepProcess);
+            soapProcess zeepProcess         = new soapProcess(intSimulationAcceleration, blnRecordSimulation);
+
+            if (btnMnuRecordSimulation.Checked)
+            {
+                simulationRecorder = new SimulationRecorder(zeepProcess);
+            }
+            
 
             // Create new thread and using a lambda expression start the simulation.
-            
-            //Thread thread = new Thread(() => zeepProcess.startBatch(this));
-            //thread.Start();
-
             simulationThread = new Thread(() => zeepProcess.startBatch(this));
             simulationThread.Start();
         }
@@ -223,7 +226,7 @@ namespace EduLab_Process_Simulator
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if ( simulationThread.IsAlive ) 
+            if ( simulationThread != null && simulationThread.IsAlive ) 
             {
                 simulationThread.Abort();
             }            
@@ -231,8 +234,20 @@ namespace EduLab_Process_Simulator
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("JA");
             simulationRecorder.DebugData();
+        }
+
+        private void btnMnuRecordSimulation_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (btnMnuRecordSimulation.Checked)
+            {
+                blnRecordSimulation = true;
+                btnDebug.Enabled = true;
+            } else
+            {
+                blnRecordSimulation = false;
+                btnDebug.Enabled = false;
+            }
         }
     }
 }

@@ -37,6 +37,8 @@ namespace EduLab_Process_Simulator
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.overDezeApplicatieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.simulatieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMnuRecordSimulation = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnStart = new System.Windows.Forms.ToolStripButton();
             this.btnStop = new System.Windows.Forms.ToolStripButton();
@@ -105,7 +107,8 @@ namespace EduLab_Process_Simulator
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bestandToolStripMenuItem,
-            this.infoToolStripMenuItem});
+            this.infoToolStripMenuItem,
+            this.simulatieToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
@@ -119,7 +122,7 @@ namespace EduLab_Process_Simulator
             this.bestandToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_settings_ui_behavior_svg;
             this.bestandToolStripMenuItem.Name = "bestandToolStripMenuItem";
             this.bestandToolStripMenuItem.Size = new System.Drawing.Size(98, 20);
-            this.bestandToolStripMenuItem.Text = "Programma";
+            this.bestandToolStripMenuItem.Text = "&Programma";
             // 
             // afsluitenToolStripMenuItem
             // 
@@ -146,6 +149,24 @@ namespace EduLab_Process_Simulator
             this.overDezeApplicatieToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.overDezeApplicatieToolStripMenuItem.Text = "Over deze applicatie..";
             this.overDezeApplicatieToolStripMenuItem.Click += new System.EventHandler(this.overDezeApplicatieToolStripMenuItem_Click);
+            // 
+            // simulatieToolStripMenuItem
+            // 
+            this.simulatieToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnMnuRecordSimulation});
+            this.simulatieToolStripMenuItem.Name = "simulatieToolStripMenuItem";
+            this.simulatieToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.simulatieToolStripMenuItem.Text = "&Simulatie";
+            // 
+            // btnMnuRecordSimulation
+            // 
+            this.btnMnuRecordSimulation.Checked = true;
+            this.btnMnuRecordSimulation.CheckOnClick = true;
+            this.btnMnuRecordSimulation.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.btnMnuRecordSimulation.Name = "btnMnuRecordSimulation";
+            this.btnMnuRecordSimulation.Size = new System.Drawing.Size(190, 22);
+            this.btnMnuRecordSimulation.Text = "Simulatiedata opslaan";
+            this.btnMnuRecordSimulation.CheckStateChanged += new System.EventHandler(this.btnMnuRecordSimulation_CheckStateChanged);
             // 
             // toolStrip1
             // 
@@ -597,6 +618,7 @@ namespace EduLab_Process_Simulator
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1200, 726);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EduLab Process Simulator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Shown += new System.EventHandler(this.frmMain_Shown);
@@ -662,6 +684,8 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.TextBox txtTA01;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripButton btnDebug;
+        private System.Windows.Forms.ToolStripMenuItem simulatieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnMnuRecordSimulation;
     }
 }
 

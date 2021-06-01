@@ -33,6 +33,9 @@ namespace EduLab_Process_Simulator
         public int intThreadTime = 1000;
         public readonly int intDefaultThreadTime = 1000;
         public int intSimulationCycle = 0;
+
+        // Simulation properties
+        private bool blnRecordSimulation = false;
         
         // Used for time based functions.
         public int intSimulationCounter = 0;
@@ -87,6 +90,7 @@ namespace EduLab_Process_Simulator
 
             // Since a default constructor was used to create a simulation object, use default parameters.
             intThreadTime = intDefaultThreadTime;
+            blnRecordSimulation = false;
             initialize();
         }
 
@@ -94,19 +98,21 @@ namespace EduLab_Process_Simulator
         /// Allow the simulation acceleration to be set using this constructor.
         /// </summary>
         /// <param name="simulationAcceleration"></param>
-        public soapProcess(int simulationAcceleration)
+        public soapProcess(int SimulationAcceleration, bool RecordSimulation)
         {
-            if (simulationAcceleration <= -1 || simulationAcceleration >= 128)
+            if (SimulationAcceleration <= -1 || SimulationAcceleration >= 128)
             {
                 intThreadTime = 0;
             } else
             {
                 // Calculate the threadtime for the requested acceleration speed.
-                float fltTemp = 1000 / simulationAcceleration;
+                float fltTemp = 1000 / SimulationAcceleration;
                 intThreadTime = (int)Math.Round(fltTemp, 0);
             }
 
-            Console.WriteLine("Simulation acceleration {0}x with cycle time {1} ms", simulationAcceleration, intThreadTime);
+            blnRecordSimulation = RecordSimulation;
+
+            Console.WriteLine("Simulation acceleration {0}x with cycle time {1} ms", SimulationAcceleration, intThreadTime);
 
             initialize();
         }
@@ -174,7 +180,11 @@ namespace EduLab_Process_Simulator
                 intSimulationCycle++;
                 updateBatchStatus();
                 updateUI();
-                RecordData();
+                                
+                if (blnRecordSimulation)
+                {
+                    RecordData();
+                }                
                 
                 Console.WriteLine("Cycle: {0}\tState: {1}",intSimulationCycle, batchState);
 
