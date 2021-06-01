@@ -55,7 +55,7 @@ namespace EduLab_Process_Simulator
                     Console.Write("{0}\t", dataTable.Rows[y][x].ToString());
                 }
                 Console.Write("\n");
-            }
+            }           
         }
     }
 }

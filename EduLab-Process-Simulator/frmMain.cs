@@ -26,7 +26,7 @@ namespace EduLab_Process_Simulator
     public partial class frmMain : Form
     {
         // List for the maximum acceleration of the simulation.
-        private readonly List<int> lstSimulationAcceleration = new List<int> { 1, 2, 4, 8, 16 };
+        private readonly List<int> lstSimulationAcceleration = new List<int> { 1, 2, 4, 8, 16, 32, 64, -1 };
 
         // Global thread variable
         Thread simulationThread;

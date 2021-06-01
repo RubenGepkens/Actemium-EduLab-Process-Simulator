@@ -96,18 +96,18 @@ namespace EduLab_Process_Simulator
         /// <param name="simulationAcceleration"></param>
         public soapProcess(int simulationAcceleration)
         {
-            if (simulationAcceleration < 1 || simulationAcceleration > 16)
+            if (simulationAcceleration <= -1 || simulationAcceleration >= 128)
             {
-                // If the requested simulation speed is out of bounds, set the default threadtime.
-                intThreadTime = intDefaultThreadTime;
-            }
-            else
+                intThreadTime = 0;
+            } else
             {
                 // Calculate the threadtime for the requested acceleration speed.
                 float fltTemp = 1000 / simulationAcceleration;
                 intThreadTime = (int)Math.Round(fltTemp, 0);
-                Console.WriteLine("Simulation acceleration {0}x with cycle time {1} ms", simulationAcceleration, intThreadTime);
             }
+
+            Console.WriteLine("Simulation acceleration {0}x with cycle time {1} ms", simulationAcceleration, intThreadTime);
+
             initialize();
         }
 

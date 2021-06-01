@@ -47,6 +47,7 @@ namespace EduLab_Process_Simulator
             this.txtBatchStatus = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDebug = new System.Windows.Forms.ToolStripButton();
             this.txtLT02 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -78,7 +79,6 @@ namespace EduLab_Process_Simulator
             this.txtPO05 = new System.Windows.Forms.TextBox();
             this.txtTA01 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnDebug = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -208,7 +208,10 @@ namespace EduLab_Process_Simulator
             "2x",
             "4x",
             "8x",
-            "16x"});
+            "16x",
+            "32x",
+            "64x",
+            "MAX"});
             this.cbxSimulationAcceleration.Name = "cbxSimulationAcceleration";
             this.cbxSimulationAcceleration.Size = new System.Drawing.Size(75, 49);
             // 
@@ -238,6 +241,15 @@ namespace EduLab_Process_Simulator
             this.toolStripSeparator3.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 49);
+            // 
+            // btnDebug
+            // 
+            this.btnDebug.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_view_fullscreen_svg;
+            this.btnDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDebug.Name = "btnDebug";
+            this.btnDebug.Size = new System.Drawing.Size(88, 46);
+            this.btnDebug.Text = "Debug";
+            this.btnDebug.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // txtLT02
             // 
@@ -541,15 +553,6 @@ namespace EduLab_Process_Simulator
             this.label2.TabIndex = 40;
             this.label2.Text = "[L]";
             // 
-            // btnDebug
-            // 
-            this.btnDebug.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_view_fullscreen_svg;
-            this.btnDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDebug.Name = "btnDebug";
-            this.btnDebug.Size = new System.Drawing.Size(88, 46);
-            this.btnDebug.Text = "Debug";
-            this.btnDebug.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,7 +595,7 @@ namespace EduLab_Process_Simulator
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1200, 730);
+            this.MinimumSize = new System.Drawing.Size(1200, 726);
             this.Name = "frmMain";
             this.Text = "EduLab Process Simulator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
