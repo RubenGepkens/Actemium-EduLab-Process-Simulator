@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EduLab_Process_Simulator
 {
-    class PressureTransmitter
+    public class PressureTransmitter
     {
         public string strPressureTransmitterName { get; set; }
         private Tank tank;

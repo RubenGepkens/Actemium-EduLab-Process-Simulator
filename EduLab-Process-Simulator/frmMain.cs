@@ -26,10 +26,12 @@ namespace EduLab_Process_Simulator
     public partial class frmMain : Form
     {
         // List for the maximum acceleration of the simulation.
-        private List<int> lstSimulationAcceleration = new List<int> { 1, 2, 4, 8, 16 };
+        private readonly List<int> lstSimulationAcceleration = new List<int> { 1, 2, 4, 8, 16 };
 
         // Global thread variable
         Thread simulationThread;
+
+        private SimulationRecorder simulationRecorder;
 
         public frmMain()
         {
@@ -62,6 +64,7 @@ namespace EduLab_Process_Simulator
 
             // Create new soapProces object and set the simulation speed.
             soapProcess zeepProcess = new soapProcess( intSimulationAcceleration );
+            simulationRecorder = new SimulationRecorder(zeepProcess);
 
             // Create new thread and using a lambda expression start the simulation.
             
@@ -77,7 +80,7 @@ namespace EduLab_Process_Simulator
         /// </summary>
         /// <param name="strBatchStatus"></param>
         /// <param name="strLT02"></param>
-        public void updateTextBox(  string strBatchStatus,
+        public void UpdateUI(  string strBatchStatus,
                                     Tank TA01,
                                     Leveltransmitter LT02,
                                     Leveltransmitter LT03,
@@ -140,6 +143,14 @@ namespace EduLab_Process_Simulator
                 UpdatePumpStatus(txtPO03, PO03);
                 UpdatePumpStatus(txtPO04, PO04);
                 UpdatePumpStatus(txtPO05, PO05);
+            });
+        }
+
+        public void RecordData()
+        {
+            Invoke((MethodInvoker)delegate
+            {
+                simulationRecorder.RecordData();
             });
         }
 
@@ -216,6 +227,12 @@ namespace EduLab_Process_Simulator
             {
                 simulationThread.Abort();
             }            
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("JA");
+            simulationRecorder.DebugData();
         }
     }
 }

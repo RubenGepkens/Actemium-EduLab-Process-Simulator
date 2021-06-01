@@ -78,6 +78,7 @@ namespace EduLab_Process_Simulator
             this.txtPO05 = new System.Windows.Forms.TextBox();
             this.txtTA01 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnDebug = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -124,7 +125,7 @@ namespace EduLab_Process_Simulator
             // 
             this.afsluitenToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_system_log_out_svg;
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.afsluitenToolStripMenuItem.Text = "Afsluiten";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
@@ -158,7 +159,8 @@ namespace EduLab_Process_Simulator
             this.toolStripSeparator2,
             this.txtBatchStatus,
             this.toolStripLabel2,
-            this.toolStripSeparator3});
+            this.toolStripSeparator3,
+            this.btnDebug});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1184, 49);
@@ -539,6 +541,15 @@ namespace EduLab_Process_Simulator
             this.label2.TabIndex = 40;
             this.label2.Text = "[L]";
             // 
+            // btnDebug
+            // 
+            this.btnDebug.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_view_fullscreen_svg;
+            this.btnDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDebug.Name = "btnDebug";
+            this.btnDebug.Size = new System.Drawing.Size(88, 46);
+            this.btnDebug.Text = "Debug";
+            this.btnDebug.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -647,6 +658,7 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.TextBox txtPO05;
         private System.Windows.Forms.TextBox txtTA01;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripButton btnDebug;
     }
 }
 

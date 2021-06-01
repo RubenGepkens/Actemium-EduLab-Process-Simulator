@@ -23,60 +23,61 @@ namespace EduLab_Process_Simulator
     /// </summary>
     public class soapProcess : batchControl
     {
-        private BATCH_STATE batchState = BATCH_STATE.None;
-        private BATCH_TRANSITION batchTransition = BATCH_TRANSITION.BUSY;
+        public BATCH_STATE batchState = BATCH_STATE.None;
+        public BATCH_TRANSITION batchTransition = BATCH_TRANSITION.BUSY;
 
         // frmMain object, used for the invoke delegate to update the UI elements.
-        private frmMain frmMain;
+        public frmMain frmMain;
 
         // Simulation speed related variables.
-        private int intThreadTime = 1000;
-        private readonly int intDefaultThreadTime = 1000;
-        private int intSimulationCycle = 0;
+        public int intThreadTime = 1000;
+        public readonly int intDefaultThreadTime = 1000;
+        public int intSimulationCycle = 0;
         
         // Used for time based functions.
-        private int intSimulationCounter = 0;
+        public int intSimulationCounter = 0;
 
         #region Simulation objects
         // Simulation objects
-        private Tank TA01;
-        private Tank TA02;
-        private Tank TA03;
-        private Tank TA04;
-        private Tank KE01;
+        public Tank TA01;
+        public Tank TA02;
+        public Tank TA03;
+        public Tank TA04;
+        public Tank KE01;
 
-        private ControlValve CV02;
-        private ControlValve CV03;
-        private ControlValve CV04;
+        public ControlValve CV02;
+        public ControlValve CV03;
+        public ControlValve CV04;
 
-        private SolenoidValve SV01;
-        private SolenoidValve SV05A;
-        private SolenoidValve SV05B;
-        private SolenoidValve SV10;
-        private SolenoidValve SV12;
-        private SolenoidValve SV21;
-        private SolenoidValve SV22;
-        private SolenoidValve SV31;
-        private SolenoidValve SV40;
-        private SolenoidValve SV41;
-        private SolenoidValve SV50;
-        private SolenoidValve SV51;
+        public SolenoidValve SV01;
+        public SolenoidValve SV05A;
+        public SolenoidValve SV05B;
+        public SolenoidValve SV10;
+        public SolenoidValve SV12;
+        public SolenoidValve SV21;
+        public SolenoidValve SV22;
+        public SolenoidValve SV31;
+        public SolenoidValve SV40;
+        public SolenoidValve SV41;
+        public SolenoidValve SV50;
+        public SolenoidValve SV51;
 
 
-        private Leveltransmitter LT02;
-        private Leveltransmitter LT03;
-        private Leveltransmitter LT04;
+        public Leveltransmitter LT02;
+        public Leveltransmitter LT03;
+        public Leveltransmitter LT04;
 
-        private PressureTransmitter PT02;
+        public PressureTransmitter PT02;
 
-        private Pump PO01;
-        private Pump PO02;
-        private Pump PO03;
-        private Pump PO04;
-        private Pump PO05;
+        public Pump PO01;
+        public Pump PO02;
+        public Pump PO03;
+        public Pump PO04;
+        public Pump PO05;
         #endregion
 
         #region Constructors and initializer.
+
         /// <summary>
         /// Create a simulation object using default parameters.
         /// </summary>
@@ -156,9 +157,11 @@ namespace EduLab_Process_Simulator
             PO04 = new Pump("PO04");
             PO05 = new Pump("PO05");
         }
+
         #endregion
 
         #region General simulation functions
+
         /// <summary>
         /// Starts the sequence of producing a batch of soap.
         /// </summary>
@@ -171,6 +174,7 @@ namespace EduLab_Process_Simulator
                 intSimulationCycle++;
                 updateBatchStatus();
                 updateUI();
+                RecordData();
                 
                 Console.WriteLine("Cycle: {0}\tState: {1}",intSimulationCycle, batchState);
 
@@ -230,7 +234,7 @@ namespace EduLab_Process_Simulator
         /// </summary>
         public void updateUI()
         {
-            frmMain.updateTextBox( batchState.ToString(),
+            frmMain.UpdateUI( batchState.ToString(),
                                    TA01,
                                    LT02,
                                    LT03,
@@ -261,9 +265,16 @@ namespace EduLab_Process_Simulator
                                    PO05
             );
         }
+
+        public void RecordData()
+        {
+            frmMain.RecordData();
+        }
+
         #endregion
 
         #region Soap Process (BATCH_TRANSITIONs)
+
         /* This region contains the actual soap proces batch definition.
          * The proces programmed below is the FactoryTalk Batch programme translated to C# code.
          * The simulated proces below may not represent the actual batch process and it may require some polishing.
@@ -601,6 +612,7 @@ namespace EduLab_Process_Simulator
                 return BATCH_TRANSITION.BUSY;
             }
         }
+
         #endregion
     }
 }
