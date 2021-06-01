@@ -35,7 +35,7 @@ namespace EduLab_Process_Simulator
         public int intSimulationCycle = 0;
 
         // Simulation properties
-        private bool blnRecordSimulation = false;
+        private bool blnRecordSimulation = true;
         
         // Used for time based functions.
         public int intSimulationCounter = 0;
@@ -64,7 +64,6 @@ namespace EduLab_Process_Simulator
         public SolenoidValve SV41;
         public SolenoidValve SV50;
         public SolenoidValve SV51;
-
 
         public Leveltransmitter LT02;
         public Leveltransmitter LT03;
@@ -113,6 +112,14 @@ namespace EduLab_Process_Simulator
             blnRecordSimulation = RecordSimulation;
 
             Console.WriteLine("Simulation acceleration {0}x with cycle time {1} ms", SimulationAcceleration, intThreadTime);
+            
+            if (blnRecordSimulation)
+            {
+                Console.WriteLine("The simulation data will be recorded.");
+            } else
+            {
+                Console.WriteLine("The simulation data will not be recorded.");
+            }
 
             initialize();
         }
@@ -157,6 +164,8 @@ namespace EduLab_Process_Simulator
             LT03 = new Leveltransmitter("LT03", TA03);
             LT04 = new Leveltransmitter("LT04", TA04);
 
+            PT02 = new PressureTransmitter("PT02", KE01); // <-- TANK INVULLEN, WAAR ZIT DEZE PT AANGESLOTEN?
+
             PO01 = new Pump("PO01");
             PO02 = new Pump("PO02");
             PO03 = new Pump("PO03");
@@ -186,7 +195,7 @@ namespace EduLab_Process_Simulator
                     RecordData();
                 }                
                 
-                Console.WriteLine("Cycle: {0}\tState: {1}",intSimulationCycle, batchState);
+                Console.WriteLine("Cycle: {0}\tState: {1}", intSimulationCycle, batchState);
 
                 System.Threading.Thread.Sleep(intThreadTime);
             }

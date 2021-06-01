@@ -63,11 +63,12 @@ namespace EduLab_Process_Simulator
         {
             // Retrieve the simulation acceleration from a list using the combobox as index.
             int intSimulationAcceleration   = lstSimulationAcceleration[cbxSimulationAcceleration.SelectedIndex];
+            blnRecordSimulation = btnMnuRecordSimulation.Checked;
 
             // Create new soapProces object and set the simulation speed.
             soapProcess zeepProcess         = new soapProcess(intSimulationAcceleration, blnRecordSimulation);
 
-            if (btnMnuRecordSimulation.Checked)
+            if (blnRecordSimulation)
             {
                 simulationRecorder = new SimulationRecorder(zeepProcess);
             }
