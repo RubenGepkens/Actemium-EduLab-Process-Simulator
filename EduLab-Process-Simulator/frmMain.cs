@@ -210,6 +210,16 @@ namespace EduLab_Process_Simulator
             }
         }
 
+        private void VieuwSimulationData()
+        {
+            if (simulationRecorder != null)
+            {
+                simulationRecorder.DebugData();
+                frmDataViewer dataViewer = new frmDataViewer(simulationRecorder.dataTable);
+                dataViewer.Show();
+            }
+        }
+
         // =========================================================================================================================================================
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -235,7 +245,12 @@ namespace EduLab_Process_Simulator
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            simulationRecorder.DebugData();
+            if (simulationRecorder != null)
+            {
+                simulationRecorder.DebugData();
+                frmDataViewer dataViewer = new frmDataViewer(simulationRecorder.dataTable);
+                dataViewer.Show();
+            }
         }
 
         private void btnMnuRecordSimulation_CheckStateChanged(object sender, EventArgs e)
@@ -243,12 +258,22 @@ namespace EduLab_Process_Simulator
             if (btnMnuRecordSimulation.Checked)
             {
                 blnRecordSimulation = true;
-                btnDebug.Enabled = true;
+                btnViewSimulationData.Enabled = true;
             } else
             {
                 blnRecordSimulation = false;
-                btnDebug.Enabled = false;
+                btnViewSimulationData.Enabled = false;
             }
+        }
+
+        private void btnMnuViewSimulationData_Click(object sender, EventArgs e)
+        {
+            VieuwSimulationData();
+        }
+
+        private void btnViewSimulationData_Click(object sender, EventArgs e)
+        {
+            VieuwSimulationData();
         }
     }
 }

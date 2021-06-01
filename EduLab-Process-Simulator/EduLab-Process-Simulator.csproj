@@ -67,6 +67,12 @@
   <ItemGroup>
     <Compile Include="batchControl.cs" />
     <Compile Include="ControlValve.cs" />
+    <Compile Include="frmDataViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDataViewer.Designer.cs">
+      <DependentUpon>frmDataViewer.cs</DependentUpon>
+    </Compile>
     <Compile Include="FlowTransmitter.cs" />
     <Compile Include="frmAboutBox.cs">
       <SubType>Form</SubType>
@@ -89,6 +95,9 @@
     <Compile Include="soapProcess.cs" />
     <Compile Include="SolenoidValve.cs" />
     <Compile Include="Tank.cs" />
+    <EmbeddedResource Include="frmDataViewer.resx">
+      <DependentUpon>frmDataViewer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAboutBox.resx">
       <DependentUpon>frmAboutBox.cs</DependentUpon>
     </EmbeddedResource>

@@ -39,6 +39,7 @@ namespace EduLab_Process_Simulator
             this.overDezeApplicatieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simulatieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMnuRecordSimulation = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMnuViewSimulationData = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnStart = new System.Windows.Forms.ToolStripButton();
             this.btnStop = new System.Windows.Forms.ToolStripButton();
@@ -49,7 +50,7 @@ namespace EduLab_Process_Simulator
             this.txtBatchStatus = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnDebug = new System.Windows.Forms.ToolStripButton();
+            this.btnViewSimulationData = new System.Windows.Forms.ToolStripButton();
             this.txtLT02 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -153,7 +154,8 @@ namespace EduLab_Process_Simulator
             // simulatieToolStripMenuItem
             // 
             this.simulatieToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnMnuRecordSimulation});
+            this.btnMnuRecordSimulation,
+            this.btnMnuViewSimulationData});
             this.simulatieToolStripMenuItem.Name = "simulatieToolStripMenuItem";
             this.simulatieToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.simulatieToolStripMenuItem.Text = "&Simulatie";
@@ -164,9 +166,17 @@ namespace EduLab_Process_Simulator
             this.btnMnuRecordSimulation.CheckOnClick = true;
             this.btnMnuRecordSimulation.CheckState = System.Windows.Forms.CheckState.Checked;
             this.btnMnuRecordSimulation.Name = "btnMnuRecordSimulation";
-            this.btnMnuRecordSimulation.Size = new System.Drawing.Size(190, 22);
+            this.btnMnuRecordSimulation.Size = new System.Drawing.Size(193, 22);
             this.btnMnuRecordSimulation.Text = "Simulatiedata opslaan";
             this.btnMnuRecordSimulation.CheckStateChanged += new System.EventHandler(this.btnMnuRecordSimulation_CheckStateChanged);
+            // 
+            // btnMnuViewSimulationData
+            // 
+            this.btnMnuViewSimulationData.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_view_fullscreen_svg;
+            this.btnMnuViewSimulationData.Name = "btnMnuViewSimulationData";
+            this.btnMnuViewSimulationData.Size = new System.Drawing.Size(193, 22);
+            this.btnMnuViewSimulationData.Text = "Simulatiedata bekijken";
+            this.btnMnuViewSimulationData.Click += new System.EventHandler(this.btnMnuViewSimulationData_Click);
             // 
             // toolStrip1
             // 
@@ -181,7 +191,7 @@ namespace EduLab_Process_Simulator
             this.txtBatchStatus,
             this.toolStripLabel2,
             this.toolStripSeparator3,
-            this.btnDebug});
+            this.btnViewSimulationData});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1184, 49);
@@ -263,14 +273,14 @@ namespace EduLab_Process_Simulator
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 49);
             // 
-            // btnDebug
+            // btnViewSimulationData
             // 
-            this.btnDebug.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_view_fullscreen_svg;
-            this.btnDebug.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDebug.Name = "btnDebug";
-            this.btnDebug.Size = new System.Drawing.Size(88, 46);
-            this.btnDebug.Text = "Debug";
-            this.btnDebug.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.btnViewSimulationData.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_view_fullscreen_svg;
+            this.btnViewSimulationData.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnViewSimulationData.Name = "btnViewSimulationData";
+            this.btnViewSimulationData.Size = new System.Drawing.Size(172, 46);
+            this.btnViewSimulationData.Text = "Simulatiedata bekijken";
+            this.btnViewSimulationData.Click += new System.EventHandler(this.btnViewSimulationData_Click);
             // 
             // txtLT02
             // 
@@ -683,9 +693,10 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.TextBox txtPO05;
         private System.Windows.Forms.TextBox txtTA01;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ToolStripButton btnDebug;
+        private System.Windows.Forms.ToolStripButton btnViewSimulationData;
         private System.Windows.Forms.ToolStripMenuItem simulatieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btnMnuRecordSimulation;
+        private System.Windows.Forms.ToolStripMenuItem btnMnuViewSimulationData;
     }
 }
 

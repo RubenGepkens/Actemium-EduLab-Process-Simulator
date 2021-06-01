@@ -10,7 +10,7 @@ namespace EduLab_Process_Simulator
     class SimulationRecorder
     {
         private readonly soapProcess soapProcess;
-        private DataTable dataTable;
+        public DataTable dataTable;
 
         public SimulationRecorder(soapProcess IsoapProcess)
         {
