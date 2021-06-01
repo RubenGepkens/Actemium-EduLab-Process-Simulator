@@ -202,22 +202,12 @@ namespace EduLab_Process_Simulator
             simulateProcess();
         }
 
-        private void btnPauze_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnStop_Click(object sender, EventArgs e)
         {
             if (simulationThread.IsAlive)
             {
                 simulationThread.Abort();
             }
-        }
-
-        private void btnStartFast_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)

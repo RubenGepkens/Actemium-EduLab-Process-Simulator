@@ -39,9 +39,7 @@ namespace EduLab_Process_Simulator
             this.overDezeApplicatieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnStart = new System.Windows.Forms.ToolStripButton();
-            this.btnPauze = new System.Windows.Forms.ToolStripButton();
             this.btnStop = new System.Windows.Forms.ToolStripButton();
-            this.btnStartFast = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.cbxSimulationAcceleration = new System.Windows.Forms.ToolStripComboBox();
@@ -126,7 +124,7 @@ namespace EduLab_Process_Simulator
             // 
             this.afsluitenToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_system_log_out_svg;
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.afsluitenToolStripMenuItem.Text = "Afsluiten";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
@@ -153,9 +151,7 @@ namespace EduLab_Process_Simulator
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(42, 42);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnStart,
-            this.btnPauze,
             this.btnStop,
-            this.btnStartFast,
             this.toolStripSeparator1,
             this.toolStripLabel1,
             this.cbxSimulationAcceleration,
@@ -179,16 +175,6 @@ namespace EduLab_Process_Simulator
             this.btnStart.ToolTipText = "Start de simulatie van een enkele batch.";
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
-            // btnPauze
-            // 
-            this.btnPauze.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnPauze.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_media_playback_pause_svg;
-            this.btnPauze.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPauze.Name = "btnPauze";
-            this.btnPauze.Size = new System.Drawing.Size(46, 46);
-            this.btnPauze.Text = "toolStripButton1";
-            this.btnPauze.Click += new System.EventHandler(this.btnPauze_Click);
-            // 
             // btnStop
             // 
             this.btnStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -199,16 +185,6 @@ namespace EduLab_Process_Simulator
             this.btnStop.Text = "toolStripButton1";
             this.btnStop.ToolTipText = "Stop de simulatie.";
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // btnStartFast
-            // 
-            this.btnStartFast.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnStartFast.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_media_seek_forward_svg;
-            this.btnStartFast.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnStartFast.Name = "btnStartFast";
-            this.btnStartFast.Size = new System.Drawing.Size(46, 46);
-            this.btnStartFast.Text = "toolStripButton1";
-            this.btnStartFast.Click += new System.EventHandler(this.btnStartFast_Click);
             // 
             // toolStripSeparator1
             // 
@@ -634,9 +610,7 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.ToolStripMenuItem overDezeApplicatieToolStripMenuItem;
         private System.Windows.Forms.TextBox txtLT02;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ToolStripButton btnPauze;
         private System.Windows.Forms.ToolStripButton btnStop;
-        private System.Windows.Forms.ToolStripButton btnStartFast;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripComboBox cbxSimulationAcceleration;
