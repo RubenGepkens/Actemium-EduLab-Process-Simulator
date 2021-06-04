@@ -32,11 +32,11 @@ namespace EduLab_Process_Simulator
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.bestandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMnuExportData = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMnuClose = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnExportData = new System.Windows.Forms.ToolStripButton();
             this.btnClose = new System.Windows.Forms.ToolStripButton();
-            this.btnMnuExportData = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExportData = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -66,17 +66,24 @@ namespace EduLab_Process_Simulator
             // bestandToolStripMenuItem
             // 
             this.bestandToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnMnuClose,
-            this.btnMnuExportData});
+            this.btnMnuExportData,
+            this.btnMnuClose});
             this.bestandToolStripMenuItem.Name = "bestandToolStripMenuItem";
             this.bestandToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this.bestandToolStripMenuItem.Text = "&Simulatiedata";
+            // 
+            // btnMnuExportData
+            // 
+            this.btnMnuExportData.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_accessories_text_editor_svg;
+            this.btnMnuExportData.Name = "btnMnuExportData";
+            this.btnMnuExportData.Size = new System.Drawing.Size(131, 22);
+            this.btnMnuExportData.Text = "Exporteren";
             // 
             // btnMnuClose
             // 
             this.btnMnuClose.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_system_log_out_svg;
             this.btnMnuClose.Name = "btnMnuClose";
-            this.btnMnuClose.Size = new System.Drawing.Size(180, 22);
+            this.btnMnuClose.Size = new System.Drawing.Size(131, 22);
             this.btnMnuClose.Text = "Afsluiten";
             this.btnMnuClose.ToolTipText = "Sluit dit venster.";
             this.btnMnuClose.Click += new System.EventHandler(this.btnMnuClose_Click);
@@ -93,15 +100,6 @@ namespace EduLab_Process_Simulator
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // btnExportData
-            // 
-            this.btnExportData.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_accessories_text_editor_svg;
-            this.btnExportData.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExportData.Name = "btnExportData";
-            this.btnExportData.Size = new System.Drawing.Size(110, 46);
-            this.btnExportData.Text = "Exporteren";
-            this.btnExportData.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
             // btnClose
             // 
             this.btnClose.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_system_log_out_svg;
@@ -112,12 +110,14 @@ namespace EduLab_Process_Simulator
             this.btnClose.ToolTipText = "Sluit dit venster.";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnMnuExportData
+            // btnExportData
             // 
-            this.btnMnuExportData.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_accessories_text_editor_svg;
-            this.btnMnuExportData.Name = "btnMnuExportData";
-            this.btnMnuExportData.Size = new System.Drawing.Size(180, 22);
-            this.btnMnuExportData.Text = "Exporteren";
+            this.btnExportData.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_accessories_text_editor_svg;
+            this.btnExportData.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExportData.Name = "btnExportData";
+            this.btnExportData.Size = new System.Drawing.Size(110, 46);
+            this.btnExportData.Text = "Exporteren";
+            this.btnExportData.Click += new System.EventHandler(this.btnExportData_Click);
             // 
             // frmDataViewer
             // 
