@@ -1,4 +1,4 @@
-﻿/* EduLab-Proces-Sumulator - <<<< FILENAME >>>>
+﻿/* EduLab-Proces-Sumulator - SoapProcess.cs
  * 
  * Simulator for the process installation of the EduLab. Made for Actemium in Veghel, The Netherlands.
  * 

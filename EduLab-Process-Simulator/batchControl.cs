@@ -1,4 +1,4 @@
-﻿/* EduLab-Proces-Sumulator - batchControl
+﻿/* EduLab-Proces-Sumulator - batchControl.cs
  * 
  * Simulator for the process installation of the EduLab. Made for Actemium in Veghel, The Netherlands.
  * 

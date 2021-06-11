@@ -1,4 +1,4 @@
-﻿/* EduLab-Proces-Sumulator - frmMain
+﻿/* EduLab-Proces-Sumulator - frmMain.cs
  * 
  * Simulator for the process installation of the EduLab. Made for Actemium in Veghel, The Netherlands.
  * 
@@ -45,16 +45,7 @@ namespace EduLab_Process_Simulator
             cbxSimulationAcceleration.SelectedIndex = 0;
         }
 
-        private void overDezeApplicatieToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form frmAboutbox = new frmAboutBox();
-            frmAboutbox.Show();
-        }
-
-        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
+        #region Main application functions
 
         /// <summary>
         /// Start simulation of the process installation.
@@ -253,7 +244,24 @@ namespace EduLab_Process_Simulator
             }
         }
 
-        // =========================================================================================================================================================
+#endregion
+
+        #region Menustrip eventhandlers
+
+        private void overDezeApplicatieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form frmAboutbox = new frmAboutBox();
+            frmAboutbox.Show();
+        }
+
+        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        #endregion
+
+        #region Toolstrip eventhandlers
 
         private void btnStart_Click(object sender, EventArgs e)
         {
@@ -301,5 +309,8 @@ namespace EduLab_Process_Simulator
         {
             VieuwSimulationData();
         }
+
+        #endregion
+
     }
 }

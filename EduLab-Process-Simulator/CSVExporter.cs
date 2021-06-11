@@ -1,4 +1,4 @@
-﻿/* EduLab-Proces-Sumulator - frmMain
+﻿/* EduLab-Proces-Sumulator - CSVExporter.cs
  * 
  * Simulator for the process installation of the EduLab. Made for Actemium in Veghel, The Netherlands.
  * 
