@@ -20,7 +20,7 @@ namespace EduLab_Process_Simulator
     /// Class replicating the FactoryTalk Batch programme for the EduLab soap process.
     /// The batch sequence is replicated using a finite state machine.
     /// </summary>
-    public class batchControl
+    public class BatchControl
     {
         /// <summary>
         /// Enumerator for the different operations in the batch.

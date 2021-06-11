@@ -66,7 +66,7 @@ namespace EduLab_Process_Simulator
             blnRecordSimulation = btnMnuRecordSimulation.Checked;
 
             // Create new soapProces object and set the simulation speed.
-            soapProcess zeepProcess         = new soapProcess(intSimulationAcceleration, blnRecordSimulation);
+            SoapProcess zeepProcess         = new SoapProcess(intSimulationAcceleration, blnRecordSimulation);
 
             if (blnRecordSimulation)
             {

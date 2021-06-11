@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EduLab_Process_Simulator.BatchControl" Collapsed="true">
+    <Position X="7.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAIAEEAAAAAAAAAAAAAAABAAAQ=</HashCode>
+      <FileName>BatchControl.cs</FileName>
+      <NewMemberFileName>batchControl.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.CSVExporter">
+    <Position X="7.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CSVExporter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.FlowTransmitter" Collapsed="true">
+    <Position X="10" Y="18.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>FlowTransmitter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.frmAboutBox" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kIACAAgAACAgCAUAAACAAAADAAAAEIAAAAAAAAAAAAA=</HashCode>
+      <FileName>frmAboutBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.frmDataViewer" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AQAgAAAEFCAAAEAAAECABAACAAAAQwAAQIACAAAAAAA=</HashCode>
+      <FileName>frmDataViewer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.frmMain">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQA4sB9AEGIVEH4AMETAIABCBAAIkIChgEYQQAxAAkE=</HashCode>
+      <FileName>frmMain.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="simulationRecorder" />
+      <Field Name="simulationThread" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.Program" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.SimulationRecorder">
+    <Position X="3.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAABAAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SimulationRecorder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="dataTable" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.SoapProcess">
+    <Position X="7.5" Y="13.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAAAEAAgAAARAAAAaAEaAQhAACgAYANgBAUgAIEWTIM=</HashCode>
+      <FileName>SoapProcess.cs</FileName>
+      <NewMemberFileName>soapProcess.cs</NewMemberFileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="KE01" />
+      <Field Name="CV02" />
+      <Field Name="LT02" />
+      <Field Name="PO01" />
+      <Field Name="PT02" />
+      <Field Name="SV01" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="System.Data.DataTable" Collapsed="true">
+    <Position X="6.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Threading.Thread">
+    <Position X="3.75" Y="13.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EduLab_Process_Simulator.ControlValve" Collapsed="true">
+    <Position X="10" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAEAAAAAAAAIAAAAAAAAEAAAAAEAAAAACAAQAAAA=</HashCode>
+      <FileName>ControlValve.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.Leveltransmitter" Collapsed="true">
+    <Position X="10" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>LevelTransmitter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.PressureTransmitter" Collapsed="true">
+    <Position X="10" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>PressureTransmitter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.Pump" Collapsed="true">
+    <Position X="10" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAAAAAAAAAQAAEAAAAEAAAIABAAAAAAAA=</HashCode>
+      <FileName>Pump.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.SolenoidValve" Collapsed="true">
+    <Position X="10" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAAAAAAAIAAAAAAAAAAAAAAEAAAAACAAQAAAA=</HashCode>
+      <FileName>SolenoidValve.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.Tank" Collapsed="true">
+    <Position X="10" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARhAgAQAAAAAAAIARAAAAAAAAAAKAAIAQABAAAAAAA=</HashCode>
+      <FileName>Tank.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.Properties.Resources" Collapsed="true">
+    <Position X="2.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAkAAIQYDAEBIKAAkBEABApSNAACAIXAQAgQGQAIg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduLab_Process_Simulator.Properties.Settings" Collapsed="true">
+    <Position X="4.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="System.Runtime.InteropServices._Thread">
+    <Position X="4" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

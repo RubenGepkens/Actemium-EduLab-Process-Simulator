@@ -21,7 +21,7 @@ namespace EduLab_Process_Simulator
     /// <summary>
     /// Sequencer for the production of a batch of soap.
     /// </summary>
-    public class soapProcess : batchControl
+    public class SoapProcess : BatchControl
     {
         public BATCH_STATE batchState = BATCH_STATE.None;
         public BATCH_TRANSITION batchTransition = BATCH_TRANSITION.BUSY;
@@ -41,7 +41,6 @@ namespace EduLab_Process_Simulator
         public int intSimulationCounter = 0;
 
         #region Simulation objects
-        // Simulation objects
         public Tank TA01;
         public Tank TA02;
         public Tank TA03;
@@ -83,7 +82,7 @@ namespace EduLab_Process_Simulator
         /// <summary>
         /// Create a simulation object using default parameters.
         /// </summary>
-        public soapProcess()
+        public SoapProcess()
         {
             Console.WriteLine("soapProcess()");
 
@@ -97,7 +96,7 @@ namespace EduLab_Process_Simulator
         /// Allow the simulation acceleration to be set using this constructor.
         /// </summary>
         /// <param name="simulationAcceleration"></param>
-        public soapProcess(int SimulationAcceleration, bool RecordSimulation)
+        public SoapProcess(int SimulationAcceleration, bool RecordSimulation)
         {
             if (SimulationAcceleration <= -1 || SimulationAcceleration >= 128)
             {

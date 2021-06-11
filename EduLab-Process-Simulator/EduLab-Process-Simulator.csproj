@@ -65,7 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="batchControl.cs" />
+    <Compile Include="BatchControl.cs" />
     <Compile Include="ControlValve.cs" />
     <Compile Include="CSVExporter.cs" />
     <Compile Include="frmDataViewer.cs">
@@ -93,7 +93,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Pump.cs" />
     <Compile Include="SimulationRecorder.cs" />
-    <Compile Include="soapProcess.cs" />
+    <Compile Include="SoapProcess.cs" />
     <Compile Include="SolenoidValve.cs" />
     <Compile Include="Tank.cs" />
     <EmbeddedResource Include="frmDataViewer.resx">
@@ -115,6 +115,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
