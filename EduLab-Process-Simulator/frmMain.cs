@@ -72,7 +72,8 @@ namespace EduLab_Process_Simulator
             {
                 simulationRecorder = new SimulationRecorder(zeepProcess);
             }
-            
+
+            lblStatus.Text = "Simulatie actief.";
 
             // Create new thread and using a lambda expression start the simulation.
             simulationThread = new Thread(() => zeepProcess.startBatch(this));
@@ -83,7 +84,6 @@ namespace EduLab_Process_Simulator
         /// Invoke method to update the UI of frmMain from the running simulation thread.
         /// </summary>
         /// <param name="strBatchStatus"></param>
-        /// <param name="strLT02"></param>
         public void UpdateUI(  string strBatchStatus,
                                     Tank TA01,
                                     Leveltransmitter LT02,
@@ -150,6 +150,9 @@ namespace EduLab_Process_Simulator
             });
         }
 
+        /// <summary>
+        /// Records one simulation cycle in the SimulationRecorder class.
+        /// </summary>
         public void RecordData()
         {
             Invoke((MethodInvoker)delegate
@@ -158,6 +161,11 @@ namespace EduLab_Process_Simulator
             });
         }
 
+        /// <summary>
+        /// Updates a Textbox control with the status of a control valve.
+        /// </summary>
+        /// <param name="textBox"></param>
+        /// <param name="controlValve"></param>
         private void UpdateControlValveStatus(TextBox textBox, ControlValve controlValve)
         {
             // Default background color is "Info".
@@ -176,6 +184,11 @@ namespace EduLab_Process_Simulator
             }
         }
 
+        /// <summary>
+        /// Updates a Textbox control with the status of a solenoid valve.
+        /// </summary>
+        /// <param name="textBox"></param>
+        /// <param name="solenoidValve"></param>
         private void UpdateSolenoidValveStatus(TextBox textBox, SolenoidValve solenoidValve)
         {
             // Default background color is "Info".
@@ -194,6 +207,11 @@ namespace EduLab_Process_Simulator
             }
         }
 
+        /// <summary>
+        /// Updates a Textbox control with the status of a pump.
+        /// </summary>
+        /// <param name="textbox"></param>
+        /// <param name="pump"></param>
         private void UpdatePumpStatus(TextBox textbox, Pump pump)
         {
             Color colorRunning = Color.LightGreen;
@@ -210,6 +228,21 @@ namespace EduLab_Process_Simulator
             }
         }
 
+        /// <summary>
+        /// Updates the statuslabel after the simulation finishes.
+        /// </summary>
+        /// <param name="elapsedTime"></param>
+        public void UpdateStatusLabel(long elapsedTime)
+        {
+            Invoke((MethodInvoker)delegate
+            {                
+                lblStatus.Text = "Simulatie afgerond in " + elapsedTime.ToString() + " miliseconden.";
+            });
+        }
+
+        /// <summary>
+        /// Opens the frmDataViewer and displays the recorded simulationdata.
+        /// </summary>
         private void VieuwSimulationData()
         {
             if (simulationRecorder != null)
@@ -232,6 +265,7 @@ namespace EduLab_Process_Simulator
             if (simulationThread.IsAlive)
             {
                 simulationThread.Abort();
+                lblStatus.Text = "Simulatie afgebroken.";
             }
         }
 
@@ -243,26 +277,18 @@ namespace EduLab_Process_Simulator
             }            
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            if (simulationRecorder != null)
-            {
-                simulationRecorder.DebugData();
-                frmDataViewer dataViewer = new frmDataViewer(simulationRecorder.dataTable);
-                dataViewer.Show();
-            }
-        }
-
         private void btnMnuRecordSimulation_CheckStateChanged(object sender, EventArgs e)
         {
             if (btnMnuRecordSimulation.Checked)
             {
                 blnRecordSimulation = true;
                 btnViewSimulationData.Enabled = true;
+                btnMnuViewSimulationData.Enabled = true;
             } else
             {
                 blnRecordSimulation = false;
                 btnViewSimulationData.Enabled = false;
+                btnMnuViewSimulationData.Enabled = false;
             }
         }
 

@@ -29,6 +29,7 @@ namespace EduLab_Process_Simulator
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDataViewer));
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.bestandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,14 +77,14 @@ namespace EduLab_Process_Simulator
             // 
             this.btnMnuExportData.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_accessories_text_editor_svg;
             this.btnMnuExportData.Name = "btnMnuExportData";
-            this.btnMnuExportData.Size = new System.Drawing.Size(131, 22);
+            this.btnMnuExportData.Size = new System.Drawing.Size(180, 22);
             this.btnMnuExportData.Text = "Exporteren";
             // 
             // btnMnuClose
             // 
             this.btnMnuClose.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_system_log_out_svg;
             this.btnMnuClose.Name = "btnMnuClose";
-            this.btnMnuClose.Size = new System.Drawing.Size(131, 22);
+            this.btnMnuClose.Size = new System.Drawing.Size(180, 22);
             this.btnMnuClose.Text = "Afsluiten";
             this.btnMnuClose.ToolTipText = "Sluit dit venster.";
             this.btnMnuClose.Click += new System.EventHandler(this.btnMnuClose_Click);
@@ -127,8 +128,8 @@ namespace EduLab_Process_Simulator
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDataViewer";
-            this.ShowIcon = false;
             this.Text = "Simulatiedata bekijken..";
             this.Shown += new System.EventHandler(this.DataViewer_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();

@@ -36,6 +36,9 @@ namespace EduLab_Process_Simulator
 
         // Simulation properties
         private bool blnRecordSimulation = true;
+
+        // Time in miliseconds the simulation took to run.
+        public long longElapsedTime;
         
         // Used for time based functions.
         public int intSimulationCounter = 0;
@@ -182,7 +185,9 @@ namespace EduLab_Process_Simulator
         public void startBatch(frmMain IfrmMain)
         {
             frmMain = IfrmMain;
+            var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
+            Console.WriteLine("Simulation started at {0}", DateTime.Now.ToString());
             while (batchState != BATCH_STATE.Done)
             {
                 intSimulationCycle++;
@@ -198,6 +203,11 @@ namespace EduLab_Process_Simulator
 
                 System.Threading.Thread.Sleep(intThreadTime);
             }
+
+            stopwatch.Stop();
+            longElapsedTime = stopwatch.ElapsedMilliseconds;
+            Console.WriteLine("Simulation finished at {0}. Elapsed time {1} miliseconds.", DateTime.Now.ToString(), longElapsedTime);
+            frmMain.UpdateStatusLabel(longElapsedTime);
         }
 
         /// <summary>
@@ -284,6 +294,9 @@ namespace EduLab_Process_Simulator
             );
         }
 
+        /// <summary>
+        /// Record one simulation cycle.
+        /// </summary>
         public void RecordData()
         {
             frmMain.RecordData();
