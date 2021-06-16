@@ -86,6 +86,12 @@ namespace EduLab_Process_Simulator
             this.txtFT01 = new System.Windows.Forms.TextBox();
             this.txtFT03 = new System.Windows.Forms.TextBox();
             this.txtPT02 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtPT01 = new System.Windows.Forms.TextBox();
+            this.txtMX01 = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -495,7 +501,7 @@ namespace EduLab_Process_Simulator
             // txtCV03
             // 
             this.txtCV03.BackColor = System.Drawing.SystemColors.Info;
-            this.txtCV03.Location = new System.Drawing.Point(589, 238);
+            this.txtCV03.Location = new System.Drawing.Point(597, 238);
             this.txtCV03.Name = "txtCV03";
             this.txtCV03.ReadOnly = true;
             this.txtCV03.Size = new System.Drawing.Size(40, 20);
@@ -621,18 +627,79 @@ namespace EduLab_Process_Simulator
             // txtPT02
             // 
             this.txtPT02.BackColor = System.Drawing.Color.Khaki;
-            this.txtPT02.Location = new System.Drawing.Point(909, 177);
+            this.txtPT02.Location = new System.Drawing.Point(860, 151);
             this.txtPT02.Name = "txtPT02";
             this.txtPT02.ReadOnly = true;
-            this.txtPT02.Size = new System.Drawing.Size(40, 20);
+            this.txtPT02.Size = new System.Drawing.Size(45, 20);
             this.txtPT02.TabIndex = 43;
             this.txtPT02.Text = "-";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(911, 154);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.TabIndex = 44;
+            this.label6.Text = "[hPa]";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(416, 316);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 13);
+            this.label7.TabIndex = 45;
+            this.label7.Text = "[l/s]";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(566, 241);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(25, 13);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "[l/s]";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(920, 413);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(32, 13);
+            this.label9.TabIndex = 48;
+            this.label9.Text = "[hPa]";
+            // 
+            // txtPT01
+            // 
+            this.txtPT01.BackColor = System.Drawing.Color.Khaki;
+            this.txtPT01.Location = new System.Drawing.Point(869, 410);
+            this.txtPT01.Name = "txtPT01";
+            this.txtPT01.ReadOnly = true;
+            this.txtPT01.Size = new System.Drawing.Size(45, 20);
+            this.txtPT01.TabIndex = 47;
+            this.txtPT01.Text = "-";
+            // 
+            // txtMX01
+            // 
+            this.txtMX01.BackColor = System.Drawing.Color.White;
+            this.txtMX01.Location = new System.Drawing.Point(799, 184);
+            this.txtMX01.Name = "txtMX01";
+            this.txtMX01.ReadOnly = true;
+            this.txtMX01.Size = new System.Drawing.Size(40, 20);
+            this.txtMX01.TabIndex = 49;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 691);
+            this.Controls.Add(this.txtMX01);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.txtPT01);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtPT02);
             this.Controls.Add(this.txtFT03);
             this.Controls.Add(this.txtFT01);
@@ -750,6 +817,12 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.TextBox txtFT01;
         private System.Windows.Forms.TextBox txtFT03;
         private System.Windows.Forms.TextBox txtPT02;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtPT01;
+        private System.Windows.Forms.TextBox txtMX01;
     }
 }
 

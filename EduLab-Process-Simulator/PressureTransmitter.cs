@@ -36,10 +36,10 @@ namespace EduLab_Process_Simulator
         /// <summary>
         /// Retrieves the measurement of the object that this sensor is attached to.
         /// </summary>
-        /// <returns>Float containing the measurement value</returns>
+        /// <returns>Float with the pressure in hectopascals.</returns>
         public float GetPressure()
         {
-            return tank.GetPressure();
+            return tank.GetPressure() / 100;
         }
     }
 }

@@ -74,6 +74,7 @@ namespace EduLab_Process_Simulator
         public FlowTransmitter FT01;
         public FlowTransmitter FT03;
 
+        public PressureTransmitter PT01;
         public PressureTransmitter PT02;
 
         public Pump PO01;
@@ -81,6 +82,8 @@ namespace EduLab_Process_Simulator
         public Pump PO03;
         public Pump PO04;
         public Pump PO05;
+
+        public Mixer MX01;
         #endregion
 
         #region Constructors and initializer.
@@ -142,11 +145,19 @@ namespace EduLab_Process_Simulator
             TA04 = new Tank("TA04", 50, 0, 2.23F, 3.34F);
             KE01 = new Tank("KE01", 225, 0, 5F, 5F);
             */
+            /*
             TA01 = new Tank("TA01", 1250, 1250, 10, 10);
             TA02 = new Tank("TA02", 50, 0, 10, 10);
             TA03 = new Tank("TA03", 125, 0, 10, 10);
             TA04 = new Tank("TA04", 50, 0, 10, 10);
             KE01 = new Tank("KE01", 225, 0, 10, 10);
+            */
+
+            TA01 = new Tank("TA01", 1250, 1250, 0.79F, 89F);
+            TA02 = new Tank("TA02", 50, 0, 0.54F, 0.62F);
+            TA03 = new Tank("TA03", 125, 0, 0.86F, 0.60F);
+            TA04 = new Tank("TA04", 50, 0, 0.48F, 0.26F);
+            KE01 = new Tank("KE01", 225, 0, 0.77F, 1.46F);
 
             CV02 = new ControlValve("CV02");
             CV03 = new ControlValve("CV03");
@@ -172,13 +183,16 @@ namespace EduLab_Process_Simulator
             FT01 = new FlowTransmitter("FT01", TA02);
             FT03 = new FlowTransmitter("FT03", TA03);
 
-            PT02 = new PressureTransmitter("PT02", KE01); // <-- TANK INVULLEN, WAAR ZIT DEZE PT AANGESLOTEN?
+            PT01 = new PressureTransmitter("PT01", KE01);
+            PT02 = new PressureTransmitter("PT02", KE01);
 
             PO01 = new Pump("PO01");
             PO02 = new Pump("PO02");
             PO03 = new Pump("PO03");
             PO04 = new Pump("PO04");
             PO05 = new Pump("PO05");
+
+            MX01 = new Mixer("MX01");
         }
 
         #endregion
@@ -277,6 +291,8 @@ namespace EduLab_Process_Simulator
 
                                    FT01,
                                    FT03,
+
+                                   PT01,
                                    PT02,
 
                                    CV02,
@@ -300,7 +316,9 @@ namespace EduLab_Process_Simulator
                                    PO02,
                                    PO03,
                                    PO04,
-                                   PO05
+                                   PO05,
+
+                                   MX01
             );
         }
 
@@ -589,17 +607,30 @@ namespace EduLab_Process_Simulator
 
         public BATCH_TRANSITION ALG_MIX_KE01()
         {
-            // Mix for 30 seconds.
+            if (MX01.IsStopped())
+            {
+                MX01.Start();
+            }
 
+            // Mix for 30 seconds.
             if (intSimulationCounter <= 30)
             {
                 intSimulationCounter++;
                 return BATCH_TRANSITION.BUSY;
-            } else
+            }
+            else
+            {
+                MX01.Stop();                      
+            }
+
+            if (MX01.IsStopped())
             {
                 intSimulationCounter = 0;
                 return BATCH_TRANSITION.COMPLETE;
-            }           
+            } else
+            {
+                return BATCH_TRANSITION.BUSY;
+            }
         }
 
         public BATCH_TRANSITION ALG_EMPTY_KE01()

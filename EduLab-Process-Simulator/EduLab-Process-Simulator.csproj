@@ -94,6 +94,7 @@
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
     <Compile Include="LevelTransmitter.cs" />
+    <Compile Include="Mixer.cs" />
     <Compile Include="PressureTransmitter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -25,6 +25,7 @@ namespace EduLab_Process_Simulator
         public float fltTankCapacity { get; set; }
         public float fltFillRate { get; set; }
         public float fltEmptyRate { get; set; }
+        public float fltChangeRate { get; set; }
         public float fltPressure { get; set; }
         public float fltTemperature { get; set; }
 
@@ -42,7 +43,7 @@ namespace EduLab_Process_Simulator
             // No rates specified in this default constructor.
             fltFillRate         = 0F;
             fltEmptyRate        = 0F;
-            fltPressure         = 0F;
+            fltPressure         = 101325F;         // ISA pressure at sea-level equal 101325 pascal [Pa]
             fltTemperature      = 0F;
         }
 
@@ -61,7 +62,7 @@ namespace EduLab_Process_Simulator
             fltTankVolume       = ItankVolume;
             fltFillRate         = IfltFillRate;
             fltEmptyRate        = IfltEmptyRate;
-            fltPressure         = 0F;
+            fltPressure         = 101325F;         // ISA pressure at sea-level equal 101325 pascal [Pa]
             fltTemperature      = 0F;
         }
 
@@ -84,9 +85,11 @@ namespace EduLab_Process_Simulator
             if (fltResult < fltTankCapacity)
             {
                 fltTankVolume = fltResult;
+                fltChangeRate = fltFillRate;
             } else
             {
                 fltTankVolume = fltTankCapacity;
+                fltChangeRate = 0F;
             }
         }
 
@@ -100,10 +103,12 @@ namespace EduLab_Process_Simulator
             if (fltResult > 0)
             {
                 fltTankVolume = fltResult;
+                fltChangeRate = fltEmptyRate;
             }
             else
             {
                 fltTankVolume = 0;
+                fltChangeRate = 0F;
             }
         }
 

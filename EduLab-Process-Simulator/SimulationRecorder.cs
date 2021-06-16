@@ -85,13 +85,16 @@ namespace EduLab_Process_Simulator
             dataTable.Columns.Add(soapProcess.FT01.strFlowTransmitterName, typeof(System.String));
             dataTable.Columns.Add(soapProcess.FT03.strFlowTransmitterName, typeof(System.String));
 
+            dataTable.Columns.Add(soapProcess.PT01.strPressureTransmitterName, typeof(System.String));
             dataTable.Columns.Add(soapProcess.PT02.strPressureTransmitterName, typeof(System.String));
 
             dataTable.Columns.Add(soapProcess.PO01.strPumpName, typeof(System.String));
             dataTable.Columns.Add(soapProcess.PO02.strPumpName, typeof(System.String));
             dataTable.Columns.Add(soapProcess.PO03.strPumpName, typeof(System.String));
             dataTable.Columns.Add(soapProcess.PO04.strPumpName, typeof(System.String));
-            dataTable.Columns.Add(soapProcess.PO05.strPumpName, typeof(System.String));            
+            dataTable.Columns.Add(soapProcess.PO05.strPumpName, typeof(System.String));
+
+            dataTable.Columns.Add(soapProcess.MX01.strMixerName, typeof(System.String));
         }
 
         /// <summary>
@@ -144,6 +147,7 @@ namespace EduLab_Process_Simulator
             AddDataRow(ref dataRow, ref intIndex, soapProcess.FT01.GetFlow().ToString());
             AddDataRow(ref dataRow, ref intIndex, soapProcess.FT03.GetFlow().ToString());
 
+            AddDataRow(ref dataRow, ref intIndex, soapProcess.PT01.GetPressure().ToString());
             AddDataRow(ref dataRow, ref intIndex, soapProcess.PT02.GetPressure().ToString());
 
             AddDataRow(ref dataRow, ref intIndex, soapProcess.PO01.GetStatus().ToString());
@@ -152,42 +156,7 @@ namespace EduLab_Process_Simulator
             AddDataRow(ref dataRow, ref intIndex, soapProcess.PO04.GetStatus().ToString());
             AddDataRow(ref dataRow, ref intIndex, soapProcess.PO05.GetStatus().ToString());
 
-            /*
-            dataRow[0] = soapProcess.TA01.GetVolume().ToString();
-            dataRow[1] = soapProcess.TA02.GetVolume().ToString();
-            dataRow[2] = soapProcess.TA03.GetVolume().ToString();
-            dataRow[3] = soapProcess.TA04.GetVolume().ToString();
-            dataRow[4] = soapProcess.KE01.GetVolume().ToString();
-
-            dataRow[5] = soapProcess.CV02.GetStatus().ToString();
-            dataRow[6] = soapProcess.CV03.GetStatus().ToString();
-            dataRow[7] = soapProcess.CV04.GetStatus().ToString();
-
-            dataRow[8] = soapProcess.SV01.IsOpen().ToString();
-            dataRow[9] = soapProcess.SV05A.IsOpen().ToString();
-            dataRow[10] = soapProcess.SV05B.IsOpen().ToString();
-            dataRow[11] = soapProcess.SV10.IsOpen().ToString();
-            dataRow[12] = soapProcess.SV12.IsOpen().ToString();
-            dataRow[13] = soapProcess.SV21.IsOpen().ToString();
-            dataRow[14] = soapProcess.SV22.IsOpen().ToString();
-            dataRow[15] = soapProcess.SV31.IsOpen().ToString();
-            dataRow[16] = soapProcess.SV40.IsOpen().ToString();
-            dataRow[17] = soapProcess.SV41.IsOpen().ToString();
-            dataRow[18] = soapProcess.SV50.IsOpen().ToString();
-            dataRow[19] = soapProcess.SV51.IsOpen().ToString();
-
-            dataRow[20] = soapProcess.LT02.GetLevel().ToString();
-            dataRow[21] = soapProcess.LT03.GetLevel().ToString();
-            dataRow[22] = soapProcess.LT04.GetLevel().ToString();
-
-            dataRow[23] = soapProcess.PT02.GetPressure().ToString();
-
-            dataRow[24] = soapProcess.PO01.GetStatus().ToString();
-            dataRow[25] = soapProcess.PO02.GetStatus().ToString();
-            dataRow[26] = soapProcess.PO03.GetStatus().ToString();
-            dataRow[27] = soapProcess.PO04.GetStatus().ToString();
-            dataRow[28] = soapProcess.PO05.GetStatus().ToString();
-            */
+            AddDataRow(ref dataRow, ref intIndex, soapProcess.MX01.IsRunning().ToString());
 
             dataTable.Rows.InsertAt(dataRow, intRowCount + 1);
             dataTable.AcceptChanges();

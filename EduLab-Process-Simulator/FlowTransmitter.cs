@@ -24,7 +24,7 @@ namespace EduLab_Process_Simulator
         private Tank tank;
 
         /// <summary>
-        /// 
+        /// Default constructor fo a flow transmitter.
         /// </summary>
         /// <param name="strObjectName"></param>
         /// <param name="Itank"></param>
@@ -35,12 +35,12 @@ namespace EduLab_Process_Simulator
         }
 
         /// <summary>
-        /// 
+        /// Gets the current flow.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>float with the flow.</returns>
         public float GetFlow()
-        {
-            return 0F;
+        {            
+            return tank.fltChangeRate;
         }
     }
 }

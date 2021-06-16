@@ -94,6 +94,7 @@ namespace EduLab_Process_Simulator
                                     FlowTransmitter FT01,
                                     FlowTransmitter FT03,
 
+                                    PressureTransmitter PT01,
                                     PressureTransmitter PT02,
 
                                     ControlValve CV02,
@@ -117,7 +118,9 @@ namespace EduLab_Process_Simulator
                                     Pump PO02,
                                     Pump PO03,
                                     Pump PO04,
-                                    Pump PO05
+                                    Pump PO05,
+                                    
+                                    Mixer MX01
             )
         {
             Invoke((MethodInvoker)delegate
@@ -132,6 +135,8 @@ namespace EduLab_Process_Simulator
 
                 txtFT01.Text = FT01.GetFlow().ToString();
                 txtFT03.Text = FT03.GetFlow().ToString();
+
+                txtPT01.Text = PT01.GetPressure().ToString();
                 txtPT02.Text = PT02.GetPressure().ToString();
 
                 UpdateControlValveStatus(txtCV02, CV02);
@@ -156,6 +161,8 @@ namespace EduLab_Process_Simulator
                 UpdatePumpStatus(txtPO03, PO03);
                 UpdatePumpStatus(txtPO04, PO04);
                 UpdatePumpStatus(txtPO05, PO05);
+
+                UpdateMixerStatus(txtMX01, MX01);
             });
         }
 
@@ -233,6 +240,23 @@ namespace EduLab_Process_Simulator
             } else
             {
                 textbox.Text = "Stopped";
+                textbox.BackColor = colorStopped;
+            }
+        }
+
+        private void UpdateMixerStatus(TextBox textbox, Mixer mixer)
+        {
+            Color colorRunning = Color.LightGreen;
+            Color colorStopped = Color.White;
+
+            if (mixer.IsRunning())
+            {
+                textbox.Text = "MIX";
+                textbox.BackColor = colorRunning;
+            }
+            else
+            {
+                textbox.Text = "";
                 textbox.BackColor = colorStopped;
             }
         }
