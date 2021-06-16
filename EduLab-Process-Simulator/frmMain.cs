@@ -91,6 +91,11 @@ namespace EduLab_Process_Simulator
                                     Leveltransmitter LT04,
                                     Tank KE01,
 
+                                    FlowTransmitter FT01,
+                                    FlowTransmitter FT03,
+
+                                    PressureTransmitter PT02,
+
                                     ControlValve CV02,
                                     ControlValve CV03,
                                     ControlValve CV04,
@@ -124,6 +129,10 @@ namespace EduLab_Process_Simulator
                 txtLT03.Text = Math.Round(LT03.GetLevel(), 1).ToString();
                 txtLT04.Text = Math.Round(LT04.GetLevel(), 1).ToString();
                 txtKE01.Text = Math.Round(KE01.GetVolume(), 1).ToString();
+
+                txtFT01.Text = FT01.GetFlow().ToString();
+                txtFT03.Text = FT03.GetFlow().ToString();
+                txtPT02.Text = PT02.GetPressure().ToString();
 
                 UpdateControlValveStatus(txtCV02, CV02);
                 UpdateControlValveStatus(txtCV03, CV03);

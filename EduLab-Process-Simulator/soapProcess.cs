@@ -71,6 +71,9 @@ namespace EduLab_Process_Simulator
         public Leveltransmitter LT03;
         public Leveltransmitter LT04;
 
+        public FlowTransmitter FT01;
+        public FlowTransmitter FT03;
+
         public PressureTransmitter PT02;
 
         public Pump PO01;
@@ -165,6 +168,9 @@ namespace EduLab_Process_Simulator
             LT02 = new Leveltransmitter("LT02", TA02);
             LT03 = new Leveltransmitter("LT03", TA03);
             LT04 = new Leveltransmitter("LT04", TA04);
+
+            FT01 = new FlowTransmitter("FT01", TA02);
+            FT03 = new FlowTransmitter("FT03", TA03);
 
             PT02 = new PressureTransmitter("PT02", KE01); // <-- TANK INVULLEN, WAAR ZIT DEZE PT AANGESLOTEN?
 
@@ -268,6 +274,10 @@ namespace EduLab_Process_Simulator
                                    LT03,
                                    LT04,
                                    KE01,
+
+                                   FT01,
+                                   FT03,
+                                   PT02,
 
                                    CV02,
                                    CV03,

@@ -82,6 +82,9 @@ namespace EduLab_Process_Simulator
             dataTable.Columns.Add(soapProcess.LT03.strLevelTransmitterName, typeof(System.String));
             dataTable.Columns.Add(soapProcess.LT04.strLevelTransmitterName, typeof(System.String));
 
+            dataTable.Columns.Add(soapProcess.FT01.strFlowTransmitterName, typeof(System.String));
+            dataTable.Columns.Add(soapProcess.FT03.strFlowTransmitterName, typeof(System.String));
+
             dataTable.Columns.Add(soapProcess.PT02.strPressureTransmitterName, typeof(System.String));
 
             dataTable.Columns.Add(soapProcess.PO01.strPumpName, typeof(System.String));
@@ -137,6 +140,9 @@ namespace EduLab_Process_Simulator
             AddDataRow(ref dataRow, ref intIndex, soapProcess.LT02.GetLevel().ToString());
             AddDataRow(ref dataRow, ref intIndex, soapProcess.LT03.GetLevel().ToString());
             AddDataRow(ref dataRow, ref intIndex, soapProcess.LT04.GetLevel().ToString());
+
+            AddDataRow(ref dataRow, ref intIndex, soapProcess.FT01.GetFlow().ToString());
+            AddDataRow(ref dataRow, ref intIndex, soapProcess.FT03.GetFlow().ToString());
 
             AddDataRow(ref dataRow, ref intIndex, soapProcess.PT02.GetPressure().ToString());
 

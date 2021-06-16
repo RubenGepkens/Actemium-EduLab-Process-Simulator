@@ -83,6 +83,9 @@ namespace EduLab_Process_Simulator
             this.txtPO05 = new System.Windows.Forms.TextBox();
             this.txtTA01 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtFT01 = new System.Windows.Forms.TextBox();
+            this.txtFT03 = new System.Windows.Forms.TextBox();
+            this.txtPT02 = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -595,11 +598,44 @@ namespace EduLab_Process_Simulator
             this.label2.TabIndex = 40;
             this.label2.Text = "[L]";
             // 
+            // txtFT01
+            // 
+            this.txtFT01.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.txtFT01.Location = new System.Drawing.Point(372, 313);
+            this.txtFT01.Name = "txtFT01";
+            this.txtFT01.ReadOnly = true;
+            this.txtFT01.Size = new System.Drawing.Size(40, 20);
+            this.txtFT01.TabIndex = 41;
+            this.txtFT01.Text = "-";
+            // 
+            // txtFT03
+            // 
+            this.txtFT03.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.txtFT03.Location = new System.Drawing.Point(520, 238);
+            this.txtFT03.Name = "txtFT03";
+            this.txtFT03.ReadOnly = true;
+            this.txtFT03.Size = new System.Drawing.Size(40, 20);
+            this.txtFT03.TabIndex = 42;
+            this.txtFT03.Text = "-";
+            // 
+            // txtPT02
+            // 
+            this.txtPT02.BackColor = System.Drawing.Color.Khaki;
+            this.txtPT02.Location = new System.Drawing.Point(909, 177);
+            this.txtPT02.Name = "txtPT02";
+            this.txtPT02.ReadOnly = true;
+            this.txtPT02.Size = new System.Drawing.Size(40, 20);
+            this.txtPT02.TabIndex = 43;
+            this.txtPT02.Text = "-";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 691);
+            this.Controls.Add(this.txtPT02);
+            this.Controls.Add(this.txtFT03);
+            this.Controls.Add(this.txtFT01);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTA01);
             this.Controls.Add(this.txtPO05);
@@ -711,6 +747,9 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.ToolStripMenuItem btnMnuRecordSimulation;
         private System.Windows.Forms.ToolStripMenuItem btnMnuViewSimulationData;
         private System.Windows.Forms.ToolStripMenuItem btnMnuSimulationSettings;
+        private System.Windows.Forms.TextBox txtFT01;
+        private System.Windows.Forms.TextBox txtFT03;
+        private System.Windows.Forms.TextBox txtPT02;
     }
 }
 

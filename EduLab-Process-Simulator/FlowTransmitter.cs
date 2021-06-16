@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 
 namespace EduLab_Process_Simulator
 {
-    class FlowTransmitter
+    public class FlowTransmitter
     {
         public string strFlowTransmitterName { get; set; }
         private Tank tank;
