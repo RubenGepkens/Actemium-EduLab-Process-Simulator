@@ -26,15 +26,17 @@ namespace EduLab_Process_Simulator
         public DataTable dataTable { get; private set; }
 
         private int intCycleCounter;
+        private DateTime dtStartTime;
 
         /// <summary>
         /// Create SimulationRecorder.
         /// </summary>
         /// <param name="IsoapProcess"></param>
-        public SimulationRecorder(SoapProcess IsoapProcess)
+        public SimulationRecorder(SoapProcess IsoapProcess, DateTime IdtStartTime)
         {
             
             this.soapProcess = IsoapProcess;
+            dtStartTime = IdtStartTime;
 
             dataTable = new DataTable();
             
@@ -92,9 +94,12 @@ namespace EduLab_Process_Simulator
             
             // To be used as a managed pointer for the column counter in AddDataRow.
             int intIndex = 0;
-
+           
             AddDataRow(ref dataRow, ref intIndex, intCycleCounter);
-            AddDataRow(ref dataRow, ref intIndex, DateTime.Now);
+
+            DateTime dtTemp = dtStartTime.AddSeconds(1d * intCycleCounter);
+            Console.WriteLine(dtTemp.ToString("yyyy-MM-dd HH:mm:ss"));
+            AddDataRow(ref dataRow, ref intIndex, dtTemp.ToString("yyyy-MM-dd HH:mm:ss"));
             
             AddDataRow(ref dataRow, ref intIndex, soapProcess.batchState);
             AddDataRow(ref dataRow, ref intIndex, soapProcess.batchTransition);

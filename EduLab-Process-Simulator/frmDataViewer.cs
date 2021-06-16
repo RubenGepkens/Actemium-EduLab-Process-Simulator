@@ -55,6 +55,7 @@ namespace EduLab_Process_Simulator
         private void DataViewer_Shown(object sender, EventArgs e)
         {
             dataGridView.DataSource = dataTable;
+            dataGridView.Columns[1].DefaultCellStyle.Format = "yyyy-MM-dd HH:mm:ss";
             dataGridView.AutoResizeColumns();
         }
 
