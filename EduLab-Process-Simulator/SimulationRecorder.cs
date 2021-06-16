@@ -36,7 +36,14 @@ namespace EduLab_Process_Simulator
         {
             
             this.soapProcess = IsoapProcess;
-            dtStartTime = IdtStartTime;
+
+            if (IdtStartTime == default(DateTime))
+            {
+                dtStartTime = DateTime.Now;
+            } else
+            {
+                dtStartTime = IdtStartTime;
+            }            
 
             dataTable = new DataTable();
             

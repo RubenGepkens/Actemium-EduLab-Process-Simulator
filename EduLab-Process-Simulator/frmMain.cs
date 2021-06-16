@@ -34,6 +34,7 @@ namespace EduLab_Process_Simulator
         private SimulationRecorder simulationRecorder;
 
         private bool blnRecordSimulation;
+        private DateTime dtSimulation;
 
         public frmMain()
         {
@@ -43,6 +44,14 @@ namespace EduLab_Process_Simulator
         private void frmMain_Shown(object sender, EventArgs e)
         {
             cbxSimulationAcceleration.SelectedIndex = 0;
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (simulationThread != null && simulationThread.IsAlive)
+            {
+                simulationThread.Abort();
+            }
         }
 
         #region Main application functions
@@ -57,12 +66,11 @@ namespace EduLab_Process_Simulator
             blnRecordSimulation = btnMnuRecordSimulation.Checked;
 
             // Create new soapProces object and set the simulation speed.
-            SoapProcess zeepProcess         = new SoapProcess(intSimulationAcceleration, blnRecordSimulation);
-            DateTime dateTime = DateTime.Now;
+            SoapProcess zeepProcess         = new SoapProcess(intSimulationAcceleration, blnRecordSimulation);            
 
             if (blnRecordSimulation)
             {
-                simulationRecorder = new SimulationRecorder(zeepProcess, dateTime);
+                simulationRecorder = new SimulationRecorder(zeepProcess, dtSimulation);
             }
 
             lblStatus.Text = "Simulatie actief.";
@@ -260,6 +268,17 @@ namespace EduLab_Process_Simulator
             Close();
         }
 
+        private void btnMnuSimulationSettings_Click(object sender, EventArgs e)
+        {
+            frmSettings frmSettings = new frmSettings();
+            DialogResult dialogResult = frmSettings.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                dtSimulation = frmSettings.dtSimulation;
+            }            
+        }
+
         #endregion
 
         #region Toolstrip eventhandlers
@@ -276,14 +295,6 @@ namespace EduLab_Process_Simulator
                 simulationThread.Abort();
                 lblStatus.Text = "Simulatie afgebroken.";
             }
-        }
-
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if ( simulationThread != null && simulationThread.IsAlive ) 
-            {
-                simulationThread.Abort();
-            }            
         }
 
         private void btnMnuRecordSimulation_CheckStateChanged(object sender, EventArgs e)
@@ -312,6 +323,5 @@ namespace EduLab_Process_Simulator
         }
 
         #endregion
-
     }
 }

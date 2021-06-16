@@ -40,6 +40,7 @@ namespace EduLab_Process_Simulator
             this.simulatieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMnuRecordSimulation = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMnuViewSimulationData = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnMnuSimulationSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnStart = new System.Windows.Forms.ToolStripButton();
             this.btnStop = new System.Windows.Forms.ToolStripButton();
@@ -155,7 +156,8 @@ namespace EduLab_Process_Simulator
             // 
             this.simulatieToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnMnuRecordSimulation,
-            this.btnMnuViewSimulationData});
+            this.btnMnuViewSimulationData,
+            this.btnMnuSimulationSettings});
             this.simulatieToolStripMenuItem.Name = "simulatieToolStripMenuItem";
             this.simulatieToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.simulatieToolStripMenuItem.Text = "&Simulatie";
@@ -177,6 +179,15 @@ namespace EduLab_Process_Simulator
             this.btnMnuViewSimulationData.Size = new System.Drawing.Size(193, 22);
             this.btnMnuViewSimulationData.Text = "Simulatiedata bekijken";
             this.btnMnuViewSimulationData.Click += new System.EventHandler(this.btnMnuViewSimulationData_Click);
+            // 
+            // btnMnuSimulationSettings
+            // 
+            this.btnMnuSimulationSettings.Image = global::EduLab_Process_Simulator.Properties.Resources.Gnome_applications_system_svg;
+            this.btnMnuSimulationSettings.Name = "btnMnuSimulationSettings";
+            this.btnMnuSimulationSettings.Size = new System.Drawing.Size(193, 22);
+            this.btnMnuSimulationSettings.Text = "Instellingen..";
+            this.btnMnuSimulationSettings.ToolTipText = "Instellingen van de simulatie aanpassen";
+            this.btnMnuSimulationSettings.Click += new System.EventHandler(this.btnMnuSimulationSettings_Click);
             // 
             // toolStrip1
             // 
@@ -699,6 +710,7 @@ namespace EduLab_Process_Simulator
         private System.Windows.Forms.ToolStripMenuItem simulatieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btnMnuRecordSimulation;
         private System.Windows.Forms.ToolStripMenuItem btnMnuViewSimulationData;
+        private System.Windows.Forms.ToolStripMenuItem btnMnuSimulationSettings;
     }
 }
 
