@@ -25,6 +25,7 @@ namespace EduLab_Process_Simulator
     public partial class frmSettings : Form
     {
         public DateTime dtSimulation { get; set; }
+        public SimulationProperties simulationProperties { get; set; }
 
         public frmSettings()
         {
@@ -36,6 +37,17 @@ namespace EduLab_Process_Simulator
             DialogResult = DialogResult.OK;
 
             dtSimulation = dtpSimulation.Value;
+
+            simulationProperties.fltTA02_FillRate = (float)txtTA02FillRate.Value;
+            simulationProperties.fltTA02_EmptyRate = (float)txtTA02EmptyRate.Value;
+
+            simulationProperties.fltTA03_FillRate = (float)txtTA03FillRate.Value;
+            simulationProperties.fltTA03_EmptyRate = (float)txtTA03EmptyRate.Value;
+                                  
+            simulationProperties.fltTA04_FillRate = (float)txtTA04FillRate.Value;
+            simulationProperties.fltTA04_EmptyRate = (float)txtTA04EmptyRate.Value;
+            
+            simulationProperties.fltKE01_EmptyRate = (float)txtKE01EmptyRate.Value;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -52,7 +64,23 @@ namespace EduLab_Process_Simulator
             } else
             {
                 dtpSimulation.Value = DateTime.Now;
-            }            
+            }
+
+            if (simulationProperties == null)
+            {
+                simulationProperties = new SimulationProperties();
+            }
+            
+            txtTA02FillRate.Value = (decimal)simulationProperties.fltTA02_FillRate;
+            txtTA02EmptyRate.Value = (decimal)simulationProperties.fltTA02_EmptyRate;
+
+            txtTA03FillRate.Value = (decimal)simulationProperties.fltTA03_FillRate;
+            txtTA03EmptyRate.Value = (decimal)simulationProperties.fltTA03_EmptyRate;
+
+            txtTA04FillRate.Value = (decimal)simulationProperties.fltTA04_FillRate;
+            txtTA04EmptyRate.Value = (decimal)simulationProperties.fltTA04_EmptyRate;
+            
+            txtKE01EmptyRate.Value = (decimal)simulationProperties.fltKE01_EmptyRate;        
         }
     }
 }

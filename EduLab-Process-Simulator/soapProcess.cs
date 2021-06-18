@@ -43,6 +43,8 @@ namespace EduLab_Process_Simulator
         // Used for time based functions.
         public int intSimulationCounter = 0;
 
+        private SimulationProperties simulationProperties;
+
         #region Simulation objects
         public Tank TA01;
         public Tank TA02;
@@ -105,7 +107,7 @@ namespace EduLab_Process_Simulator
         /// Allow the simulation acceleration to be set using this constructor.
         /// </summary>
         /// <param name="simulationAcceleration"></param>
-        public SoapProcess(int SimulationAcceleration, bool RecordSimulation)
+        public SoapProcess(int SimulationAcceleration, bool RecordSimulation, SimulationProperties simulationProperties)
         {
             if (SimulationAcceleration <= -1 || SimulationAcceleration >= 128)
             {
@@ -128,6 +130,8 @@ namespace EduLab_Process_Simulator
             {
                 Console.WriteLine("The simulation data will not be recorded.");
             }
+
+            this.simulationProperties = simulationProperties;
 
             initialize();
         }
@@ -152,12 +156,27 @@ namespace EduLab_Process_Simulator
             TA04 = new Tank("TA04", 50, 0, 10, 10);
             KE01 = new Tank("KE01", 225, 0, 10, 10);
             */
-
+            /*
             TA01 = new Tank("TA01", 1250, 1250, 0.79F, 89F);
             TA02 = new Tank("TA02", 50, 0, 0.54F, 0.62F);
             TA03 = new Tank("TA03", 125, 0, 0.86F, 0.60F);
             TA04 = new Tank("TA04", 50, 0, 0.48F, 0.26F);
             KE01 = new Tank("KE01", 225, 0, 0.77F, 1.46F);
+            */
+
+            float fltKE01_EmptyRate = simulationProperties.fltKE01_EmptyRate;
+            float fltTA02_FillRate = simulationProperties.fltTA02_FillRate;
+            float fltTA02_EmptyRate = simulationProperties.fltTA02_EmptyRate;
+            float fltTA03_FillRate = simulationProperties.fltTA03_FillRate;
+            float fltTA03_EmptyRate = simulationProperties.fltTA03_EmptyRate;
+            float fltTA04_FillRate = simulationProperties.fltTA04_FillRate;
+            float fltTA04_EmptyRate = simulationProperties.fltTA04_EmptyRate;
+
+            TA01 = new Tank("TA01", 1250, 1250, 0.79F, 89F);
+            TA02 = new Tank("TA02", 50, 0, fltTA02_FillRate, fltTA02_EmptyRate);
+            TA03 = new Tank("TA03", 125, 0, fltTA03_FillRate, fltTA03_EmptyRate);
+            TA04 = new Tank("TA04", 50, 0, fltTA04_FillRate, fltTA04_EmptyRate);
+            KE01 = new Tank("KE01", 225, 0, fltKE01_EmptyRate, 1.0F);
 
             CV02 = new ControlValve("CV02");
             CV03 = new ControlValve("CV03");

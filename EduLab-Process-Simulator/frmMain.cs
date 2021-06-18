@@ -36,6 +36,8 @@ namespace EduLab_Process_Simulator
         private bool blnRecordSimulation;
         private DateTime dtSimulation;
 
+        public SimulationProperties simulationProperties;
+
         public frmMain()
         {
             InitializeComponent();
@@ -65,14 +67,19 @@ namespace EduLab_Process_Simulator
             int intSimulationAcceleration   = lstSimulationAcceleration[cbxSimulationAcceleration.SelectedIndex];
             blnRecordSimulation = btnMnuRecordSimulation.Checked;
 
+            if (simulationProperties == null)
+            {
+                simulationProperties = new SimulationProperties();
+            }
+
             // Create new soapProces object and set the simulation speed.
-            SoapProcess zeepProcess         = new SoapProcess(intSimulationAcceleration, blnRecordSimulation);            
+            SoapProcess zeepProcess         = new SoapProcess(intSimulationAcceleration, blnRecordSimulation, simulationProperties);            
 
             if (blnRecordSimulation)
             {
                 simulationRecorder = new SimulationRecorder(zeepProcess, dtSimulation);
             }
-
+            
             lblStatus.Text = "Simulatie actief.";
 
             // Create new thread and using a lambda expression start the simulation.
@@ -309,6 +316,7 @@ namespace EduLab_Process_Simulator
             if (dialogResult == DialogResult.OK)
             {
                 dtSimulation = frmSettings.dtSimulation;
+                simulationProperties = frmSettings.simulationProperties;
             }            
         }
 
