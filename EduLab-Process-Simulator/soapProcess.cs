@@ -491,6 +491,7 @@ namespace EduLab_Process_Simulator
 
                 if (SV21.IsOpen() && SV22.IsOpen() && PO02.IsRunning())
                 {
+                    FT01.Release();
                     KE01.fltFillRate = TA02.fltEmptyRate;
 
                     TA02.EmptyTank();
@@ -515,6 +516,11 @@ namespace EduLab_Process_Simulator
                 {
                     PO02.Stop();
                 }
+
+                if (SV21.IsClosed() && SV22.IsClosed() && PO02.IsStopped())
+                {
+                    FT01.Blocked();
+                }
             }
 
             // Empty TA03
@@ -537,6 +543,7 @@ namespace EduLab_Process_Simulator
 
                 if (CV03.IsOpen() && SV31.IsOpen() && PO03.IsRunning())
                 {
+                    FT03.Release();
                     KE01.fltFillRate = TA03.fltEmptyRate;
 
                     TA03.EmptyTank();
@@ -560,6 +567,11 @@ namespace EduLab_Process_Simulator
                 if (PO03.IsRunning())
                 {
                     PO03.Stop();
+                }
+
+                if (CV03.IsClosed() && SV31.IsClosed() && PO03.IsStopped())
+                {
+                    FT03.Blocked();
                 }
             }
 

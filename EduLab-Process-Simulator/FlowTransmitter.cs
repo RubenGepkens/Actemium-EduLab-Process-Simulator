@@ -22,16 +22,36 @@ namespace EduLab_Process_Simulator
     {
         public string strFlowTransmitterName { get; set; }
         private Tank tank;
+        private bool blnRelease;
 
         /// <summary>
-        /// Default constructor fo a flow transmitter.
+        /// Default constructor for a flow transmitter.
         /// </summary>
         /// <param name="strObjectName"></param>
         /// <param name="Itank"></param>
         public FlowTransmitter(string strObjectName, Tank Itank)
         {
             strFlowTransmitterName = strObjectName;
+            blnRelease = false;
             tank = Itank;
+        }
+
+        /// <summary>
+        /// Sets the condition that all conditions are met for a flow to start in a pipe.
+        /// Example; all valves and the pump is started in a pipe.
+        /// </summary>
+        public void Release()
+        {
+            blnRelease = true;
+        }
+
+        /// <summary>
+        /// Sets the condition that all conditions are met for a flow to start in a pipe.
+        /// Example; all valves and the pump is started in a pipe.
+        /// </summary>
+        public void Blocked()
+        {
+            blnRelease = false;
         }
 
         /// <summary>
@@ -39,8 +59,14 @@ namespace EduLab_Process_Simulator
         /// </summary>
         /// <returns>float with the flow.</returns>
         public float GetFlow()
-        {            
-            return tank.fltChangeRate;
+        {
+            if (blnRelease)
+            {
+                return tank.fltChangeRate;
+            } else
+            {
+                return 0.00F;
+            }            
         }
     }
 }
