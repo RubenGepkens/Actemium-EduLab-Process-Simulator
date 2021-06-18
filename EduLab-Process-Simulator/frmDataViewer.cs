@@ -44,7 +44,7 @@ namespace EduLab_Process_Simulator
             {
                 string strFileName = saveFileDialog.FileName;
                                 
-                MessageBox.Show("" + strFileName, ">:-(");
+                MessageBox.Show("Bestand opgeslagen: " + strFileName, "Bestand opgeslagen", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 dataTable.ToCSV(strFileName);
 
