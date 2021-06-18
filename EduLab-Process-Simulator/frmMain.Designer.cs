@@ -167,8 +167,9 @@ namespace EduLab_Process_Simulator
             this.btnMnuRecordSimulation,
             this.btnMnuViewSimulationData,
             this.btnMnuSimulationSettings});
+            this.simulatieToolStripMenuItem.Image = global::EduLab_Process_Simulator.Properties.Resources._240px_Gnome_applications_other_svg;
             this.simulatieToolStripMenuItem.Name = "simulatieToolStripMenuItem";
-            this.simulatieToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.simulatieToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.simulatieToolStripMenuItem.Text = "&Simulatie";
             // 
             // btnMnuRecordSimulation
