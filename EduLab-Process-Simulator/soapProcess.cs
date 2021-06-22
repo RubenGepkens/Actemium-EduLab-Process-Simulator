@@ -23,6 +23,9 @@ namespace EduLab_Process_Simulator
     /// </summary>
     public class SoapProcess : BatchControl
     {
+        #region Properties
+
+        // Variables to store the current batch state and transition.
         public BATCH_STATE batchState = BATCH_STATE.None;
         public BATCH_TRANSITION batchTransition = BATCH_TRANSITION.BUSY;
 
@@ -34,7 +37,7 @@ namespace EduLab_Process_Simulator
         public readonly int intDefaultThreadTime = 1000;
         public int intSimulationCycle = 0;
 
-        // Simulation properties
+        // Wether the SimulationRecorder should be called each cycle via an invoke method.
         private bool blnRecordSimulation = true;
 
         // Time in miliseconds the simulation took to run.
@@ -43,7 +46,10 @@ namespace EduLab_Process_Simulator
         // Used for time based functions.
         public int intSimulationCounter = 0;
 
+        // Object to store the simulation properties.
         private SimulationProperties simulationProperties;
+
+        #endregion
 
         #region Simulation objects
         public Tank TA01;
