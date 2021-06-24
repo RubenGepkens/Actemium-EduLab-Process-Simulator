@@ -276,7 +276,6 @@ namespace EduLab_Process_Simulator
             // 
             this.txtBatchStatus.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.txtBatchStatus.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.txtBatchStatus.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtBatchStatus.Name = "txtBatchStatus";
             this.txtBatchStatus.ReadOnly = true;
             this.txtBatchStatus.Size = new System.Drawing.Size(200, 49);
@@ -306,7 +305,7 @@ namespace EduLab_Process_Simulator
             // txtLT02
             // 
             this.txtLT02.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtLT02.Location = new System.Drawing.Point(244, 181);
+            this.txtLT02.Location = new System.Drawing.Point(210, 210);
             this.txtLT02.Name = "txtLT02";
             this.txtLT02.ReadOnly = true;
             this.txtLT02.Size = new System.Drawing.Size(40, 20);
@@ -316,7 +315,7 @@ namespace EduLab_Process_Simulator
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(290, 184);
+            this.label3.Location = new System.Drawing.Point(256, 213);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(19, 13);
             this.label3.TabIndex = 11;
@@ -336,7 +335,7 @@ namespace EduLab_Process_Simulator
             // txtLT03
             // 
             this.txtLT03.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtLT03.Location = new System.Drawing.Point(495, 181);
+            this.txtLT03.Location = new System.Drawing.Point(462, 207);
             this.txtLT03.Name = "txtLT03";
             this.txtLT03.ReadOnly = true;
             this.txtLT03.Size = new System.Drawing.Size(40, 20);
@@ -345,7 +344,7 @@ namespace EduLab_Process_Simulator
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(541, 184);
+            this.label4.Location = new System.Drawing.Point(508, 210);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(19, 13);
             this.label4.TabIndex = 14;
@@ -354,7 +353,7 @@ namespace EduLab_Process_Simulator
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(762, 158);
+            this.label5.Location = new System.Drawing.Point(762, 210);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(19, 13);
             this.label5.TabIndex = 16;
@@ -363,7 +362,7 @@ namespace EduLab_Process_Simulator
             // txtLT04
             // 
             this.txtLT04.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtLT04.Location = new System.Drawing.Point(716, 155);
+            this.txtLT04.Location = new System.Drawing.Point(716, 207);
             this.txtLT04.Name = "txtLT04";
             this.txtLT04.ReadOnly = true;
             this.txtLT04.Size = new System.Drawing.Size(40, 20);
@@ -372,7 +371,7 @@ namespace EduLab_Process_Simulator
             // txtCV02
             // 
             this.txtCV02.BackColor = System.Drawing.SystemColors.Info;
-            this.txtCV02.Location = new System.Drawing.Point(153, 87);
+            this.txtCV02.Location = new System.Drawing.Point(102, 136);
             this.txtCV02.Name = "txtCV02";
             this.txtCV02.ReadOnly = true;
             this.txtCV02.Size = new System.Drawing.Size(40, 20);
@@ -382,7 +381,7 @@ namespace EduLab_Process_Simulator
             // txtCV04
             // 
             this.txtCV04.BackColor = System.Drawing.SystemColors.Info;
-            this.txtCV04.Location = new System.Drawing.Point(408, 87);
+            this.txtCV04.Location = new System.Drawing.Point(357, 136);
             this.txtCV04.Name = "txtCV04";
             this.txtCV04.ReadOnly = true;
             this.txtCV04.Size = new System.Drawing.Size(40, 20);
@@ -392,7 +391,7 @@ namespace EduLab_Process_Simulator
             // txtSV40
             // 
             this.txtSV40.BackColor = System.Drawing.SystemColors.Info;
-            this.txtSV40.Location = new System.Drawing.Point(655, 87);
+            this.txtSV40.Location = new System.Drawing.Point(604, 136);
             this.txtSV40.Name = "txtSV40";
             this.txtSV40.ReadOnly = true;
             this.txtSV40.Size = new System.Drawing.Size(40, 20);
@@ -402,7 +401,7 @@ namespace EduLab_Process_Simulator
             // txtSV50
             // 
             this.txtSV50.BackColor = System.Drawing.SystemColors.Info;
-            this.txtSV50.Location = new System.Drawing.Point(776, 87);
+            this.txtSV50.Location = new System.Drawing.Point(725, 136);
             this.txtSV50.Name = "txtSV50";
             this.txtSV50.ReadOnly = true;
             this.txtSV50.Size = new System.Drawing.Size(40, 20);
